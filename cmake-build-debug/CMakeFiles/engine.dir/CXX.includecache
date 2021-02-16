@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/pablodeputter/CLionProjects/engine/easy_image.h
+stdint.h
+-
+vector
+-
+iostream
+-
+
+/Users/pablodeputter/CLionProjects/engine/engine.cc
+easy_image.h
+/Users/pablodeputter/CLionProjects/engine/easy_image.h
+ini_configuration.h
+/Users/pablodeputter/CLionProjects/engine/ini_configuration.h
+fstream
+-
+iostream
+-
+stdexcept
+-
+string
+-
+
+/Users/pablodeputter/CLionProjects/engine/ini_configuration.h
+iostream
+-
+map
+-
+stdexcept
+-
+string
+-
+vector
+-
+
