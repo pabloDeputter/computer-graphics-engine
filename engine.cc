@@ -9,32 +9,165 @@
 using namespace std;
 
 
+// Scale colors to RGB-values
+img::Color blocks_scaleColors(vector<double> & toScale) {
 
+    for (double & i : toScale) {
+        if (i == 1.0) {
+            i = (i-0.01)*256;
+            continue;
+        }
+        i = i*256;
+    }
+
+    img::Color color = img::Color(toScale[0], toScale[1], toScale[2]);
+    return color;
+}
+
+// Calculate distance between two lines of line structure
 pair<double, double> lines_calculateLine(const int & Hi, const int & Wi, const int & N) {
 
     // Calculate distance between two adjacent lines
-    double Hs = Hi/N-1;
-    double Ws = Wi/N-1;
+    double Hs = Hi/(N-1);
+    double Ws = Wi/(N-1);
 
     return make_pair(Hs, Ws);
 }
 
-int lines_quarterCircle(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg) {
+// Draw quarter circle
+int lines_quarterCircle(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg, const bool & inverse) {
 
     // Calculate distance between two adjacent lines
     pair<double, double> lineDimension = lines_calculateLine(Hi, Wi, N);
-    double Hs = lineDimension.first;
-    double Ws = lineDimension.second;
+    int Hs = lineDimension.first;
+    int Ws = lineDimension.second;
 
+    int x1 = 0;
+    int y2 = Hi - 1;
 
-    image.clear(color_lines);
+    int y1 = 0;
+    int lim_y1 = Hi;
+    int _y1 = -1;
 
+    int x2 = 0;
+    int lim_x2 = Wi;
+    int _x2 = -1;
+
+    if (inverse) {
+        x1 = Wi - 1;
+        y2 = 0;
+
+        y1 = Hi - 1;
+        lim_y1 = 0;
+        _y1 = 1;
+
+        x2 = Wi - 1;
+        lim_x2 = 0;
+        _x2 = 1;
+
+        Hs = Hs * -1;
+        Ws = Ws * -1;
+
+    }
+
+    int i = 0;
+    for (i, y1, x2; i < N; i++, y1 += Hs, x2 += Ws) {
+
+        if (y1 == lim_y1) y1 += _y1;
+        if (y1 <= 0) y1 = 0;
+
+        if (x2 == lim_x2) x2 += _x2;
+        if (x2 <= 0) x2 = 0;
+
+        image.draw_line(x1, y1, x2, y2, color_lines);
+    }
+
+    return 0;
+}
+
+// Draw line consisting of 2 quarter circles
+int lines_eye(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg) {
+
+    lines_quarterCircle(image, Hi, Wi, N, color_lines, color_bg, false);
+    lines_quarterCircle(image, Hi, Wi, N, color_lines, color_bg, true);
 
 
     return 0;
 }
 
+// Helper function to draw diamond
+int lines_diamond_helper(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const bool & inverse) {
 
+    // Calculate distance between two adjacent lines
+    pair<double, double> lineDimension = lines_calculateLine(Hi/2, Wi/2, N);
+    int Hs = lineDimension.first;
+    int Ws = lineDimension.second;
+
+    int x1 = Wi/2;
+    int y1 = Hi/2;
+
+    int x2 = Wi/2;
+    int y2 = Hi - 1;
+
+    if (inverse) {
+        x1 = Wi - 1;
+        y2 = Wi/2;
+
+        Ws = Ws*(-1);
+    }
+
+    for (int i = 0; i < N; i++) {
+
+        if (x1 >= Wi) {
+            x1 = Wi - 1;
+        }
+        if (y2 < 0) {
+            y2 = 0;
+        }
+        image.draw_line(x1, y1, x2, y2, color_lines);
+
+        x1 += Ws;
+        y2 -= Hs;
+    }
+
+    x1 = Wi/2;
+    y1 = 0;
+
+    x2 = Wi/2;
+    y2 = Hi/2;
+
+    if (inverse) {
+        y1 = Hi - 1;
+
+        Hs = Hs*(-1);
+        Ws = Ws*(-1);
+    }
+
+    for (int i = 0; i < N; i++) {
+
+        if (y1 >= Hi) {
+            y1 = Hi - 1;
+        }
+        if (x2 < 0) {
+            x2 = 0;
+        }
+        image.draw_line(x1, y1, x2, y2, color_lines);
+
+        y1 += Hs;
+        x2 -= Ws;
+    }
+    return 0;
+}
+
+// Draw diamond consisting of 4 quarter circles
+int lines_diamond(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg) {
+
+    lines_diamond_helper(image, Hi, Wi, N, color_lines, false);
+    lines_diamond_helper(image, Hi, Wi, N, color_lines, true);
+    return 0;
+}
+
+// Calculate width and height of one block in block pattern
 pair<double, double> blocks_calculateBlock(const int & Wi, const int & Hi, const int & Nx, const int & Ny) {
 
     // Calculate dimensions of one block
@@ -44,12 +177,7 @@ pair<double, double> blocks_calculateBlock(const int & Wi, const int & Hi, const
     return make_pair(block_width, block_height);
 }
 
-img::Color blocks_scaleColors(const vector<double> & toScale) {
-
-    img::Color color = img::Color(toScale[0]*256, toScale[1]*256, toScale[2]*256);
-    return color;
-}
-
+// Draw chessboard pattern consisting off blocks
 int colorBlocks(img::EasyImage & image, const int & Wi, const int & Hi, const int & Nx, const int & Ny, const img::Color & white, const img::Color & black) {
 
     // Calculate dimensions of one block
@@ -76,6 +204,7 @@ int colorBlocks(img::EasyImage & image, const int & Wi, const int & Hi, const in
     return 1;
 }
 
+// Draw RGB Rectangle
 int colorRectangle(img::EasyImage & image) {
 
     for(unsigned int i = 0; i < image.get_height(); i++)
@@ -90,6 +219,7 @@ int colorRectangle(img::EasyImage & image) {
     return 0;
 }
 
+// Generate EasyImage
 img::EasyImage generate_image(const ini::Configuration &configuration) {
 
     string type = configuration["General"]["type"].as_string_or_die();
@@ -122,13 +252,15 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
     // If LineProperties exist
     string figure;
-    img::Color lines;
-    img::Color bg;
+    img::Color color_lines;
+    img::Color color_bg;
     int N; // # Lines
     if (configuration["LineProperties"]["figure"].as_string_if_exists(figure)) {
 
-        lines = blocks_scaleColors(configuration["LineProperties"]["lineColor"].as_double_tuple_or_die());
-        bg = blocks_scaleColors(configuration["LineProperties"]["backgroundcolor"].as_double_tuple_or_die());
+        vector<double> lines = configuration["LineProperties"]["lineColor"].as_double_tuple_or_die();
+        color_lines = blocks_scaleColors(lines);
+        vector<double> bg = configuration["LineProperties"]["backgroundcolor"].as_double_tuple_or_die();
+        color_bg = blocks_scaleColors(bg);
         N = configuration["LineProperties"]["nrLines"].as_int_or_die();
 
     }
@@ -145,9 +277,25 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
     // LineProperties
 
     // Color quarter circle
-    if (figure == "QuarterCircle") lines_quarterCircle(image_a, height, width, N, lines, bg);
+    if (figure == "QuarterCircle") {
+        // Fill background color
+        image_a.clear(color_bg);
+        lines_quarterCircle(image_a, height, width, N, color_lines, color_bg, false);
+    }
 
+    // Color eye structure
+    if (figure == "Eye") {
+        // Fill background color
+        image_a.clear(color_bg);
+        lines_eye(image_a, height, width, N, color_lines, color_bg);
+    }
 
+    // Color diamond structure
+    if (figure == "Diamond") {
+        // Fill background color
+        image_a.clear(color_bg);
+        lines_diamond(image_a, height, width, N, color_lines, color_bg);
+    }
     return image_a;
 }
 
