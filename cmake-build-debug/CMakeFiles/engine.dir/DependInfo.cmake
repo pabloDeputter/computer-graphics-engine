@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/pablodeputter/CLionProjects/engine/easy_image.cc" "/Users/pablodeputter/CLionProjects/engine/cmake-build-debug/CMakeFiles/engine.dir/easy_image.cc.o"
-  "/Users/pablodeputter/CLionProjects/engine/engine.cc" "/Users/pablodeputter/CLionProjects/engine/cmake-build-debug/CMakeFiles/engine.dir/engine.cc.o"
-  "/Users/pablodeputter/CLionProjects/engine/ini_configuration.cc" "/Users/pablodeputter/CLionProjects/engine/cmake-build-debug/CMakeFiles/engine.dir/ini_configuration.cc.o"
+  "/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.cc" "/Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/easy_image.cc.o"
+  "/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine.cc" "/Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/engine.cc.o"
+  "/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.cc" "/Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/ini_configuration.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

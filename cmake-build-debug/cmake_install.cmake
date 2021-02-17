@@ -1,4 +1,4 @@
-# Install script for directory: /Users/pablodeputter/CLionProjects/engine
+# Install script for directory: /Users/pablodeputter/CLionProjects/engine_computer_graphics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,18 +34,18 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/pablodeputter/CLionProjects/engine/engine")
+   "/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/pablodeputter/CLionProjects/engine" TYPE EXECUTABLE FILES "/Users/pablodeputter/CLionProjects/engine/cmake-build-debug/engine")
-  if(EXISTS "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine/engine" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine/engine")
+file(INSTALL DESTINATION "/Users/pablodeputter/CLionProjects/engine_computer_graphics" TYPE EXECUTABLE FILES "/Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/engine")
+  if(EXISTS "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" -u -r "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine/engine")
+      execute_process(COMMAND "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" -u -r "$ENV{DESTDIR}/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine")
     endif()
   endif()
 endif()
@@ -58,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/pablodeputter/CLionProjects/engine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

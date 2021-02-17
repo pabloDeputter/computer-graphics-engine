@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/pablodeputter/CLionProjects/engine/easy_image.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.cc
+easy_image.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.h
+algorithm
+-
+assert.h
+-
+math.h
+-
+iostream
+-
+
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.h
 stdint.h
 -
 vector
@@ -14,11 +26,11 @@ vector
 iostream
 -
 
-/Users/pablodeputter/CLionProjects/engine/engine.cc
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine.cc
 easy_image.h
-/Users/pablodeputter/CLionProjects/engine/easy_image.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.h
 ini_configuration.h
-/Users/pablodeputter/CLionProjects/engine/ini_configuration.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.h
 fstream
 -
 iostream
@@ -28,7 +40,27 @@ stdexcept
 string
 -
 
-/Users/pablodeputter/CLionProjects/engine/ini_configuration.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.cc
+ini_configuration.h
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.h
+algorithm
+-
+cassert
+-
+cctype
+-
+exception
+-
+functional
+-
+iomanip
+-
+memory
+-
+sstream
+-
+
+/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.h
 iostream
 -
 map
