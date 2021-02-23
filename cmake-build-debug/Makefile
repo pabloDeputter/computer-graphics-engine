@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/pablodeputter/CLionProjects/engine_computer_graphics
+CMAKE_SOURCE_DIR = /Users/pablodeputter/Documents/GitHub/engine_computer_graphics
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,37 +79,37 @@ CMAKE_BINARY_DIR = /Users/pablodeputter/CLionProjects/engine_computer_graphics/c
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -125,7 +125,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -136,7 +136,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+	"/Users/pablodeputter/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.8194.17/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -146,9 +146,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles /Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pablodeputter/CLionProjects/engine_computer_graphics/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -188,6 +188,87 @@ engine: cmake_check_build_system
 engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
+
+Color.o: Color.cpp.o
+
+.PHONY : Color.o
+
+# target to build an object file
+Color.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.o
+.PHONY : Color.cpp.o
+
+Color.i: Color.cpp.i
+
+.PHONY : Color.i
+
+# target to preprocess a source file
+Color.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.i
+.PHONY : Color.cpp.i
+
+Color.s: Color.cpp.s
+
+.PHONY : Color.s
+
+# target to generate assembly for a file
+Color.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.s
+.PHONY : Color.cpp.s
+
+Line2D.o: Line2D.cpp.o
+
+.PHONY : Line2D.o
+
+# target to build an object file
+Line2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.o
+.PHONY : Line2D.cpp.o
+
+Line2D.i: Line2D.cpp.i
+
+.PHONY : Line2D.i
+
+# target to preprocess a source file
+Line2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.i
+.PHONY : Line2D.cpp.i
+
+Line2D.s: Line2D.cpp.s
+
+.PHONY : Line2D.s
+
+# target to generate assembly for a file
+Line2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.s
+.PHONY : Line2D.cpp.s
+
+Point2D.o: Point2D.cpp.o
+
+.PHONY : Point2D.o
+
+# target to build an object file
+Point2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.o
+.PHONY : Point2D.cpp.o
+
+Point2D.i: Point2D.cpp.i
+
+.PHONY : Point2D.i
+
+# target to preprocess a source file
+Point2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.i
+.PHONY : Point2D.cpp.i
+
+Point2D.s: Point2D.cpp.s
+
+.PHONY : Point2D.s
+
+# target to generate assembly for a file
+Point2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.s
+.PHONY : Point2D.cpp.s
 
 easy_image.o: easy_image.cc.o
 
@@ -270,6 +351,33 @@ ini_configuration.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ini_configuration.cc.s
 .PHONY : ini_configuration.cc.s
 
+l_parser.o: l_parser.cc.o
+
+.PHONY : l_parser.o
+
+# target to build an object file
+l_parser.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.o
+.PHONY : l_parser.cc.o
+
+l_parser.i: l_parser.cc.i
+
+.PHONY : l_parser.i
+
+# target to preprocess a source file
+l_parser.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.i
+.PHONY : l_parser.cc.i
+
+l_parser.s: l_parser.cc.s
+
+.PHONY : l_parser.s
+
+# target to generate assembly for a file
+l_parser.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.s
+.PHONY : l_parser.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -283,6 +391,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... engine"
+	@echo "... Color.o"
+	@echo "... Color.i"
+	@echo "... Color.s"
+	@echo "... Line2D.o"
+	@echo "... Line2D.i"
+	@echo "... Line2D.s"
+	@echo "... Point2D.o"
+	@echo "... Point2D.i"
+	@echo "... Point2D.s"
 	@echo "... easy_image.o"
 	@echo "... easy_image.i"
 	@echo "... easy_image.s"
@@ -292,6 +409,9 @@ help:
 	@echo "... ini_configuration.o"
 	@echo "... ini_configuration.i"
 	@echo "... ini_configuration.s"
+	@echo "... l_parser.o"
+	@echo "... l_parser.i"
+	@echo "... l_parser.s"
 .PHONY : help
 
 

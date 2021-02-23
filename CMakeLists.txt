@@ -17,7 +17,16 @@ set(engine_sources
 	easy_image.cc
 	engine.cc
 	ini_configuration.cc
-)
+		ini_configuration.h
+		Line2D.cpp
+		Line2D.h
+		Color.cpp
+		Color.h
+		easy_image.h
+		l_parser.cc
+		l_parser.h
+		Point2D.cpp
+		Point2D.h)
 
 ############################################################
 # Create an executable

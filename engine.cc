@@ -1,302 +1,63 @@
 #include "easy_image.h"
 #include "ini_configuration.h"
-
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "l_parser.h"
 
-using namespace std;
 
+/**
+ * \brief Scales colors of vector
+ * \param colors Vector with color values in 0-1 range
+ * \return Vector of colors in 0-256 range in img::Color object
+ */
+img::Color scale_colors(std::vector<double> & colors) {
 
-// Scale colors to RGB-values
-img::Color blocks_scaleColors(vector<double> & toScale) {
-
-    for (double & i : toScale) {
-        if (i == 1.0) {
-            i = (i-0.01)*256;
-            continue;
-        }
-        i = i*256;
+    for (double & i : colors) {
+        i = i*255;
     }
-
-    img::Color color = img::Color(toScale[0], toScale[1], toScale[2]);
-    return color;
+    return img::Color(colors[0], colors[1], colors[2]);
 }
 
-// Calculate distance between two lines of line structure
-pair<double, double> lines_calculateLine(const int & Hi, const int & Wi, const int & N) {
+/**
+ * \brief Read a LSystem2D file in
+ * \param file_name Name of input-file
+ * \return LSystem2D object-type
+ */
+LParser::LSystem2D LSystem2D(const std::string & file_name) {
 
-    // Calculate distance between two adjacent lines
-    double Hs = Hi/(N-1);
-    double Ws = Wi/(N-1);
+    LParser::LSystem2D l_system;
 
-    return make_pair(Hs, Ws);
+    std::ifstream input_stream(file_name);
+    input_stream >> l_system;
+    input_stream.close();
+
+    return l_system;
 }
 
-// Draw quarter circle
-int lines_quarterCircle(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg, const bool & inverse) {
-
-    // Calculate distance between two adjacent lines
-    pair<double, double> lineDimension = lines_calculateLine(Hi, Wi, N);
-    int Hs = lineDimension.first;
-    int Ws = lineDimension.second;
-
-    int x1 = 0;
-    int y2 = Hi - 1;
-
-    int y1 = 0;
-    int lim_y1 = Hi;
-    int _y1 = -1;
-
-    int x2 = 0;
-    int lim_x2 = Wi;
-    int _x2 = -1;
-
-    if (inverse) {
-        x1 = Wi - 1;
-        y2 = 0;
-
-        y1 = Hi - 1;
-        lim_y1 = 0;
-        _y1 = 1;
-
-        x2 = Wi - 1;
-        lim_x2 = 0;
-        _x2 = 1;
-
-        Hs = Hs * -1;
-        Ws = Ws * -1;
-
-    }
-
-    int i = 0;
-    for (i, y1, x2; i < N; i++, y1 += Hs, x2 += Ws) {
-
-        if (y1 == lim_y1) y1 += _y1;
-        if (y1 <= 0) y1 = 0;
-
-        if (x2 == lim_x2) x2 += _x2;
-        if (x2 <= 0) x2 = 0;
-
-        image.draw_line(x1, y1, x2, y2, color_lines);
-    }
-
-    return 0;
-}
-
-// Draw line consisting of 2 quarter circles
-int lines_eye(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg) {
-
-    lines_quarterCircle(image, Hi, Wi, N, color_lines, color_bg, false);
-    lines_quarterCircle(image, Hi, Wi, N, color_lines, color_bg, true);
-
-
-    return 0;
-}
-
-// Helper function to draw diamond
-int lines_diamond_helper(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const bool & inverse) {
-
-    // Calculate distance between two adjacent lines
-    pair<double, double> lineDimension = lines_calculateLine(Hi/2, Wi/2, N);
-    int Hs = lineDimension.first;
-    int Ws = lineDimension.second;
-
-    int x1 = Wi/2;
-    int y1 = Hi/2;
-
-    int x2 = Wi/2;
-    int y2 = Hi - 1;
-
-    if (inverse) {
-        x1 = Wi - 1;
-        y2 = Wi/2;
-
-        Ws = Ws*(-1);
-    }
-
-    for (int i = 0; i < N; i++) {
-
-        if (x1 >= Wi) {
-            x1 = Wi - 1;
-        }
-        if (y2 < 0) {
-            y2 = 0;
-        }
-        image.draw_line(x1, y1, x2, y2, color_lines);
-
-        x1 += Ws;
-        y2 -= Hs;
-    }
-
-    x1 = Wi/2;
-    y1 = 0;
-
-    x2 = Wi/2;
-    y2 = Hi/2;
-
-    if (inverse) {
-        y1 = Hi - 1;
-
-        Hs = Hs*(-1);
-        Ws = Ws*(-1);
-    }
-
-    for (int i = 0; i < N; i++) {
-
-        if (y1 >= Hi) {
-            y1 = Hi - 1;
-        }
-        if (x2 < 0) {
-            x2 = 0;
-        }
-        image.draw_line(x1, y1, x2, y2, color_lines);
-
-        y1 += Hs;
-        x2 -= Ws;
-    }
-    return 0;
-}
-
-// Draw diamond consisting of 4 quarter circles
-int lines_diamond(img::EasyImage & image, const int & Hi, const int & Wi, const int & N, const img::Color & color_lines, const img::Color & color_bg) {
-
-    lines_diamond_helper(image, Hi, Wi, N, color_lines, false);
-    lines_diamond_helper(image, Hi, Wi, N, color_lines, true);
-    return 0;
-}
-
-// Calculate width and height of one block in block pattern
-pair<double, double> blocks_calculateBlock(const int & Wi, const int & Hi, const int & Nx, const int & Ny) {
-
-    // Calculate dimensions of one block
-    double block_width = Wi/Nx;
-    double block_height = Hi/Ny;
-
-    return make_pair(block_width, block_height);
-}
-
-// Draw chessboard pattern consisting off blocks
-int colorBlocks(img::EasyImage & image, const int & Wi, const int & Hi, const int & Nx, const int & Ny, const img::Color & white, const img::Color & black) {
-
-    // Calculate dimensions of one block
-    pair<double, double> blockDimension = blocks_calculateBlock(Wi, Hi, Nx, Ny);
-    double block_width = blockDimension.first;
-    double block_height = blockDimension.second;
-
-    // Traverse all pixels
-    for ( int i = 0; i < Wi; i++) {
-        for ( int j = 0; j < Hi; j++) {
-
-            // Calculate coordinates of block to check if even
-            int Bx = floor(i/block_width);
-            int By = floor(j/block_height);
-
-            // Even
-            if ((Bx + By)%2 == 0) {
-                image(i, j) = white;
-            }
-            // Uneven
-            else image(i, j) = black;
-        }
-    }
-    return 1;
-}
-
-// Draw RGB Rectangle
-int colorRectangle(img::EasyImage & image) {
-
-    for(unsigned int i = 0; i < image.get_height(); i++)
-    {
-        for(unsigned int j = 0; j < image.get_width(); j++)
-        {
-            image(i,j).red = i;
-            image(i,j).green = j;
-            image(i,j).blue = (i+j)%256;
-        }
-    }
-    return 0;
-}
-
-// Generate EasyImage
+/**
+ * \brief Generates a image off a .ini file
+ * \return EasyImage object-type
+ */
 img::EasyImage generate_image(const ini::Configuration &configuration) {
 
-    string type = configuration["General"]["type"].as_string_or_die();
-    int width = configuration["ImageProperties"]["width"].as_int_or_die();
-    int height = configuration["ImageProperties"]["height"].as_int_or_die();
-
-    // If BlockProperties exist
-    int Nx; // # Blocks in x
-    int Ny;
-    img::Color white;
-    img::Color black;
-    if (configuration["BlockProperties"]["nrXBlocks"].as_int_if_exists(Nx)) {
-
-        // Gather information of image
-        Ny = configuration["BlockProperties"]["nrYBlocks"].as_int_or_die(); // # Blocks in y
-        vector<double> colorWhite = configuration["BlockProperties"]["colorWhite"].as_double_tuple_or_die(); // Color of white blocks
-        vector<double> colorBlack = configuration["BlockProperties"]["colorBlack"].as_double_tuple_or_die(); // Color of black blocks
-        bool invertColors = configuration["BlockProperties"]["invertColors"].as_bool_or_default(false); // false if non-existent
-
-        // Invert colors if invertColors is true
-        if (invertColors) {
-            white = blocks_scaleColors(colorBlack);
-            black = blocks_scaleColors(colorWhite);
-        }
-        else {
-            white = blocks_scaleColors(colorWhite);
-            black = blocks_scaleColors(colorBlack);
-        }
-    }
-
-    // If LineProperties exist
-    string figure;
-    img::Color color_lines;
-    img::Color color_bg;
-    int N; // # Lines
-    if (configuration["LineProperties"]["figure"].as_string_if_exists(figure)) {
-
-        vector<double> lines = configuration["LineProperties"]["lineColor"].as_double_tuple_or_die();
-        color_lines = blocks_scaleColors(lines);
-        vector<double> bg = configuration["LineProperties"]["backgroundcolor"].as_double_tuple_or_die();
-        color_bg = blocks_scaleColors(bg);
-        N = configuration["LineProperties"]["nrLines"].as_int_or_die();
-
-    }
+    // General data for every image
+    std::string type = configuration["General"]["type"].as_string_or_die();
+    int size = configuration["General"]["size"].as_int_or_die();
+    std::vector<double> bg = configuration["General"]["backgroundcolor"].as_double_tuple_or_default({0, 0, 0});
 
     // Create new image
-    img::EasyImage image_a = img::EasyImage(width, height);
+    img::EasyImage image = img::EasyImage(size, size, scale_colors(bg));
 
-    // Color rectangle
-    if (type == "IntroColorRectangle") colorRectangle(image_a);
-
-    // Color blocks
-    if (type == "IntroBlocks") colorBlocks(image_a,width, height, Nx, Ny, white, black);
-
-    // LineProperties
-
-    // Color quarter circle
-    if (figure == "QuarterCircle") {
-        // Fill background color
-        image_a.clear(color_bg);
-        lines_quarterCircle(image_a, height, width, N, color_lines, color_bg, false);
+    // 2DLSystem as type
+    if (type == "2DLSystem") {
+        std::string file_name = configuration[type]["inputfile"].as_string_or_die();
+        std::vector<double> color = configuration[type]["color"].as_double_tuple_or_default({0, 0, 0});
+        LParser::LSystem2D l_system = LSystem2D(file_name);
+        image.drawLSystem(l_system, size, scale_colors(color));
     }
-
-    // Color eye structure
-    if (figure == "Eye") {
-        // Fill background color
-        image_a.clear(color_bg);
-        lines_eye(image_a, height, width, N, color_lines, color_bg);
-    }
-
-    // Color diamond structure
-    if (figure == "Diamond") {
-        // Fill background color
-        image_a.clear(color_bg);
-        lines_diamond(image_a, height, width, N, color_lines, color_bg);
-    }
-    return image_a;
+    return image;
 }
 
 int main(int argc, char const* argv[])
@@ -310,7 +71,7 @@ int main(int argc, char const* argv[])
                         try
                         {
                                 std::ifstream fin(argv[i]);
-                                cout << argv[i] << endl;
+                                std::cout << argv[i] << std::endl;
 
                                 fin >> conf;
                                 fin.close();

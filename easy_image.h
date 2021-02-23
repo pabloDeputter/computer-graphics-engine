@@ -19,7 +19,12 @@
 #define EASY_IMAGE_INCLUDED
 #include <stdint.h>
 #include <vector>
+#include <tuple>
 #include <iostream>
+#include "l_parser.h"
+#include "Line2D.h"
+#include <cmath>
+
 /**
  * \brief The namespace of the EasyImage class
  */
@@ -220,7 +225,40 @@ namespace img
 			 */
 			void draw_line(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, Color color);
 
-			// todo
+            /**
+            * \brief Find x-min, y-min, x-max and y-max of list
+            *
+            * \param line2D 	List with all the Line2D objects to be represented on image
+             * \return          A tuple of pairs of doubles containing x-min, y-min, x-max and y-max respectively
+            */
+            std::tuple<std::pair<double, double>, std::pair<double, double>> Line2D_findMax(Lines2D & line2D);
+
+            /**
+            * \brief            Draws list of Line2D objects representing straight lines on image
+            *
+            * \param line2D 	List with all the straight lines needed to be represented
+            * \param size       Maximum amount of pixels of image, cannot be overwritten
+            */
+            void draw2DLines(Lines2D & line2D, const int size, const Color & color);
+
+            /**
+            * \brief            Generate LSystem string recursively
+            *
+            * \param l_system 	LSystem containing all the data that is needed to replace char's in the string by replacement rules
+            * \param iter       Amount of iterations that generate_string needs to be called
+            * \param l_system_string Original string containing the initiator of the LSystem, will be passed trough recursively
+            */
+            std::string generate_string(const LParser::LSystem & l_system, int iter, std::string & l_system_string);
+
+            /**
+             * \brief           Converts a LSystem to a list of Lines2D objects representing straight lines
+             * @param l_system_2D  LSystem containing all the data that is needed to replace char's in the string by replacement rules
+             * @param size      Maximum amount of pixels of image, cannot be overwritten
+             * @param color     Color of lines that need to be drawn
+             */
+            void drawLSystem(LParser::LSystem2D & l_system_2D, const int size, const Color & color);
+
+
 
 
 		private:

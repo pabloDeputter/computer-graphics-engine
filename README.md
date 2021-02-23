@@ -3,7 +3,7 @@
 V: Werkend  
 -: Deels werkend met gekende problemen (onderaan beschreven)  
 X: Niet werkend of niet geïmplementeerd  
-(blanco): TODO  
+(blanco): TODO 
 
 
 |   | Functionaliteit      | Status |

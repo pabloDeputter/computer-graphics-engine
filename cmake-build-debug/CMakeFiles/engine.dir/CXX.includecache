@@ -6,19 +6,51 @@
 
 #IncludeRegexTransform: 
 
-/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.h
-stdint.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.h
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.h
+list
 -
-vector
+Point2D.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.h
+Color.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.h
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.h
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc
+easy_image.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
+algorithm
+-
+assert.h
+-
+math.h
 -
 iostream
 -
 
-/Users/pablodeputter/CLionProjects/engine_computer_graphics/engine.cc
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
+stdint.h
+-
+vector
+-
+tuple
+-
+iostream
+-
+l_parser.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h
+Line2D.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.h
+cmath
+-
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc
 easy_image.h
-/Users/pablodeputter/CLionProjects/engine_computer_graphics/easy_image.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
 ini_configuration.h
-/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.h
 fstream
 -
 iostream
@@ -27,8 +59,10 @@ stdexcept
 -
 string
 -
+l_parser.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h
 
-/Users/pablodeputter/CLionProjects/engine_computer_graphics/ini_configuration.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.h
 iostream
 -
 map
@@ -38,5 +72,15 @@ stdexcept
 string
 -
 vector
+-
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h
+map
+-
+string
+-
+set
+-
+exception
 -
 
