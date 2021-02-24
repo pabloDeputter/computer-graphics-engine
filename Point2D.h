@@ -34,6 +34,12 @@ public:
     Point2D(double a, double b) : x(a), y(b) {}
 
     /**
+     * \brief Copy constructuctor for Point2D object
+     * \param a Point2D object to be copied
+     */
+    Point2D(const Point2D & a) {x = a.x; y = a.y; }
+
+    /**
      * \brief Getter for x-value.
      * \return x-value as double
      */

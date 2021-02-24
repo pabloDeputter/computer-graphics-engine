@@ -389,11 +389,11 @@ std::istream& img::operator>>(std::istream& in, EasyImage & image)
 
 std::tuple<std::pair<double, double>, std::pair<double, double>> img::EasyImage::Line2D_findMax(Lines2D &line2D) {
 
-    double x = line2D.end()->getP1().getX();
-    double X = line2D.end()->getP1().getX();
+    double x = line2D.begin()->getP1().getX();
+    double X = line2D.begin()->getP1().getX();
 
-    double y = line2D.end()->getP2().getY();
-    double Y = line2D.end()->getP2().getY();
+    double y = line2D.begin()->getP2().getY();
+    double Y = line2D.begin()->getP2().getY();
 
     // Stackoverflow source cannot find :(
     for (Line2D & i : line2D) {
@@ -410,7 +410,7 @@ std::tuple<std::pair<double, double>, std::pair<double, double>> img::EasyImage:
         double p2y = i.getP2().getY();
 
         x = p2x < x ? p2x : x;
-        y = p2x < y ? p2y : y;
+        y = p2y < y ? p2y : y;
         X = p2x > X ? p2x : X;
         Y = p2y > Y ? p2y : Y;
     }
@@ -418,6 +418,13 @@ std::tuple<std::pair<double, double>, std::pair<double, double>> img::EasyImage:
 }
 
 void img::EasyImage::draw2DLines(Lines2D & line2D, const int size, const Color & color) {
+
+//    int counter = 0;
+//    for (Line2D & i : line2D) {
+//        std::cout << counter << std::endl;
+//        counter++;
+//        std::cout << i.getP1().getX() << "-" << i.getP1().getY() << " TO " << i.getP2().getX() << "-" << i.getP2().getY() << std::endl;
+//    }
 
     // Calculate x-min, y-min, x-max and y-max
     std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D_findMax(line2D);
@@ -428,9 +435,13 @@ void img::EasyImage::draw2DLines(Lines2D & line2D, const int size, const Color &
     double X = std::get<1>(max_line2D).first;
     double Y = std::get<1>(max_line2D).second;
 
+//    std::cout << x << "-" << y << "--" << X << "-" << Y << std::endl;
+
     // Calculate x-range, y-range
     double xrange = X - x;
     double yrange = Y - y;
+
+//    std::cout << xrange << "-" << yrange << std::endl;
 
     // Calculate max(xrange, yrange)
     double range = xrange > yrange ? xrange : yrange;
@@ -463,8 +474,16 @@ void img::EasyImage::draw2DLines(Lines2D & line2D, const int size, const Color &
         i.round();
     }
 
+//   Change image dimensions
+    this->width = static_cast<int>(std::round(image_x));
+    this->height = static_cast<int>(std::round(image_y));
+
+//    int counter = 0;
     // Draw lines
     for (Line2D & i : line2D) {
+//        std::cout << counter << std::endl;
+//        counter++;
+//        std::cout << i.getP1().getX() << "-" << i.getP1().getY() << " TO " << i.getP2().getX() << "-" << i.getP2().getY() << std::endl;
         this->draw_line(i.getP1().getX(), i.getP1().getY(), i.getP2().getX(), i.getP2().getY(), color);
     }
 }
@@ -479,7 +498,7 @@ std::string img::EasyImage::generate_string(const LParser::LSystem & l_system, i
 
     // Iterate over all char's
     for (const char & i : l_system_string) {
-        if (i == '+' || i == '-') {
+        if (i == '+' || i == '-' || i == '[' || i == ']' || i == '(' || i == ')') { // Ignore these char's
             x += i;
             continue;
         }
@@ -498,32 +517,51 @@ void img::EasyImage::drawLSystem(LParser::LSystem2D & l_system_2D, const int siz
     // Generate full string
     std::string l_system_string = generate_string(l_system_2D, iter, x);
 
-    double starting_angle = l_system_2D.get_starting_angle() * (M_PI / 180);
+    std::cout << l_system_string << std::endl;
+
+    double angle = l_system_2D.get_starting_angle() * M_PI / 180;
 
     Point2D starting_position = Point2D(0.0, 0.0);
 
     Lines2D l_system_lines;
 
+    std::stack<std::pair<Point2D, double>> stack;
+
+    // TODO
     for (const char & i : l_system_string) {
         // Rotate left
         if (i == '+') {
-            starting_angle += l_system_2D.get_angle() * (M_PI / 180);
+            angle += l_system_2D.get_angle() * M_PI / 180;
+            continue;
         }
         // Rotate right
         else if (i == '-') {
-            starting_angle -= l_system_2D.get_angle() * (M_PI / 180);
+            angle -= l_system_2D.get_angle() * M_PI / 180;
+            continue;
         }
-        // Move forward
-        else {
-            Point2D old_position = starting_position;
-            starting_position.setX(starting_position.getX() + std::cos(starting_angle));
-            starting_position.setY(starting_position.getY() + std::sin(starting_angle));
 
-            // "Draw" line
-            if (l_system_2D.draw(i)) {
-                Line2D y = Line2D(old_position, starting_position);
-                l_system_lines.emplace_back(y);
-            }
+        // Push on stack
+        else if (i == '(') {
+            stack.push(std::make_pair(starting_position, angle));
+        }
+        // Pop the stack
+        else if (i == ')') {
+            starting_position = stack.top().first;
+            angle = stack.top().second;
+            stack.pop();
+        }
+
+        // Move forward
+        Point2D old_position = starting_position;
+
+        starting_position.setX(starting_position.getX() + std::cos(angle));
+        starting_position.setY(starting_position.getY() + std::sin(angle));
+
+        // "Draw" line
+        if (l_system_2D.draw(i)) {
+            Line2D y = Line2D(old_position, starting_position);
+            l_system_lines.emplace_back(y);
+            continue;
         }
     }
     this->draw2DLines(l_system_lines, size, color);

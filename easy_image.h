@@ -24,7 +24,7 @@
 #include "l_parser.h"
 #include "Line2D.h"
 #include <cmath>
-
+#include <stack>
 /**
  * \brief The namespace of the EasyImage class
  */

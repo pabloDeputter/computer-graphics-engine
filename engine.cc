@@ -57,6 +57,7 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
         LParser::LSystem2D l_system = LSystem2D(file_name);
         image.drawLSystem(l_system, size, scale_colors(color));
     }
+    std::cout << "done!" << std::endl;
     return image;
 }
 
