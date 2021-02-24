@@ -1,11 +1,14 @@
 #include "easy_image.h"
 #include "ini_configuration.h"
 #include <fstream>
+#include <unistd.h>
+#include <ios>
 #include <iostream>
 #include <stdexcept>
 #include <string>
 #include "l_parser.h"
 
+using namespace std;
 
 /**
  * \brief Scales colors of vector

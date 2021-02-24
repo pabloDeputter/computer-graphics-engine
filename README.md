@@ -8,8 +8,8 @@ X: Niet werkend of niet geïmplementeerd
 
 |   | Functionaliteit      | Status |
 |---|---------------------------|---|
-| 1 | 2D L-systemen             |   |
-|   | Met haakjes               |   |
+| 1 | 2D L-systemen             | V |
+|   | Met haakjes               | V |
 |   | Stochastisch              |   |
 | 2 | Transformaties            |   |
 |   | Eye-point                 |   |
@@ -41,7 +41,7 @@ Geïmplementeerde vorm van texture mapping: ...
 ## Gekende problemen 
 ...
 ## Niet-gequoteerde functionaliteit
-...
+- Extra lijntekeningen van de intro-les.
 
 ## Extra functionaliteit, niet in de opgaves beschreven
 ...
