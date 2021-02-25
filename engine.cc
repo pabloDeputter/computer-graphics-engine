@@ -35,8 +35,8 @@ LParser::LSystem2D LSystem2D(const std::string & file_name) {
     std::ifstream input_stream(file_name);
     input_stream >> l_system;
     input_stream.close();
-
     return l_system;
+
 }
 
 /**

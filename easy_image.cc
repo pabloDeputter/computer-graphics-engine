@@ -486,6 +486,10 @@ std::string img::EasyImage::generate_string(const LParser::LSystem & l_system, i
             x += i;
             continue;
         }
+        else if (l_system.isStochasticReplacementrules()) {
+            x += l_system.get_replacement_stochastic(i);
+            continue;
+        }
         // Find replacement for char
         x += l_system.get_replacement(i);
     }

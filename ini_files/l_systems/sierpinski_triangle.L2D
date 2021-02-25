@@ -26,4 +26,4 @@ Angle = 120.0
 StartingAngle = 0.0
 
 #Het Aantal keer dat een Symbool door zijn Replacement moet worden vervangen
-Iterations = 6
+Iterations = 7

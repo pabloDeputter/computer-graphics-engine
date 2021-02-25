@@ -23,6 +23,8 @@
 #include <string>
 #include <set>
 #include <exception>
+#include <cstdlib>
+#include <ctime>
 
 
 
@@ -137,6 +139,15 @@ namespace LParser
 			 */
 			std::string const& get_replacement(char c) const;
 
+            /**
+             * \brief Replacement function with chance. Returns the replacement string for a given character of the Alphabet
+             *
+             * \param c 	the character of the alphabet
+             *
+             * \return	replacement string
+             */
+            std::string const get_replacement_stochastic(char c) const;
+
 			/**
 			 * \brief Returns the angle of the L-System.
 			 *
@@ -180,13 +191,23 @@ namespace LParser
 			double angle;
 
 		        /**
-		         * \brief the replacement rules of the l-system
+		         * \brief the replacement rules of the l-system each with a chance of occuring, sum of chances needs to be 1
 		         */
-			std::map<char, std::string> replacementrules;
+//			std::map<char, std::pair<double, std::string>> replacementrules;
+			std::multimap<char, std::pair<double, std::string>> replacementrules;
 
-		        /**
-		         * \brief the number of replacements of the l-system
-		         */
+                /**
+                * \brief Are there stochastic replacement rules?
+                */
+			bool stochastic_replacementrules;
+    public:
+        bool isStochasticReplacementrules() const;
+
+    protected:
+
+        /**
+         * \brief the number of replacements of the l-system
+         */
 			unsigned int nrIterations;
 	};
 

@@ -18,6 +18,18 @@ Color.h
 
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.h
 
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc
+easy_image.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
+algorithm
+-
+assert.h
+-
+math.h
+-
+iostream
+-
+
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
 stdint.h
 -
@@ -36,38 +48,6 @@ cmath
 stack
 -
 
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc
-easy_image.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h
-ini_configuration.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.h
-fstream
--
-unistd.h
--
-ios
--
-iostream
--
-stdexcept
--
-string
--
-l_parser.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h
-
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.h
-iostream
--
-map
--
-stdexcept
--
-string
--
-vector
--
-
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h
 map
 -
@@ -76,5 +56,9 @@ string
 set
 -
 exception
+-
+cstdlib
+-
+ctime
 -
 

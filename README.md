@@ -10,7 +10,7 @@ X: Niet werkend of niet geïmplementeerd
 |---|---------------------------|---|
 | 1 | 2D L-systemen             | V |
 |   | Met haakjes               | V |
-|   | Stochastisch              |   |
+|   | Stochastisch              | - |
 | 2 | Transformaties            |   |
 |   | Eye-point                 |   |
 |   | Projectie                 |   |
@@ -39,9 +39,9 @@ X: Niet werkend of niet geïmplementeerd
 Geïmplementeerde vorm van texture mapping: ...
 
 ## Gekende problemen 
-...
+- Stochastische l-systemen duren aanzienlijk langer om te genereren
 ## Niet-gequoteerde functionaliteit
-- Extra lijntekeningen van de intro-les.
+- Extra lijntekeningen van de intro-les
 
 ## Extra functionaliteit, niet in de opgaves beschreven
 ...

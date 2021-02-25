@@ -116,6 +116,16 @@ namespace
 						throw LParser::ParserException(std::string("Did not find expected string\"") + chars + "\"", line, col);
 				}
 			}
+			bool find_brackets(std::string const & chars)
+			{
+				for (char const* i = chars.c_str(); *i != 0x0; i++) {
+					if (getChar() != *i)
+					{
+						return false;
+					}
+				}
+				return true;
+			}
 			std::string readQuotedString()
 			{
 				if (((char) getChar()) != '"')
@@ -157,7 +167,6 @@ namespace
 				}
 				return value;
 			}
-
 			double readDouble()
 			{
 				int whole = readInt();
@@ -342,8 +351,10 @@ namespace
 		}
 		return num_parenthesis == 0;
 	}
-	void parse_rules(std::set<char> const& alphabet, std::map<char, std::string>& rules, stream_parser& parser, bool parse2D)
+	// TODO
+	bool parse_rules(std::set<char> const& alphabet, std::multimap<char, std::pair<double, std::string>>& rules, stream_parser& parser, bool parse2D)
 	{
+		bool return_value = false;
 		parser.skip_comments_and_whitespace();
 		parser.assertChars("Rules");
 		parser.skip_comments_and_whitespace();
@@ -355,11 +366,22 @@ namespace
 		char c = parser.getChar();
 		while (true)
 		{
+
+			// TODO
+			bool chance_found = false;
+			double chance = 420.00;
+			if (parser.getChar() == '[') {
+				chance = parser.readDouble();
+				parser.assertChars("]");
+				chance_found = true;
+				return_value = true;
+			}
+
 			if (!std::isalpha(c))
 				throw LParser::ParserException("Invalid Alphabet character", parser.getLine(), parser.getCol());
 			if (alphabet.find(c) == alphabet.end())
 				throw LParser::ParserException(std::string("Replacement rule specified for char '") + c + "' which is not part of the alphabet. ", parser.getLine(), parser.getCol());
-			if (rules.find(c) != rules.end())
+			if (rules.find(c) != rules.end() && !chance_found && chance != 420.00)
 				throw LParser::ParserException(std::string("Double entry '") + c + "' in rules specification ", parser.getLine(), parser.getCol());
 			char alphabet_char = c;
 			parser.skip_comments_and_whitespace();
@@ -368,7 +390,12 @@ namespace
 			std::string rule = parser.readQuotedString();
 			if (!isValidRule(alphabet, rule, parse2D))
 				throw LParser::ParserException(std::string("Invalid rule specification for entry '") + alphabet_char + "' in rule specification", parser.getLine(), parser.getCol());
-			rules[alphabet_char] = rule;
+			if (chance_found) {
+                rules.insert(std::make_pair(alphabet_char, std::make_pair(chance, rule)));
+			}
+			else {
+                rules.insert(std::make_pair(alphabet_char, std::make_pair(1.0, rule)));
+			}
 			parser.skip_comments_and_whitespace();
 			c = parser.getChar();
 			if (c == '}')
@@ -378,6 +405,7 @@ namespace
 			parser.skip_comments_and_whitespace();
 			c = parser.getChar();
 		}
+		return return_value;
 	}
 	std::string parse_initiator(std::set<char> const& alphabet, stream_parser& parser, bool parse2D)
 	{
@@ -486,8 +514,37 @@ bool LParser::LSystem::draw(char c) const
 std::string const& LParser::LSystem::get_replacement(char c) const
 {
 	assert(get_alphabet().find(c) != get_alphabet().end());
-	return replacementrules.find(c)->second;
+	return replacementrules.find(c)->second.second;
+
 }
+std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
+
+    unsigned seed = time(0); // Get time seed
+
+    srand(seed); // Insert time seed
+
+    std::pair<char, std::pair<double, std::string>> current;
+
+    for (const std::pair<char, std::pair<double, std::string>> i : replacementrules) {
+        if (i.first == c) {
+            current = i;
+            break;
+        }
+    }
+
+    // Traverse probabilities
+    while (( rand() / double(RAND_MAX) * (100 / current.second.first * 100)) > 1) {
+        for (const std::pair<char, std::pair<double, std::string>> i : replacementrules) {
+            if (i.first == c && i != current) {
+                current = i;
+                break;
+            }
+        }
+    }
+
+    return current.second.second;
+}
+
 double LParser::LSystem::get_angle() const
 {
 	return angle;
@@ -499,6 +556,10 @@ std::string const& LParser::LSystem::get_initiator() const
 unsigned int LParser::LSystem::get_nr_iterations() const
 {
 	return nrIterations;
+}
+
+bool LParser::LSystem::isStochasticReplacementrules() const {
+	return stochastic_replacementrules;
 }
 
 LParser::LSystem2D::LSystem2D() :
@@ -540,7 +601,19 @@ std::istream& LParser::operator>>(std::istream& in, LParser::LSystem2D& system)
 	stream_parser parser(in);
 	parse_alphabet(system.alphabet, parser);
 	parse_draw(system.alphabet, system.drawfunction, parser);
-	parse_rules(system.alphabet, system.replacementrules, parser, true);
+	system.stochastic_replacementrules = parse_rules(system.alphabet, system.replacementrules, parser, true);
+
+	if (system.stochastic_replacementrules) {
+	    double x = 0;
+	    for (const std::pair<char, std::pair<double, std::string>> & i : system.replacementrules) {
+	        x += i.second.first;
+	    }
+	    // TODO
+	    if (x != 1) {
+	        std::cerr << "sum of replacement rules must be 1.00!" << std::endl;
+	    }
+	}
+
 	system.initiator = parse_initiator(system.alphabet, parser, true);
 	system.angle = parse_angle(parser, "Angle");
 	system.startingAngle = parse_angle(parser, "StartingAngle");
