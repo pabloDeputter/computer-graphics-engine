@@ -142,7 +142,7 @@ namespace LParser
             /**
              * \brief Replacement function with chance. Returns the replacement string for a given character of the Alphabet
              *
-             * \param c 	the character of the alphabet
+             * \param c the character of the alphabet
              *
              * \return	replacement string
              */
@@ -193,15 +193,18 @@ namespace LParser
 		        /**
 		         * \brief the replacement rules of the l-system each with a chance of occuring, sum of chances needs to be 1
 		         */
-//			std::map<char, std::pair<double, std::string>> replacementrules;
 			std::multimap<char, std::pair<double, std::string>> replacementrules;
 
                 /**
-                * \brief Are there stochastic replacement rules?
+                * \brief true if there are any stochastic replacement rules in the l-system
                 */
-			bool stochastic_replacementrules;
+			bool stochastic;
     public:
-        bool isStochasticReplacementrules() const;
+	    /**
+	     * \brief Getter for stochastic bool
+	     * @return bool
+	     */
+        bool get_stochastic() const;
 
     protected:
 

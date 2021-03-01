@@ -1,0 +1,17 @@
+Alphabet = {F}
+
+Draw = {
+        F -> 1
+}
+
+Rules = {
+        F[0.20] -> "F(+F)F(-F)F",
+        F[0.40] -> "FF-(-F+F+)+(+F-F-F)",
+        F[0.40] -> "FF+(+F-F-F)-(-F+F+)"
+
+}
+
+Initiator     = "F"
+Angle         = 22
+StartingAngle = 0
+Iterations    = 7

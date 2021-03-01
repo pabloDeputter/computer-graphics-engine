@@ -480,13 +480,14 @@ std::string img::EasyImage::generate_string(const LParser::LSystem & l_system, i
     // Make new string
     std::string x;
 
+
     // Iterate over all char's
     for (const char & i : l_system_string) {
         if (i == '+' || i == '-' || i == '[' || i == ']' || i == '(' || i == ')') { // Ignore these char's
             x += i;
             continue;
         }
-        else if (l_system.isStochasticReplacementrules()) {
+        else if (l_system.get_stochastic()) {
             x += l_system.get_replacement_stochastic(i);
             continue;
         }
@@ -504,6 +505,8 @@ void img::EasyImage::drawLSystem(LParser::LSystem2D & l_system_2D, const int siz
 
     // Generate full string
     std::string l_system_string = generate_string(l_system_2D, iter, x);
+
+//    std::cout << l_system_string << std::endl;
 
     double angle = l_system_2D.get_starting_angle() * M_PI / 180;
 

@@ -351,7 +351,7 @@ namespace
 		}
 		return num_parenthesis == 0;
 	}
-	// TODO
+	// TOD
 	bool parse_rules(std::set<char> const& alphabet, std::multimap<char, std::pair<double, std::string>>& rules, stream_parser& parser, bool parse2D)
 	{
 		bool return_value = false;
@@ -366,10 +366,10 @@ namespace
 		char c = parser.getChar();
 		while (true)
 		{
-
-			// TODO
 			bool chance_found = false;
+            // Standard chance is 420.00 and does not mean anything when a the bool stochastic is false
 			double chance = 420.00;
+			// Read chance if there is a square bracket
 			if (parser.getChar() == '[') {
 				chance = parser.readDouble();
 				parser.assertChars("]");
@@ -390,6 +390,7 @@ namespace
 			std::string rule = parser.readQuotedString();
 			if (!isValidRule(alphabet, rule, parse2D))
 				throw LParser::ParserException(std::string("Invalid rule specification for entry '") + alphabet_char + "' in rule specification", parser.getLine(), parser.getCol());
+			// If chance_found insert replacement-rule with chance otherwise with standard chance 1.0 for non-stochastic l-systems
 			if (chance_found) {
                 rules.insert(std::make_pair(alphabet_char, std::make_pair(chance, rule)));
 			}
@@ -519,12 +520,18 @@ std::string const& LParser::LSystem::get_replacement(char c) const
 }
 std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
 
-    unsigned seed = time(0); // Get time seed
+    // Verschillende Stackoverflow sources hier voor gebruikt
 
-    srand(seed); // Insert time seed
+    // Get time seed to generate random number
+    unsigned seed = time(0);
 
+    // Insert time seed
+    srand(seed);
+
+    // Current replacement-rule
     std::pair<char, std::pair<double, std::string>> current;
 
+    // Get first replacement with char c of alphabet
     for (const std::pair<char, std::pair<double, std::string>> i : replacementrules) {
         if (i.first == c) {
             current = i;
@@ -558,8 +565,8 @@ unsigned int LParser::LSystem::get_nr_iterations() const
 	return nrIterations;
 }
 
-bool LParser::LSystem::isStochasticReplacementrules() const {
-	return stochastic_replacementrules;
+bool LParser::LSystem::get_stochastic() const {
+	return stochastic;
 }
 
 LParser::LSystem2D::LSystem2D() :
@@ -601,14 +608,13 @@ std::istream& LParser::operator>>(std::istream& in, LParser::LSystem2D& system)
 	stream_parser parser(in);
 	parse_alphabet(system.alphabet, parser);
 	parse_draw(system.alphabet, system.drawfunction, parser);
-	system.stochastic_replacementrules = parse_rules(system.alphabet, system.replacementrules, parser, true);
+	system.stochastic = parse_rules(system.alphabet, system.replacementrules, parser, true);
 
-	if (system.stochastic_replacementrules) {
+	if (system.stochastic) {
 	    double x = 0;
-	    for (const std::pair<char, std::pair<double, std::string>> & i : system.replacementrules) {
+	    for (const std::pair<char, std::pair<double, std::string>> i : system.replacementrules) {
 	        x += i.second.first;
 	    }
-	    // TODO
 	    if (x != 1) {
 	        std::cerr << "sum of replacement rules must be 1.00!" << std::endl;
 	    }
