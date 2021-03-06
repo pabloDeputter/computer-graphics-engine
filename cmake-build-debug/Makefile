@@ -189,194 +189,275 @@ engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
 
-Color.o: Color.cpp.o
+src/Color.o: src/Color.cpp.o
 
-.PHONY : Color.o
-
-# target to build an object file
-Color.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.o
-.PHONY : Color.cpp.o
-
-Color.i: Color.cpp.i
-
-.PHONY : Color.i
-
-# target to preprocess a source file
-Color.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.i
-.PHONY : Color.cpp.i
-
-Color.s: Color.cpp.s
-
-.PHONY : Color.s
-
-# target to generate assembly for a file
-Color.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Color.cpp.s
-.PHONY : Color.cpp.s
-
-Line2D.o: Line2D.cpp.o
-
-.PHONY : Line2D.o
+.PHONY : src/Color.o
 
 # target to build an object file
-Line2D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.o
-.PHONY : Line2D.cpp.o
+src/Color.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.o
+.PHONY : src/Color.cpp.o
 
-Line2D.i: Line2D.cpp.i
+src/Color.i: src/Color.cpp.i
 
-.PHONY : Line2D.i
+.PHONY : src/Color.i
 
 # target to preprocess a source file
-Line2D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.i
-.PHONY : Line2D.cpp.i
+src/Color.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.i
+.PHONY : src/Color.cpp.i
 
-Line2D.s: Line2D.cpp.s
+src/Color.s: src/Color.cpp.s
 
-.PHONY : Line2D.s
+.PHONY : src/Color.s
 
 # target to generate assembly for a file
-Line2D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Line2D.cpp.s
-.PHONY : Line2D.cpp.s
+src/Color.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Color.cpp.s
+.PHONY : src/Color.cpp.s
 
-Point2D.o: Point2D.cpp.o
+src/Face.o: src/Face.cpp.o
 
-.PHONY : Point2D.o
+.PHONY : src/Face.o
 
 # target to build an object file
-Point2D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.o
-.PHONY : Point2D.cpp.o
+src/Face.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Face.cpp.o
+.PHONY : src/Face.cpp.o
 
-Point2D.i: Point2D.cpp.i
+src/Face.i: src/Face.cpp.i
 
-.PHONY : Point2D.i
+.PHONY : src/Face.i
 
 # target to preprocess a source file
-Point2D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.i
-.PHONY : Point2D.cpp.i
+src/Face.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Face.cpp.i
+.PHONY : src/Face.cpp.i
 
-Point2D.s: Point2D.cpp.s
+src/Face.s: src/Face.cpp.s
 
-.PHONY : Point2D.s
+.PHONY : src/Face.s
 
 # target to generate assembly for a file
-Point2D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/Point2D.cpp.s
-.PHONY : Point2D.cpp.s
+src/Face.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Face.cpp.s
+.PHONY : src/Face.cpp.s
 
-easy_image.o: easy_image.cc.o
+src/Figure.o: src/Figure.cpp.o
 
-.PHONY : easy_image.o
+.PHONY : src/Figure.o
 
 # target to build an object file
-easy_image.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/easy_image.cc.o
-.PHONY : easy_image.cc.o
+src/Figure.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.o
+.PHONY : src/Figure.cpp.o
 
-easy_image.i: easy_image.cc.i
+src/Figure.i: src/Figure.cpp.i
 
-.PHONY : easy_image.i
+.PHONY : src/Figure.i
 
 # target to preprocess a source file
-easy_image.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/easy_image.cc.i
-.PHONY : easy_image.cc.i
+src/Figure.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.i
+.PHONY : src/Figure.cpp.i
 
-easy_image.s: easy_image.cc.s
+src/Figure.s: src/Figure.cpp.s
 
-.PHONY : easy_image.s
+.PHONY : src/Figure.s
 
 # target to generate assembly for a file
-easy_image.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/easy_image.cc.s
-.PHONY : easy_image.cc.s
+src/Figure.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.s
+.PHONY : src/Figure.cpp.s
 
-engine.o: engine.cc.o
+src/Line2D.o: src/Line2D.cpp.o
 
-.PHONY : engine.o
+.PHONY : src/Line2D.o
 
 # target to build an object file
-engine.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cc.o
-.PHONY : engine.cc.o
+src/Line2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Line2D.cpp.o
+.PHONY : src/Line2D.cpp.o
 
-engine.i: engine.cc.i
+src/Line2D.i: src/Line2D.cpp.i
 
-.PHONY : engine.i
+.PHONY : src/Line2D.i
 
 # target to preprocess a source file
-engine.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cc.i
-.PHONY : engine.cc.i
+src/Line2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Line2D.cpp.i
+.PHONY : src/Line2D.cpp.i
 
-engine.s: engine.cc.s
+src/Line2D.s: src/Line2D.cpp.s
 
-.PHONY : engine.s
+.PHONY : src/Line2D.s
 
 # target to generate assembly for a file
-engine.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/engine.cc.s
-.PHONY : engine.cc.s
+src/Line2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Line2D.cpp.s
+.PHONY : src/Line2D.cpp.s
 
-ini_configuration.o: ini_configuration.cc.o
+src/Point2D.o: src/Point2D.cpp.o
 
-.PHONY : ini_configuration.o
+.PHONY : src/Point2D.o
 
 # target to build an object file
-ini_configuration.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ini_configuration.cc.o
-.PHONY : ini_configuration.cc.o
+src/Point2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Point2D.cpp.o
+.PHONY : src/Point2D.cpp.o
 
-ini_configuration.i: ini_configuration.cc.i
+src/Point2D.i: src/Point2D.cpp.i
 
-.PHONY : ini_configuration.i
+.PHONY : src/Point2D.i
 
 # target to preprocess a source file
-ini_configuration.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ini_configuration.cc.i
-.PHONY : ini_configuration.cc.i
+src/Point2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Point2D.cpp.i
+.PHONY : src/Point2D.cpp.i
 
-ini_configuration.s: ini_configuration.cc.s
+src/Point2D.s: src/Point2D.cpp.s
 
-.PHONY : ini_configuration.s
+.PHONY : src/Point2D.s
 
 # target to generate assembly for a file
-ini_configuration.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/ini_configuration.cc.s
-.PHONY : ini_configuration.cc.s
+src/Point2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Point2D.cpp.s
+.PHONY : src/Point2D.cpp.s
 
-l_parser.o: l_parser.cc.o
+src/easy_image.o: src/easy_image.cc.o
 
-.PHONY : l_parser.o
+.PHONY : src/easy_image.o
 
 # target to build an object file
-l_parser.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.o
-.PHONY : l_parser.cc.o
+src/easy_image.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/easy_image.cc.o
+.PHONY : src/easy_image.cc.o
 
-l_parser.i: l_parser.cc.i
+src/easy_image.i: src/easy_image.cc.i
 
-.PHONY : l_parser.i
+.PHONY : src/easy_image.i
 
 # target to preprocess a source file
-l_parser.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.i
-.PHONY : l_parser.cc.i
+src/easy_image.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/easy_image.cc.i
+.PHONY : src/easy_image.cc.i
 
-l_parser.s: l_parser.cc.s
+src/easy_image.s: src/easy_image.cc.s
 
-.PHONY : l_parser.s
+.PHONY : src/easy_image.s
 
 # target to generate assembly for a file
-l_parser.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/l_parser.cc.s
-.PHONY : l_parser.cc.s
+src/easy_image.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/easy_image.cc.s
+.PHONY : src/easy_image.cc.s
+
+src/engine.o: src/engine.cc.o
+
+.PHONY : src/engine.o
+
+# target to build an object file
+src/engine.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine.cc.o
+.PHONY : src/engine.cc.o
+
+src/engine.i: src/engine.cc.i
+
+.PHONY : src/engine.i
+
+# target to preprocess a source file
+src/engine.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine.cc.i
+.PHONY : src/engine.cc.i
+
+src/engine.s: src/engine.cc.s
+
+.PHONY : src/engine.s
+
+# target to generate assembly for a file
+src/engine.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine.cc.s
+.PHONY : src/engine.cc.s
+
+src/ini_configuration.o: src/ini_configuration.cc.o
+
+.PHONY : src/ini_configuration.o
+
+# target to build an object file
+src/ini_configuration.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ini_configuration.cc.o
+.PHONY : src/ini_configuration.cc.o
+
+src/ini_configuration.i: src/ini_configuration.cc.i
+
+.PHONY : src/ini_configuration.i
+
+# target to preprocess a source file
+src/ini_configuration.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ini_configuration.cc.i
+.PHONY : src/ini_configuration.cc.i
+
+src/ini_configuration.s: src/ini_configuration.cc.s
+
+.PHONY : src/ini_configuration.s
+
+# target to generate assembly for a file
+src/ini_configuration.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ini_configuration.cc.s
+.PHONY : src/ini_configuration.cc.s
+
+src/l_parser.o: src/l_parser.cc.o
+
+.PHONY : src/l_parser.o
+
+# target to build an object file
+src/l_parser.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/l_parser.cc.o
+.PHONY : src/l_parser.cc.o
+
+src/l_parser.i: src/l_parser.cc.i
+
+.PHONY : src/l_parser.i
+
+# target to preprocess a source file
+src/l_parser.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/l_parser.cc.i
+.PHONY : src/l_parser.cc.i
+
+src/l_parser.s: src/l_parser.cc.s
+
+.PHONY : src/l_parser.s
+
+# target to generate assembly for a file
+src/l_parser.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/l_parser.cc.s
+.PHONY : src/l_parser.cc.s
+
+src/vector3d.o: src/vector3d.cc.o
+
+.PHONY : src/vector3d.o
+
+# target to build an object file
+src/vector3d.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/vector3d.cc.o
+.PHONY : src/vector3d.cc.o
+
+src/vector3d.i: src/vector3d.cc.i
+
+.PHONY : src/vector3d.i
+
+# target to preprocess a source file
+src/vector3d.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/vector3d.cc.i
+.PHONY : src/vector3d.cc.i
+
+src/vector3d.s: src/vector3d.cc.s
+
+.PHONY : src/vector3d.s
+
+# target to generate assembly for a file
+src/vector3d.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/vector3d.cc.s
+.PHONY : src/vector3d.cc.s
 
 # Help Target
 help:
@@ -391,27 +472,36 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... engine"
-	@echo "... Color.o"
-	@echo "... Color.i"
-	@echo "... Color.s"
-	@echo "... Line2D.o"
-	@echo "... Line2D.i"
-	@echo "... Line2D.s"
-	@echo "... Point2D.o"
-	@echo "... Point2D.i"
-	@echo "... Point2D.s"
-	@echo "... easy_image.o"
-	@echo "... easy_image.i"
-	@echo "... easy_image.s"
-	@echo "... engine.o"
-	@echo "... engine.i"
-	@echo "... engine.s"
-	@echo "... ini_configuration.o"
-	@echo "... ini_configuration.i"
-	@echo "... ini_configuration.s"
-	@echo "... l_parser.o"
-	@echo "... l_parser.i"
-	@echo "... l_parser.s"
+	@echo "... src/Color.o"
+	@echo "... src/Color.i"
+	@echo "... src/Color.s"
+	@echo "... src/Face.o"
+	@echo "... src/Face.i"
+	@echo "... src/Face.s"
+	@echo "... src/Figure.o"
+	@echo "... src/Figure.i"
+	@echo "... src/Figure.s"
+	@echo "... src/Line2D.o"
+	@echo "... src/Line2D.i"
+	@echo "... src/Line2D.s"
+	@echo "... src/Point2D.o"
+	@echo "... src/Point2D.i"
+	@echo "... src/Point2D.s"
+	@echo "... src/easy_image.o"
+	@echo "... src/easy_image.i"
+	@echo "... src/easy_image.s"
+	@echo "... src/engine.o"
+	@echo "... src/engine.i"
+	@echo "... src/engine.s"
+	@echo "... src/ini_configuration.o"
+	@echo "... src/ini_configuration.i"
+	@echo "... src/ini_configuration.s"
+	@echo "... src/l_parser.o"
+	@echo "... src/l_parser.i"
+	@echo "... src/l_parser.s"
+	@echo "... src/vector3d.o"
+	@echo "... src/vector3d.i"
+	@echo "... src/vector3d.s"
 .PHONY : help
 
 

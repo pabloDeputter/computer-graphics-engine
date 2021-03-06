@@ -4,13 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/Color.cpp.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/Line2D.cpp.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/Point2D.cpp.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/easy_image.cc.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/engine.cc.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/ini_configuration.cc.o"
-  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/l_parser.cc.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Color.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Face.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Figure.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Line2D.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Point2D.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/easy_image.cc.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/engine.cc.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/ini_configuration.cc.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/l_parser.cc.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/vector3d.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

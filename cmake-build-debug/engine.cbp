@@ -120,43 +120,61 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.cpp">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.cpp">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.cpp">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.cpp">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.cpp">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.cpp">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.cc">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.cc">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.h">
 			<Option target="engine"/>
 		</Unit>
-		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.h">
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.h">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.cc">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.h">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.h">
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/CMakeLists.txt">

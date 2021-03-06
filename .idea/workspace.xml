@@ -1,35 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated />
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="engine" targetName="engine" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="060d63f7-050e-432c-ae1d-e2a93a0d8827" name="Default Changelist" comment="" />
+    <list default="true" id="060d63f7-050e-432c-ae1d-e2a93a0d8827" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings001.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings002.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings003.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings004.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings005.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings006.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings007.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings008.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings009.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings010.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings011.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings012.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings013.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings014.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings015.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings016.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings017.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings018.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings019.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings020.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings021.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings022.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings023.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings024.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings025.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings026.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/line_drawings/line_drawings027.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Face.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Face.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Figure.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Figure.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vector3d.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vector3d.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Color.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Color.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Color.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Line2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Line2D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Line2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Line2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Point2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Point2D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Point2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Point2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/engine.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/engine.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easy_image.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/easy_image.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easy_image.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/easy_image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_configuration.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/ini_configuration.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_configuration.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ini_configuration.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/l_systems/l_systems027.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/ini_files/l_systems/l_systems027.bmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/l_systems/l_systems029.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/ini_files/l_systems/l_systems029.bmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/l_systems/l_systems030.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/ini_files/l_systems/l_systems030.bmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l_parser.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/l_parser.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/l_parser.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/l_parser.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ClangdSettings">
+    <option name="clangTidyViaClangd" value="false" />
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1pI6zgT54UGmBBpzok12EDVCT5T" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="engine" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="engine" TARGET_NAME="engine" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="engine" RUN_TARGET_NAME="engine">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -42,16 +155,78 @@
       <workItem from="1614858527400" duration="14000" />
       <workItem from="1614858544400" duration="44000" />
       <workItem from="1614858594813" duration="45000" />
+      <workItem from="1614975887858" duration="424000" />
+      <workItem from="1614976334945" duration="9000" />
+      <workItem from="1614976357729" duration="5618000" />
+      <workItem from="1615026589750" duration="5762000" />
+      <workItem from="1615041566964" duration="283000" />
+      <workItem from="1615041856973" duration="1249000" />
+      <workItem from="1615043113838" duration="813000" />
+      <workItem from="1615044834301" duration="3119000" />
+      <workItem from="1615047971971" duration="1146000" />
+      <workItem from="1615049131471" duration="4733000" />
+      <workItem from="1615058006718" duration="433000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614858636338">
+    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615027343253">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.732@0.23.1280.732" timestamp="1614858636338" />
+    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.732@0.23.1280.732" timestamp="1615027343253" />
+    <state x="679" y="112" key="#com.intellij.ide.util.MemberChooser" timestamp="1614977383523">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="679" y="112" key="#com.intellij.ide.util.MemberChooser/0.23.1280.732@0.23.1280.732" timestamp="1614977383523" />
+    <state x="656" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614977767082">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="656" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.732@0.23.1280.732" timestamp="1614977767082" />
+    <state width="1238" height="178" key="GridCell.Tab.0.bottom" timestamp="1615047967815">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="178" key="GridCell.Tab.0.bottom/0.23.1280.732@0.23.1280.732" timestamp="1615047967815" />
+    <state width="1238" height="178" key="GridCell.Tab.0.center" timestamp="1615047967814">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="178" key="GridCell.Tab.0.center/0.23.1280.732@0.23.1280.732" timestamp="1615047967814" />
+    <state width="1238" height="178" key="GridCell.Tab.0.left" timestamp="1615047967813">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="178" key="GridCell.Tab.0.left/0.23.1280.732@0.23.1280.732" timestamp="1615047967813" />
+    <state width="1238" height="178" key="GridCell.Tab.0.right" timestamp="1615047967814">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="178" key="GridCell.Tab.0.right/0.23.1280.732@0.23.1280.732" timestamp="1615047967814" />
+    <state x="451" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615047956865">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="451" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.732@0.23.1280.732" timestamp="1615047956865" />
+    <state x="526" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1615042579605">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="526" y="187" key="refactoring.ChangeSignatureDialog/0.23.1280.732@0.23.1280.732" timestamp="1615042579605" />
+    <state x="610" y="79" width="670" height="676" key="search.everywhere.popup" timestamp="1615028069228">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state x="610" y="79" width="670" height="676" key="search.everywhere.popup/0.23.1280.732@0.23.1280.732" timestamp="1615028069228" />
   </component>
 </project>

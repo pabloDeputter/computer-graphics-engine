@@ -77,120 +77,165 @@ include CMakeFiles/engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/engine.dir/flags.make
 
-CMakeFiles/engine.dir/easy_image.cc.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/easy_image.cc.o: ../easy_image.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/easy_image.cc.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/easy_image.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc
+CMakeFiles/engine.dir/src/easy_image.cc.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/easy_image.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/src/easy_image.cc.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/easy_image.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc
 
-CMakeFiles/engine.dir/easy_image.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/easy_image.cc.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc > CMakeFiles/engine.dir/easy_image.cc.i
+CMakeFiles/engine.dir/src/easy_image.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/easy_image.cc.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc > CMakeFiles/engine.dir/src/easy_image.cc.i
 
-CMakeFiles/engine.dir/easy_image.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/easy_image.cc.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/easy_image.cc -o CMakeFiles/engine.dir/easy_image.cc.s
+CMakeFiles/engine.dir/src/easy_image.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/easy_image.cc.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc -o CMakeFiles/engine.dir/src/easy_image.cc.s
 
-CMakeFiles/engine.dir/engine.cc.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/engine.cc.o: ../engine.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/engine.cc.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/engine.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc
+CMakeFiles/engine.dir/src/engine.cc.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/engine.cc.o: ../src/engine.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/src/engine.cc.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/engine.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc
 
-CMakeFiles/engine.dir/engine.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/engine.cc.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc > CMakeFiles/engine.dir/engine.cc.i
+CMakeFiles/engine.dir/src/engine.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/engine.cc.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc > CMakeFiles/engine.dir/src/engine.cc.i
 
-CMakeFiles/engine.dir/engine.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/engine.cc.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine.cc -o CMakeFiles/engine.dir/engine.cc.s
+CMakeFiles/engine.dir/src/engine.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/engine.cc.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc -o CMakeFiles/engine.dir/src/engine.cc.s
 
-CMakeFiles/engine.dir/ini_configuration.cc.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/ini_configuration.cc.o: ../ini_configuration.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/ini_configuration.cc.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/ini_configuration.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.cc
+CMakeFiles/engine.dir/src/ini_configuration.cc.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/ini_configuration.cc.o: ../src/ini_configuration.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/ini_configuration.cc.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/ini_configuration.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc
 
-CMakeFiles/engine.dir/ini_configuration.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/ini_configuration.cc.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.cc > CMakeFiles/engine.dir/ini_configuration.cc.i
+CMakeFiles/engine.dir/src/ini_configuration.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/ini_configuration.cc.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc > CMakeFiles/engine.dir/src/ini_configuration.cc.i
 
-CMakeFiles/engine.dir/ini_configuration.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/ini_configuration.cc.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/ini_configuration.cc -o CMakeFiles/engine.dir/ini_configuration.cc.s
+CMakeFiles/engine.dir/src/ini_configuration.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/ini_configuration.cc.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc -o CMakeFiles/engine.dir/src/ini_configuration.cc.s
 
-CMakeFiles/engine.dir/Line2D.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/Line2D.cpp.o: ../Line2D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/Line2D.cpp.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Line2D.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.cpp
+CMakeFiles/engine.dir/src/Line2D.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Line2D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/Line2D.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Line2D.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp
 
-CMakeFiles/engine.dir/Line2D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Line2D.cpp.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.cpp > CMakeFiles/engine.dir/Line2D.cpp.i
+CMakeFiles/engine.dir/src/Line2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Line2D.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp > CMakeFiles/engine.dir/src/Line2D.cpp.i
 
-CMakeFiles/engine.dir/Line2D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Line2D.cpp.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Line2D.cpp -o CMakeFiles/engine.dir/Line2D.cpp.s
+CMakeFiles/engine.dir/src/Line2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Line2D.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp -o CMakeFiles/engine.dir/src/Line2D.cpp.s
 
-CMakeFiles/engine.dir/Color.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/Color.cpp.o: ../Color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/Color.cpp.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Color.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.cpp
+CMakeFiles/engine.dir/src/Color.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Color.cpp.o: ../src/Color.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/Color.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Color.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.cpp
 
-CMakeFiles/engine.dir/Color.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Color.cpp.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.cpp > CMakeFiles/engine.dir/Color.cpp.i
+CMakeFiles/engine.dir/src/Color.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Color.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.cpp > CMakeFiles/engine.dir/src/Color.cpp.i
 
-CMakeFiles/engine.dir/Color.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Color.cpp.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Color.cpp -o CMakeFiles/engine.dir/Color.cpp.s
+CMakeFiles/engine.dir/src/Color.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Color.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.cpp -o CMakeFiles/engine.dir/src/Color.cpp.s
 
-CMakeFiles/engine.dir/l_parser.cc.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/l_parser.cc.o: ../l_parser.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/l_parser.cc.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/l_parser.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.cc
+CMakeFiles/engine.dir/src/l_parser.cc.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/l_parser.cc.o: ../src/l_parser.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/l_parser.cc.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/l_parser.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.cc
 
-CMakeFiles/engine.dir/l_parser.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/l_parser.cc.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.cc > CMakeFiles/engine.dir/l_parser.cc.i
+CMakeFiles/engine.dir/src/l_parser.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/l_parser.cc.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.cc > CMakeFiles/engine.dir/src/l_parser.cc.i
 
-CMakeFiles/engine.dir/l_parser.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/l_parser.cc.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/l_parser.cc -o CMakeFiles/engine.dir/l_parser.cc.s
+CMakeFiles/engine.dir/src/l_parser.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/l_parser.cc.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.cc -o CMakeFiles/engine.dir/src/l_parser.cc.s
 
-CMakeFiles/engine.dir/Point2D.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/Point2D.cpp.o: ../Point2D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/Point2D.cpp.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/Point2D.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.cpp
+CMakeFiles/engine.dir/src/Point2D.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Point2D.cpp.o: ../src/Point2D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/Point2D.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Point2D.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp
 
-CMakeFiles/engine.dir/Point2D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/Point2D.cpp.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.cpp > CMakeFiles/engine.dir/Point2D.cpp.i
+CMakeFiles/engine.dir/src/Point2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Point2D.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp > CMakeFiles/engine.dir/src/Point2D.cpp.i
 
-CMakeFiles/engine.dir/Point2D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/Point2D.cpp.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/Point2D.cpp -o CMakeFiles/engine.dir/Point2D.cpp.s
+CMakeFiles/engine.dir/src/Point2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Point2D.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp -o CMakeFiles/engine.dir/src/Point2D.cpp.s
+
+CMakeFiles/engine.dir/src/Face.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Face.cpp.o: ../src/Face.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/Face.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Face.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.cpp
+
+CMakeFiles/engine.dir/src/Face.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Face.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.cpp > CMakeFiles/engine.dir/src/Face.cpp.i
+
+CMakeFiles/engine.dir/src/Face.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Face.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.cpp -o CMakeFiles/engine.dir/src/Face.cpp.s
+
+CMakeFiles/engine.dir/src/Figure.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/Figure.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/Figure.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Figure.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.cpp
+
+CMakeFiles/engine.dir/src/Figure.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Figure.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.cpp > CMakeFiles/engine.dir/src/Figure.cpp.i
+
+CMakeFiles/engine.dir/src/Figure.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Figure.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.cpp -o CMakeFiles/engine.dir/src/Figure.cpp.s
+
+CMakeFiles/engine.dir/src/vector3d.cc.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/vector3d.cc.o: ../src/vector3d.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/vector3d.cc.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/vector3d.cc.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc
+
+CMakeFiles/engine.dir/src/vector3d.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/vector3d.cc.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc > CMakeFiles/engine.dir/src/vector3d.cc.i
+
+CMakeFiles/engine.dir/src/vector3d.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/vector3d.cc.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc -o CMakeFiles/engine.dir/src/vector3d.cc.s
 
 # Object files for target engine
 engine_OBJECTS = \
-"CMakeFiles/engine.dir/easy_image.cc.o" \
-"CMakeFiles/engine.dir/engine.cc.o" \
-"CMakeFiles/engine.dir/ini_configuration.cc.o" \
-"CMakeFiles/engine.dir/Line2D.cpp.o" \
-"CMakeFiles/engine.dir/Color.cpp.o" \
-"CMakeFiles/engine.dir/l_parser.cc.o" \
-"CMakeFiles/engine.dir/Point2D.cpp.o"
+"CMakeFiles/engine.dir/src/easy_image.cc.o" \
+"CMakeFiles/engine.dir/src/engine.cc.o" \
+"CMakeFiles/engine.dir/src/ini_configuration.cc.o" \
+"CMakeFiles/engine.dir/src/Line2D.cpp.o" \
+"CMakeFiles/engine.dir/src/Color.cpp.o" \
+"CMakeFiles/engine.dir/src/l_parser.cc.o" \
+"CMakeFiles/engine.dir/src/Point2D.cpp.o" \
+"CMakeFiles/engine.dir/src/Face.cpp.o" \
+"CMakeFiles/engine.dir/src/Figure.cpp.o" \
+"CMakeFiles/engine.dir/src/vector3d.cc.o"
 
 # External object files for target engine
 engine_EXTERNAL_OBJECTS =
 
-engine: CMakeFiles/engine.dir/easy_image.cc.o
-engine: CMakeFiles/engine.dir/engine.cc.o
-engine: CMakeFiles/engine.dir/ini_configuration.cc.o
-engine: CMakeFiles/engine.dir/Line2D.cpp.o
-engine: CMakeFiles/engine.dir/Color.cpp.o
-engine: CMakeFiles/engine.dir/l_parser.cc.o
-engine: CMakeFiles/engine.dir/Point2D.cpp.o
+engine: CMakeFiles/engine.dir/src/easy_image.cc.o
+engine: CMakeFiles/engine.dir/src/engine.cc.o
+engine: CMakeFiles/engine.dir/src/ini_configuration.cc.o
+engine: CMakeFiles/engine.dir/src/Line2D.cpp.o
+engine: CMakeFiles/engine.dir/src/Color.cpp.o
+engine: CMakeFiles/engine.dir/src/l_parser.cc.o
+engine: CMakeFiles/engine.dir/src/Point2D.cpp.o
+engine: CMakeFiles/engine.dir/src/Face.cpp.o
+engine: CMakeFiles/engine.dir/src/Figure.cpp.o
+engine: CMakeFiles/engine.dir/src/vector3d.cc.o
 engine: CMakeFiles/engine.dir/build.make
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
