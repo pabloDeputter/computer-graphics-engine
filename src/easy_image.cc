@@ -16,10 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "easy_image.h"
-#include <algorithm>
 #include <assert.h>
-#include <math.h>
-#include <iostream>
 
 #ifndef le32toh
 #define le32toh(x) (x)
@@ -386,175 +383,11 @@ std::istream& img::operator>>(std::istream& in, EasyImage & image)
 	return in;
 }
 
-std::tuple<std::pair<double, double>, std::pair<double, double>> img::EasyImage::Line2D_findMax(Lines2D &line2D) {
-
-    double x = line2D.begin()->getP1().getX();
-    double X = line2D.begin()->getP1().getX();
-
-    double y = line2D.begin()->getP2().getY();
-    double Y = line2D.begin()->getP2().getY();
-
-    // Stackoverflow source cannot find :(
-    for (Line2D & i : line2D) {
-
-        double p1x = i.getP1().getX();
-        double p1y = i.getP1().getY();
-
-        x = p1x < x ? p1x : x;
-        y = p1y < y ? p1y : y;
-        X = p1x > X ? p1x : X;
-        Y = p1y > Y ? p1y : Y;
-
-        double p2x = i.getP2().getX();
-        double p2y = i.getP2().getY();
-
-        x = p2x < x ? p2x : x;
-        y = p2y < y ? p2y : y;
-        X = p2x > X ? p2x : X;
-        Y = p2y > Y ? p2y : Y;
-    }
-    return std::make_tuple(std::make_pair(x, y), std::make_pair(X, Y));
-}
-
-void img::EasyImage::draw2DLines(Lines2D & line2D, const int size) {
-
-    // Calculate x-min, y-min, x-max and y-max
-    std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D_findMax(line2D);
-
-    double x = std::get<0>(max_line2D).first;
-    double y = std::get<0>(max_line2D).second;
-
-    double X = std::get<1>(max_line2D).first;
-    double Y = std::get<1>(max_line2D).second;
-
-    // Calculate x-range, y-range
-    double xrange = X - x;
-    double yrange = Y - y;
-
-    // Calculate max(xrange, yrange)
-    double range = xrange > yrange ? xrange : yrange;
-
-    // Calculate dimensions of image
-    double image_x = size*(xrange/range);
-    double image_y = size*(yrange/range);
-
-    // Calculate scale-factor
-    double d = 0.95*(image_x/xrange);
-
-    // Multiply coordinates of all points with scale-factor
-    for (Line2D & i : line2D) {
-        i.line2D_scale(d);
-    }
-
-    double DC_x = d*((x + X)/2);
-    double DC_y = d*((y + Y)/2);
-
-    double dx = (image_x/2) - DC_x;
-    double dy = (image_y/2) - DC_y;
-
-    // Move all coordinates
-    for (Line2D & i : line2D) {
-        i.line2D_move(dx, dy);
-    }
-
-    // Round all points
-    for (Line2D & i : line2D) {
-        i.round();
-    }
+void img::EasyImage::image_resize(const int &image_x, const int &image_y) {
 
     // Change image dimensions
     this->width = static_cast<int>(std::round(image_x));
     this->height = static_cast<int>(std::round(image_y));
-
-    // Draw lines
-    for (Line2D & i : line2D) {
-
-        std::tuple<double, double, double> color_values = i.getColor().getColor();
-        this->draw_line(i.getP1().getX(), i.getP1().getY()
-                        , i.getP2().getX(), i.getP2().getY()
-                        , img::Color(std::get<0>(color_values)
-                        ,std::get<1>(color_values)
-                        , std::get<2>(color_values)));
-    }
 }
-
-std::string img::EasyImage::generate_string(const LParser::LSystem & l_system, int iter, std::string & l_system_string) {
-
-    // Base case of recursion
-    if (iter == 0) return l_system_string;
-
-    // Make new string
-    std::string x;
-
-    // Iterate over all char's
-    for (const char & i : l_system_string) {
-        if (i == '+' || i == '-' || i == '[' || i == ']' || i == '(' || i == ')') { // Ignore these char's
-            x += i;
-            continue;
-        }
-        else if (l_system.get_stochastic()) {
-            x += l_system.get_replacement_stochastic(i);
-            continue;
-        }
-        // Find replacement for char
-        x += l_system.get_replacement(i);
-    }
-    // Enter recursion
-    return generate_string(l_system, iter - 1, x);
-}
-
-void img::EasyImage::drawLSystem(LParser::LSystem2D & l_system_2D, const int size, const cc::Color & color) {
-
-    int iter = l_system_2D.get_nr_iterations();
-    std::string x = l_system_2D.get_initiator();
-
-    // Generate full string
-    std::string l_system_string = generate_string(l_system_2D, iter, x);
-
-    double angle = l_system_2D.get_starting_angle() * M_PI / 180;
-
-    Point2D starting_position = Point2D(0.0, 0.0);
-
-    Lines2D l_system_lines;
-
-    std::stack<std::pair<Point2D, double>> stack;
-
-    for (const char & i : l_system_string) {
-        // Rotate left
-        if (i == '+') {
-            angle += l_system_2D.get_angle() * M_PI / 180;
-        }
-        // Rotate right
-        else if (i == '-') {
-            angle -= l_system_2D.get_angle() * M_PI / 180;
-        }
-
-        // Push on stack
-        else if (i == '(' || i == '[') {
-            stack.push(std::make_pair(starting_position, angle));
-        }
-        // Pop the stack
-        else if (i == ')' || i == ']') {
-            starting_position = stack.top().first;
-            angle = stack.top().second;
-            stack.pop();
-        }
-        else {
-            // Move forward
-            Point2D old_position = starting_position;
-
-            starting_position.setX(starting_position.getX() + std::cos(angle));
-            starting_position.setY(starting_position.getY() + std::sin(angle));
-
-            // "Draw" line
-            if (l_system_2D.draw(i)) {
-                Line2D y = Line2D(old_position, starting_position, color);
-                l_system_lines.emplace_back(y);
-            }
-        }
-    }
-    this->draw2DLines(l_system_lines, size);
-}
-
 
 

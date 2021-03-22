@@ -6,8 +6,10 @@
 #define ENGINE_LINE2D_H
 
 #include <list>
+#include <cmath>
 #include "Point2D.h"
 #include "Color.h"
+#include "easy_image.h"
 
 class Line2D;
 
@@ -98,6 +100,22 @@ public:
     * \brief Round all Point2D members from doubles to int
     */
     void round();
+
+    /**
+    * \brief Find x-min, y-min, x-max and y-max of list
+    *
+    * \param line2D 	List with all the Line2D objects to be represented on image
+     * \return          A tuple of pairs of doubles containing x-min, y-min, x-max and y-max respectively
+    */
+    static std::tuple<std::pair<double, double>, std::pair<double, double>> Line2D_findMax(Lines2D & line2D);
+
+    /**
+    * \brief            Draws list of Line2D objects representing straight lines on image
+    *
+    * \param line2D 	List with all the straight lines needed to be represented
+    * \param size       Maximum amount of pixels of image, cannot be overwritten
+    */
+    static void draw2DLines(Lines2D & line2D, const int & size, img::EasyImage & image);
 };
 
 

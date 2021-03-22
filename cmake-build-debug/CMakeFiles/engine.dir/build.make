@@ -207,6 +207,32 @@ CMakeFiles/engine.dir/src/vector3d.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/vector3d.cc.s"
 	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.cc -o CMakeFiles/engine.dir/src/vector3d.cc.s
 
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/LSystem2D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/src/LSystem2D.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/LSystem2D.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.cpp
+
+CMakeFiles/engine.dir/src/LSystem2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/LSystem2D.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.cpp > CMakeFiles/engine.dir/src/LSystem2D.cpp.i
+
+CMakeFiles/engine.dir/src/LSystem2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/LSystem2D.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.cpp -o CMakeFiles/engine.dir/src/LSystem2D.cpp.s
+
+CMakeFiles/engine.dir/src/Platonic.cpp.o: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Platonic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/src/Platonic.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/engine.dir/src/Platonic.cpp.o -c /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp
+
+CMakeFiles/engine.dir/src/Platonic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/Platonic.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp > CMakeFiles/engine.dir/src/Platonic.cpp.i
+
+CMakeFiles/engine.dir/src/Platonic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/Platonic.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp -o CMakeFiles/engine.dir/src/Platonic.cpp.s
+
 # Object files for target engine
 engine_OBJECTS = \
 "CMakeFiles/engine.dir/src/easy_image.cc.o" \
@@ -218,7 +244,9 @@ engine_OBJECTS = \
 "CMakeFiles/engine.dir/src/Point2D.cpp.o" \
 "CMakeFiles/engine.dir/src/Face.cpp.o" \
 "CMakeFiles/engine.dir/src/Figure.cpp.o" \
-"CMakeFiles/engine.dir/src/vector3d.cc.o"
+"CMakeFiles/engine.dir/src/vector3d.cc.o" \
+"CMakeFiles/engine.dir/src/LSystem2D.cpp.o" \
+"CMakeFiles/engine.dir/src/Platonic.cpp.o"
 
 # External object files for target engine
 engine_EXTERNAL_OBJECTS =
@@ -233,9 +261,11 @@ engine: CMakeFiles/engine.dir/src/Point2D.cpp.o
 engine: CMakeFiles/engine.dir/src/Face.cpp.o
 engine: CMakeFiles/engine.dir/src/Figure.cpp.o
 engine: CMakeFiles/engine.dir/src/vector3d.cc.o
+engine: CMakeFiles/engine.dir/src/LSystem2D.cpp.o
+engine: CMakeFiles/engine.dir/src/Platonic.cpp.o
 engine: CMakeFiles/engine.dir/build.make
 engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

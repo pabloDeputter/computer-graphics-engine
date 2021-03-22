@@ -522,12 +522,6 @@ std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
 
     // Verschillende Stackoverflow sources hier voor gebruikt
 
-    // Get time seed to generate random number
-    unsigned seed = time(0);
-
-    // Insert time seed
-    srand(seed);
-
     // Current replacement-rule
     std::pair<char, std::pair<double, std::string>> current;
 
@@ -539,8 +533,10 @@ std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
         }
     }
 
+    auto output = 0 + (rand() % static_cast<int>(100 - 0 + 1));
+
     // Traverse probabilities
-    while (( rand() / double(RAND_MAX) * (100 / current.second.first * 100)) > 1) {
+    while ((0 + (rand() % static_cast<int>(100 - 0 + 1))) - (current.second.first * 100) > 1) {
         for (const std::pair<char, std::pair<double, std::string>> i : replacementrules) {
             if (i.first == c && i != current) {
                 current = i;

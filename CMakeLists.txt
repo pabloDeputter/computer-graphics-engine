@@ -33,7 +33,31 @@ set(engine_sources
 		src/Figure.h
 		src/vector3d.h
 		src/vector3d.cc
-		)
+		src/LSystem2D.cpp
+		src/LSystem2D.h src/Platonic.cpp src/Platonic.h)
+
+#set(engine_sources
+#		easy_image.cc
+#		engine.cc
+#		ini_configuration.cc
+#		ini_configuration.h
+#		Line2D.cpp
+#		Line2D.h
+#		Color.cpp
+#		Color.h
+#		easy_image.h
+#		l_parser.cc
+#		l_parser.h
+#		Point2D.cpp
+#		Point2D.h
+#		Face.cpp
+#		Face.h
+#		Figure.cpp
+#		Figure.h
+#		vector3d.h
+#		vector3d.cc
+#		LSystem2D.cpp
+#		LSystem2D.h)
 
 ############################################################
 # Create an executable

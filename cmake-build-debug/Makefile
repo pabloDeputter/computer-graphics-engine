@@ -270,6 +270,33 @@ src/Figure.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Figure.cpp.s
 .PHONY : src/Figure.cpp.s
 
+src/LSystem2D.o: src/LSystem2D.cpp.o
+
+.PHONY : src/LSystem2D.o
+
+# target to build an object file
+src/LSystem2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem2D.cpp.o
+.PHONY : src/LSystem2D.cpp.o
+
+src/LSystem2D.i: src/LSystem2D.cpp.i
+
+.PHONY : src/LSystem2D.i
+
+# target to preprocess a source file
+src/LSystem2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem2D.cpp.i
+.PHONY : src/LSystem2D.cpp.i
+
+src/LSystem2D.s: src/LSystem2D.cpp.s
+
+.PHONY : src/LSystem2D.s
+
+# target to generate assembly for a file
+src/LSystem2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem2D.cpp.s
+.PHONY : src/LSystem2D.cpp.s
+
 src/Line2D.o: src/Line2D.cpp.o
 
 .PHONY : src/Line2D.o
@@ -296,6 +323,33 @@ src/Line2D.s: src/Line2D.cpp.s
 src/Line2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Line2D.cpp.s
 .PHONY : src/Line2D.cpp.s
+
+src/Platonic.o: src/Platonic.cpp.o
+
+.PHONY : src/Platonic.o
+
+# target to build an object file
+src/Platonic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Platonic.cpp.o
+.PHONY : src/Platonic.cpp.o
+
+src/Platonic.i: src/Platonic.cpp.i
+
+.PHONY : src/Platonic.i
+
+# target to preprocess a source file
+src/Platonic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Platonic.cpp.i
+.PHONY : src/Platonic.cpp.i
+
+src/Platonic.s: src/Platonic.cpp.s
+
+.PHONY : src/Platonic.s
+
+# target to generate assembly for a file
+src/Platonic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Platonic.cpp.s
+.PHONY : src/Platonic.cpp.s
 
 src/Point2D.o: src/Point2D.cpp.o
 
@@ -481,9 +535,15 @@ help:
 	@echo "... src/Figure.o"
 	@echo "... src/Figure.i"
 	@echo "... src/Figure.s"
+	@echo "... src/LSystem2D.o"
+	@echo "... src/LSystem2D.i"
+	@echo "... src/LSystem2D.s"
 	@echo "... src/Line2D.o"
 	@echo "... src/Line2D.i"
 	@echo "... src/Line2D.s"
+	@echo "... src/Platonic.o"
+	@echo "... src/Platonic.i"
+	@echo "... src/Platonic.s"
 	@echo "... src/Point2D.o"
 	@echo "... src/Point2D.i"
 	@echo "... src/Point2D.s"

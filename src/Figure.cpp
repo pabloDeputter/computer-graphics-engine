@@ -4,6 +4,29 @@
 
 #include "Figure.h"
 
+void Figure::add_point(const std::tuple<int, int, int> & x) {
+
+    points.emplace_back(Vector3D::point(std::get<0>(x), std::get<1>(x), std::get<2>(x)));
+}
+
+void Figure::add_point_double(const std::tuple<double, double, double> &x) {
+
+    points.emplace_back(Vector3D::point(std::get<0>(x), std::get<1>(x), std::get<2>(x)));
+}
+
+
+void Figure::correct_indexes() {
+
+    for (Face & i : faces) {
+        i.correct_indexes();
+    }
+}
+
+void Figure::clear_faces() {
+
+    faces.clear();
+}
+
 Matrix Figure::scale_figure(const double & scaleFactor) {
 
     Matrix x;
@@ -102,20 +125,21 @@ Lines2D Figure::do_projection() {
 
     std::vector<Point2D> array_points;
     for (const Vector3D & i : this->points) {
-        // TODO
         // d is constant 1
         array_points.emplace_back(this->do_projection(i, 1));
     }
 
     Lines2D array_lines;
+
+    // Traverse "faces" of figure
     for (const Face & i : this->faces) {
-        for (unsigned long j = 0; j != i.get_point_indexes().size(); j++) {
+
+        for (int j = 0; j != i.get_point_indexes().size(); j++) {
+
             Point2D a = array_points[i.get_point_indexes()[j%i.get_point_indexes().size()]];
-            Point2D b = array_points[i.get_point_indexes()[(j + 1)%i.get_point_indexes().size()]];
+            Point2D b = array_points[i.get_point_indexes()[(j+1)%i.get_point_indexes().size()]];
             array_lines.emplace_back(a, b, this->color);
         }
     }
-
     return array_lines;
-
 }

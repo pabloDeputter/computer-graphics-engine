@@ -40,6 +40,14 @@ public:
         Figure::color = x;
     }
 
+    void add_point(const std::tuple<int, int, int> & x);
+
+    void add_point_double(const std::tuple<double, double, double> & x);
+
+    void correct_indexes();
+
+    void clear_faces();
+
     static Matrix scale_figure(const double & scaleFactor);
 
     static Matrix rotateX(const double & angle);

@@ -138,10 +138,22 @@
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h">
 			<Option target="engine"/>
 		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.cpp">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.h">
+			<Option target="engine"/>
+		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp">
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h">
 			<Option target="engine"/>
 		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp">

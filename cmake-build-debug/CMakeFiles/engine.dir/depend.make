@@ -13,27 +13,45 @@ CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/Figure.cpp
 CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/Figure.h
 CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/Line2D.h
 CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/Point2D.h
+CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/easy_image.h
 CMakeFiles/engine.dir/src/Figure.cpp.o: ../src/vector3d.h
+
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/Color.h
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/LSystem2D.cpp
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/LSystem2D.h
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/Line2D.h
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/Point2D.h
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/easy_image.h
+CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/l_parser.h
 
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Color.h
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Line2D.cpp
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Line2D.h
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Point2D.h
+CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/easy_image.h
+
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Color.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Face.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Figure.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Line2D.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Platonic.cpp
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Platonic.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/Point2D.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/easy_image.h
+CMakeFiles/engine.dir/src/Platonic.cpp.o: ../src/vector3d.h
 
 CMakeFiles/engine.dir/src/Point2D.cpp.o: ../src/Point2D.cpp
 CMakeFiles/engine.dir/src/Point2D.cpp.o: ../src/Point2D.h
 
-CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/Color.h
-CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/Line2D.h
-CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/Point2D.h
 CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/easy_image.cc
 CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/easy_image.h
-CMakeFiles/engine.dir/src/easy_image.cc.o: ../src/l_parser.h
 
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Color.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Face.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Figure.h
+CMakeFiles/engine.dir/src/engine.cc.o: ../src/LSystem2D.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Line2D.h
+CMakeFiles/engine.dir/src/engine.cc.o: ../src/Platonic.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Point2D.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/easy_image.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/engine.cc
