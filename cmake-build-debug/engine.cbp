@@ -144,6 +144,12 @@
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.h">
 			<Option target="engine"/>
 		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.cpp">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.h">
+			<Option target="engine"/>
+		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp">
 			<Option target="engine"/>
 		</Unit>

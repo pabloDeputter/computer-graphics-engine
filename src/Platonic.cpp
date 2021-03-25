@@ -311,6 +311,7 @@ Figure Platonic::torus(const double &r, const double &R, const int &n, const int
         }
     }
 
+
     // torus.correct_indexes();
 
     return torus;

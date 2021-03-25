@@ -24,6 +24,17 @@ CMakeFiles/engine.dir/src/LSystem2D.cpp.o
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.cpp
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.h
 CMakeFiles/engine.dir/src/Line2D.cpp.o
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp
@@ -51,6 +62,7 @@ CMakeFiles/engine.dir/src/engine.cc.o
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Face.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem2D.h
+ /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
  /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h

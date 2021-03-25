@@ -229,14 +229,6 @@ namespace img
 			 */
 			void image_resize(const int & image_x, const int & image_y);
 
-            /**
-            * \brief            Draws list of Line2D objects representing straight lines on image
-            *
-            * \param line2D 	List with all the straight lines needed to be represented
-            * \param size       Maximum amount of pixels of image, cannot be overwritten
-            */
-//            void draw2DLines(Lines2D & line2D, const int size);
-
 		private:
 			friend std::istream& operator>>(std::istream& in, EasyImage & image);
 			/**

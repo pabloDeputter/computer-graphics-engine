@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/src/Face.cpp.o"
   "CMakeFiles/engine.dir/src/Figure.cpp.o"
   "CMakeFiles/engine.dir/src/LSystem2D.cpp.o"
+  "CMakeFiles/engine.dir/src/LSystem3D.cpp.o"
   "CMakeFiles/engine.dir/src/Line2D.cpp.o"
   "CMakeFiles/engine.dir/src/Platonic.cpp.o"
   "CMakeFiles/engine.dir/src/Point2D.cpp.o"

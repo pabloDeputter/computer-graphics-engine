@@ -36,6 +36,22 @@ Color.h
 Line2D.h
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h
 
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.cpp
+LSystem3D.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.h
+fstream
+-
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/LSystem3D.h
+stack
+-
+l_parser.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.h
+Color.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Color.h
+Figure.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
+
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.h
 list
 -
@@ -48,14 +64,6 @@ Color.h
 easy_image.h
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.h
 
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp
-Platonic.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
-
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
-Figure.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
-
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h
 
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.h
@@ -66,6 +74,20 @@ string
 cmath
 -
 iostream
+-
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/l_parser.h
+map
+-
+string
+-
+set
+-
+exception
+-
+cstdlib
+-
+ctime
 -
 
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/vector3d.h

@@ -297,6 +297,33 @@ src/LSystem2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem2D.cpp.s
 .PHONY : src/LSystem2D.cpp.s
 
+src/LSystem3D.o: src/LSystem3D.cpp.o
+
+.PHONY : src/LSystem3D.o
+
+# target to build an object file
+src/LSystem3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem3D.cpp.o
+.PHONY : src/LSystem3D.cpp.o
+
+src/LSystem3D.i: src/LSystem3D.cpp.i
+
+.PHONY : src/LSystem3D.i
+
+# target to preprocess a source file
+src/LSystem3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem3D.cpp.i
+.PHONY : src/LSystem3D.cpp.i
+
+src/LSystem3D.s: src/LSystem3D.cpp.s
+
+.PHONY : src/LSystem3D.s
+
+# target to generate assembly for a file
+src/LSystem3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/LSystem3D.cpp.s
+.PHONY : src/LSystem3D.cpp.s
+
 src/Line2D.o: src/Line2D.cpp.o
 
 .PHONY : src/Line2D.o
@@ -538,6 +565,9 @@ help:
 	@echo "... src/LSystem2D.o"
 	@echo "... src/LSystem2D.i"
 	@echo "... src/LSystem2D.s"
+	@echo "... src/LSystem3D.o"
+	@echo "... src/LSystem3D.i"
+	@echo "... src/LSystem3D.s"
 	@echo "... src/Line2D.o"
 	@echo "... src/Line2D.i"
 	@echo "... src/Line2D.s"

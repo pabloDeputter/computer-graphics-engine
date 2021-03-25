@@ -1,19 +1,23 @@
 //
-// Created by Pablo Deputter on 08/03/2021.
+// Created by Pablo Deputter on 22/03/2021.
 //
 
-#ifndef ENGINE_LSYSTEM2D_H
-#define ENGINE_LSYSTEM2D_H
-
+#ifndef ENGINE_LSYSTEM3D_H
+#define ENGINE_LSYSTEM3D_H
 
 #include <stack>
 #include "l_parser.h"
 #include "Color.h"
-#include "Point2D.h"
-#include "Line2D.h"
+#include "Figure.h"
 
+namespace LSystem_3D {
 
-namespace LSystem_2D {
+    /**
+     * \brief           Converts a LSystem to a list of Lines2D objects representing straight lines
+    * @param l_system_3D  LSystem containing all the data that is needed to replace char's in the string by replacement rules
+    * @param color     Color of lines that need to be drawn
+    */
+    Figure drawLSystem(LParser::LSystem3D & l_system_3D, const cc::Color & color);
 
     /**
     * \brief            Generate LSystem string recursively
@@ -24,16 +28,7 @@ namespace LSystem_2D {
     */
     std::string generate_string(const LParser::LSystem & l_system, int iter, std::string & l_system_string);
 
-    /**
-     * \brief           Converts a LSystem to a list of Lines2D objects representing straight lines
-     * @param l_system_2D  LSystem containing all the data that is needed to replace char's in the string by replacement rules
-     * @param color     Color of lines that need to be drawn
-     */
-    Lines2D drawLSystem(LParser::LSystem2D & l_system_2D, const cc::Color & color);
-
-
-
 };
 
 
-#endif //ENGINE_LSYSTEM2D_H
+#endif //ENGINE_LSYSTEM3D_H

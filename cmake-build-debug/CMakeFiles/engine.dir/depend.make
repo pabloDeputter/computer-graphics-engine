@@ -24,6 +24,17 @@ CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/Point2D.h
 CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/easy_image.h
 CMakeFiles/engine.dir/src/LSystem2D.cpp.o: ../src/l_parser.h
 
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/Color.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/Face.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/Figure.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/LSystem3D.cpp
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/LSystem3D.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/Line2D.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/Point2D.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/easy_image.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/l_parser.h
+CMakeFiles/engine.dir/src/LSystem3D.cpp.o: ../src/vector3d.h
+
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Color.h
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Line2D.cpp
 CMakeFiles/engine.dir/src/Line2D.cpp.o: ../src/Line2D.h
@@ -50,6 +61,7 @@ CMakeFiles/engine.dir/src/engine.cc.o: ../src/Color.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Face.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Figure.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/LSystem2D.h
+CMakeFiles/engine.dir/src/engine.cc.o: ../src/LSystem3D.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Line2D.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Platonic.h
 CMakeFiles/engine.dir/src/engine.cc.o: ../src/Point2D.h

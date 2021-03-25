@@ -9,6 +9,7 @@
 #include "Color.h"
 #include "Figure.h"
 #include "LSystem2D.h"
+#include "LSystem3D.h"
 #include "Platonic.h"
 
 using namespace std;
@@ -47,6 +48,22 @@ cc::Color scale_colors_(std::vector<double> & colors) {
 LParser::LSystem2D LSystem2D(const std::string & file_name) {
 
     LParser::LSystem2D l_system;
+
+    std::ifstream input_stream(file_name);
+    input_stream >> l_system;
+    input_stream.close();
+    return l_system;
+
+}
+
+/**
+ * \brief Read a LSystem3D file in
+ * \param file_name Name of input-file
+ * \return LSystem3D object-type
+ */
+LParser::LSystem3D LSystem3D(const std::string & file_name) {
+
+    LParser::LSystem3D l_system;
 
     std::ifstream input_stream(file_name);
     input_stream >> l_system;
@@ -146,6 +163,14 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                                          configuration[figure_name]["R"].as_double_or_die(),
                                          configuration[figure_name]["n"].as_double_or_die(),
                                          configuration[figure_name]["m"].as_double_or_die());
+            }
+
+            else if (figure_type == "3DLSystem") {
+                std::string file_name = configuration[figure_name]["inputfile"].as_string_or_die();
+                LParser::LSystem3D l_system = LSystem3D(file_name);
+                // TODO
+                figure = LSystem_3D::drawLSystem(l_system, cc::Color());
+
             }
 
             else if (figure_type == "LineDrawing") {
