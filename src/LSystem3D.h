@@ -15,9 +15,8 @@ namespace LSystem_3D {
     /**
      * \brief           Converts a LSystem to a list of Lines2D objects representing straight lines
     * @param l_system_3D  LSystem containing all the data that is needed to replace char's in the string by replacement rules
-    * @param color     Color of lines that need to be drawn
     */
-    Figure drawLSystem(LParser::LSystem3D & l_system_3D, const cc::Color & color);
+    Figure drawLSystem(LParser::LSystem3D & l_system_3D);
 
     /**
     * \brief            Generate LSystem string recursively

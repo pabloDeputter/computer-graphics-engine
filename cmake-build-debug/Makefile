@@ -405,6 +405,60 @@ src/Point2D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Point2D.cpp.s
 .PHONY : src/Point2D.cpp.s
 
+src/Utils.o: src/Utils.cpp.o
+
+.PHONY : src/Utils.o
+
+# target to build an object file
+src/Utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Utils.cpp.o
+.PHONY : src/Utils.cpp.o
+
+src/Utils.i: src/Utils.cpp.i
+
+.PHONY : src/Utils.i
+
+# target to preprocess a source file
+src/Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Utils.cpp.i
+.PHONY : src/Utils.cpp.i
+
+src/Utils.s: src/Utils.cpp.s
+
+.PHONY : src/Utils.s
+
+# target to generate assembly for a file
+src/Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/Utils.cpp.s
+.PHONY : src/Utils.cpp.s
+
+src/ZBuffer.o: src/ZBuffer.cpp.o
+
+.PHONY : src/ZBuffer.o
+
+# target to build an object file
+src/ZBuffer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ZBuffer.cpp.o
+.PHONY : src/ZBuffer.cpp.o
+
+src/ZBuffer.i: src/ZBuffer.cpp.i
+
+.PHONY : src/ZBuffer.i
+
+# target to preprocess a source file
+src/ZBuffer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ZBuffer.cpp.i
+.PHONY : src/ZBuffer.cpp.i
+
+src/ZBuffer.s: src/ZBuffer.cpp.s
+
+.PHONY : src/ZBuffer.s
+
+# target to generate assembly for a file
+src/ZBuffer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/ZBuffer.cpp.s
+.PHONY : src/ZBuffer.cpp.s
+
 src/easy_image.o: src/easy_image.cc.o
 
 .PHONY : src/easy_image.o
@@ -577,6 +631,12 @@ help:
 	@echo "... src/Point2D.o"
 	@echo "... src/Point2D.i"
 	@echo "... src/Point2D.s"
+	@echo "... src/Utils.o"
+	@echo "... src/Utils.i"
+	@echo "... src/Utils.s"
+	@echo "... src/ZBuffer.o"
+	@echo "... src/ZBuffer.i"
+	@echo "... src/ZBuffer.s"
 	@echo "... src/easy_image.o"
 	@echo "... src/easy_image.i"
 	@echo "... src/easy_image.s"

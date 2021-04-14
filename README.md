@@ -19,8 +19,8 @@ X: Niet werkend of niet geïmplementeerd
 |   | Bol                       | V |
 |   | Torus                     | V |
 |   | 3D L-systemen             | V |
-| 4 | Z-buffering (lijnen)      |   |
-| 5 | Triangulatie              |   |
+| 4 | Z-buffering (lijnen)      | V |
+| 5 | Triangulatie              | V |
 |   | Z-buffering (driehoeken)  |   |
 | 6 | 3D fractalen              |   |
 |   | BuckyBall                 |   |
@@ -34,7 +34,7 @@ X: Niet werkend of niet geïmplementeerd
 |   | Texture mapping           |   |
 | 9 | Bollen en cylinders       |   |
 |   | UV-coordinaten            |   |
-|   | Cube mapping              |   |
+|   | Cube mapping              | :construction_worker: |
 
 Geïmplementeerde vorm van texture mapping: ...
 

@@ -28,6 +28,7 @@ Figure Platonic::cube() {
     cube.get_faces().emplace_back(Face({1,6,2,5}));
 
     cube.correct_indexes();
+
     return cube;
 }
 
@@ -35,10 +36,10 @@ Figure Platonic::tetrahedron() {
 
     Figure tetrahedron;
 
-    tetrahedron.add_point(std::make_tuple(1,-1,-1));
-    tetrahedron.add_point(std::make_tuple(-1,1,-1));
-    tetrahedron.add_point(std::make_tuple(1,1,1));
-    tetrahedron.add_point(std::make_tuple(-1,-1,1));
+    tetrahedron.add_point_double(std::make_tuple(1,-1,-1));
+    tetrahedron.add_point_double(std::make_tuple(-1,1,-1));
+    tetrahedron.add_point_double(std::make_tuple(1,1,1));
+    tetrahedron.add_point_double(std::make_tuple(-1,-1,1));
 
     tetrahedron.get_faces().emplace_back(Face({1,2,3}));
     tetrahedron.get_faces().emplace_back(Face({2,4,3}));
@@ -53,12 +54,12 @@ Figure Platonic::octahedron() {
 
     Figure octahedron;
 
-    octahedron.add_point(std::make_tuple(1,0,0));
-    octahedron.add_point(std::make_tuple(0,1,0));
-    octahedron.add_point(std::make_tuple(-1,0,0));
-    octahedron.add_point(std::make_tuple(0,-1,0));
-    octahedron.add_point(std::make_tuple(0,0,-1));
-    octahedron.add_point(std::make_tuple(0,0,1));
+    octahedron.add_point_double(std::make_tuple(1,0,0));
+    octahedron.add_point_double(std::make_tuple(0,1,0));
+    octahedron.add_point_double(std::make_tuple(-1,0,0));
+    octahedron.add_point_double(std::make_tuple(0,-1,0));
+    octahedron.add_point_double(std::make_tuple(0,0,-1));
+    octahedron.add_point_double(std::make_tuple(0,0,1));
 
     octahedron.get_faces().emplace_back(Face({1,2,6}));
     octahedron.get_faces().emplace_back(Face({2,3,6}));
@@ -262,11 +263,13 @@ Figure Platonic::cylinder(const int &n, const double &h) {
         cylinder.add_point_double(std::make_tuple(cos(2 * i * M_PI / n),
                                               sin(2 * i * M_PI / n),
                                               0));
-        // Not ground surfcae
-        cylinder.add_point_double(std::make_tuple(cos(2 * i * M_PI / n),
-                                              sin(2 * i * M_PI / n),
+        // Celing
+        cylinder.add_point_double(std::make_tuple(cos(2 * (i % n) * M_PI / n),
+                                              sin(2 * (i % n) * M_PI / n),
                                               h));
     }
+    std::vector<int> ground;
+    std::vector<int> ceiling;
 
     // Surfaces of cylinder
     for (int i = 0; i != 2 * n; i = i + 2) {
@@ -275,12 +278,11 @@ Figure Platonic::cylinder(const int &n, const double &h) {
                                                 (i + 3) % (2 * n),
                                                 (i + 1) % (2 * n),
                                                 i % (2 * n)}));
-//        std::cout << i % (2 * n) << std::endl;
-//        std::cout << (i+1) % (2 * n) << std::endl;
-//        std::cout << (i+2) % (2 * n) << std::endl;
-//        std::cout << (i+3) % (2 * n) << std::endl;
-//        std::cout << "iunr^^foazrbfpuauz" << std::endl;
+        ground.emplace_back(2 * n - (i + 1));
+        ceiling.emplace_back(i);
     }
+    cylinder.get_faces().emplace_back(ground);
+    cylinder.get_faces().emplace_back(ceiling);
 
     return cylinder;
 }
@@ -311,8 +313,115 @@ Figure Platonic::torus(const double &r, const double &R, const int &n, const int
         }
     }
 
-
     // torus.correct_indexes();
 
     return torus;
+}
+
+Figure Platonic::buckyBall() {
+
+    /* VISUAL REPRESENTATION OF FACE DIVISION
+ *
+ * Original face:
+ *
+ *      2
+ *    /  \
+ *   /    \
+ *  /      \
+ * 0 ------ 1
+ *
+ * Divided face:
+ *
+ *        C
+ *      / 2\
+ *     4 -- 3
+ *    /      \
+ *   5   3   2
+ *  /0\     /1\
+ * A - 0---1 - B
+ */
+
+    Figure buckyBall = Platonic::icosahedron();
+
+    std::vector<Vector3D> buckyBall_points;
+    std::vector<Face> buckyBall_faces;
+
+
+    for (Face & i : buckyBall.get_faces()) {
+        for (int j = 0; j != 3; j++) {
+
+            std::cout << buckyBall.get_points()[i.get_point_indexes()[j % 3]] +
+                                (1.0 / 3) * (buckyBall.get_points()[i.get_point_indexes()[(j + 1) % 3]] -
+                                             (buckyBall.get_points()[i.get_point_indexes()[j % 3]])) << std::endl;
+
+//            buckyBall_points.push_back(buckyBall.get_points()[i.get_point_indexes()[j % 3]] +
+//                                (1.0 / 3) * (buckyBall.get_points()[i.get_point_indexes()[(j + 1) % 3]] -
+//                                             (buckyBall.get_points()[i.get_point_indexes()[j % 3]])));
+//
+//            buckyBall_points.push_back(buckyBall.get_points()[i.get_point_indexes()[j % 3]] +
+//                                        (2.0 / 3) * (buckyBall.get_points()[i.get_point_indexes()[(j + 1) % 3]] -
+//                                                     (buckyBall.get_points()[i.get_point_indexes()[j % 3]])));
+        }
+
+        std::vector<int> six;
+        for (int j = 0; j != 6; j++) {
+            six.emplace_back(buckyBall_points.size() - j);
+        }
+        buckyBall_faces.emplace_back(six);
+    }
+
+    buckyBall.get_points().clear();
+    buckyBall.get_points() = buckyBall_points;
+    buckyBall.get_faces().clear();
+    buckyBall.get_faces() = buckyBall_faces;
+
+    buckyBall.get_faces().emplace_back(Face({1, 6, 12, 18, 24}));
+    buckyBall.get_faces().emplace_back(Face({28, 82, 31, 3, 2}));
+    buckyBall.get_faces().emplace_back(Face({9, 5, 4, 34, 42}));
+    buckyBall.get_faces().emplace_back(Face({10, 46, 54, 15, 11}));
+    buckyBall.get_faces().emplace_back(Face({17, 16, 58, 66, 21}));
+    buckyBall.get_faces().emplace_back(Face({78, 27, 23, 22, 70}));
+    buckyBall.get_faces().emplace_back(Face({33, 32, 117, 95, 39}));
+    buckyBall.get_faces().emplace_back(Face({41, 40, 92, 51, 45}));
+    buckyBall.get_faces().emplace_back(Face({53, 52, 107, 63, 57}));
+    buckyBall.get_faces().emplace_back(Face({69, 65, 64, 104, 75}));
+    buckyBall.get_faces().emplace_back(Face({110, 87, 81, 77, 76}));
+    buckyBall.get_faces().emplace_back(Face({96, 109, 103, 108, 91}));
+
+
+    buckyBall.correct_indexes();
+
+    return buckyBall;
+}
+
+void Platonic::fractal(Figure & figure, Figures3D & fractal, const int iter, const double & scale) {
+
+    fractal.emplace_back(figure);
+    int i = iter;
+
+    while (i != 0) {
+        Figures3D fractal_new;
+
+        for (Figure& fig : fractal) {
+
+            for (unsigned int j = 0; j < fig.get_points().size(); j++) {
+
+                Figure figure_new = fig;
+
+                Matrix matrix_scale = Figure::scale_figure(1 / scale);
+                figure_new.apply_transformation(matrix_scale);
+
+                Vector3D point_i = fig.get_points()[j];
+                Vector3D point_i_ = figure_new.get_points()[j];
+
+                Matrix matrix_translate = Figure::translate(point_i - point_i_);
+                figure_new.apply_transformation(matrix_translate);
+
+                fractal_new.emplace_back(figure_new);
+            }
+
+        }
+        fractal = fractal_new;
+        i = i - 1;
+    }
 }

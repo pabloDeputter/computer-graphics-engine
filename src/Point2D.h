@@ -19,25 +19,40 @@ private:
      * \brief y-value of a Point2D object
      */
     double y;
+    /**
+     * \brief z-value of a Point2D object
+     */
+    double z;
 
 public:
     /**
      * \brief Default constructor for Point2D object.
      */
-    Point2D() : x(0.0), y(0.0) {}
+    Point2D() : x(0.0), y(0.0), z(0.0) {}
+
+    /**
+     * \brief Constructor when given z-axis value
+     *
+     * \param a x-value as double
+     * \param b y-value as double
+     * \param c z-value as double
+     */
+     Point2D(double a, double b, double c) : x(a), y(b), z(c) {}
 
     /**
      * \brief Constructor for Point2D object.
      * \param a x-value as double
      * \param b y-value as double
      */
-    Point2D(double a, double b) : x(a), y(b) {}
+    Point2D(double a, double b) : x(a), y(b) {
+        z = 0.0;
+    }
 
     /**
      * \brief Copy constructuctor for Point2D object
      * \param a Point2D object to be copied
      */
-    Point2D(const Point2D & a) {x = a.x; y = a.y; }
+    Point2D(const Point2D & a) {x = a.x; y = a.y; z = a.z; }
 
     /**
      * \brief Getter for x-value.
@@ -73,6 +88,14 @@ public:
     void setY(double b) {
 
         y = b;
+    }
+    /**
+    * \brief Getter for y-value.
+    * \return y-value as double
+    */
+    double getZ() const {
+
+        return z;
     }
 };
 

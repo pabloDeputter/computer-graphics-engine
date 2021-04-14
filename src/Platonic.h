@@ -28,6 +28,10 @@ namespace Platonic {
     Figure cylinder(const int & n, const double & h);
 
     Figure torus(const double & r, const double & R, const int & n, const int & m);
+
+    Figure buckyBall();
+
+    void fractal(Figure & figure, Figures3D & fractal, const int iter, const double & scale);
 }
 
 

@@ -168,6 +168,18 @@
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h">
 			<Option target="engine"/>
 		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.cpp">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.h">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ZBuffer.cpp">
+			<Option target="engine"/>
+		</Unit>
+		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ZBuffer.h">
+			<Option target="engine"/>
+		</Unit>
 		<Unit filename="/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc">
 			<Option target="engine"/>
 		</Unit>

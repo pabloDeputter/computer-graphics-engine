@@ -12,6 +12,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Line2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Line2D.cpp.o"
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Platonic.cpp.o"
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Point2D.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/Utils.cpp.o"
+  "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ZBuffer.cpp" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/ZBuffer.cpp.o"
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/easy_image.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/easy_image.cc.o"
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/engine.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/engine.cc.o"
   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ini_configuration.cc" "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/CMakeFiles/engine.dir/src/ini_configuration.cc.o"

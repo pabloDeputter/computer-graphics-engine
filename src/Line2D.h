@@ -10,6 +10,7 @@
 #include "Point2D.h"
 #include "Color.h"
 #include "easy_image.h"
+#include "ZBuffer.h"
 
 class Line2D;
 
@@ -37,18 +38,22 @@ private:
      */
     cc::Color color;
 
+    double z1;
+    double z2;
+
 public:
+    // TODO
     /**
      * \brief Default constructor of Line2D object
      */
-    Line2D() : p1(), p2(), color() {}
+    Line2D() : p1(), p2(), color(), z1(0.0), z2(0.0) {}
 
     /**
      * \brief Constructor of Line2D object
      * \param a First Point2D object
      * \param b Second Point2D object
      */
-    Line2D(const Point2D & a, const Point2D & b, const cc::Color & c) : p1(a), p2(b), color(c) {}
+    Line2D(const Point2D & a, const Point2D & b, const cc::Color & c) : p1(a), p2(b), color(c), z1(a.getZ()), z2(b.getZ()) {}
 
     /**
      * \brief Setter for P1 that will return by reference
@@ -72,6 +77,22 @@ public:
     const cc::Color & getColor() const {
 
         return color;
+    }
+
+    /**
+    * \brief Getter for Z1-value as double
+    */
+    const double & getZ1() const {
+
+        return z1;
+    }
+
+    /**
+    * \brief Getter for Z2-value as double
+    */
+    const double & getZ2() const {
+
+        return z2;
     }
 
     /**
@@ -115,7 +136,7 @@ public:
     * \param line2D 	List with all the straight lines needed to be represented
     * \param size       Maximum amount of pixels of image, cannot be overwritten
     */
-    static void draw2DLines(Lines2D & line2D, const int & size, img::EasyImage & image);
+    static void draw2DLines(Lines2D & line2D, const int & size, img::EasyImage & image, bool ZBuffering);
 };
 
 

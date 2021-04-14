@@ -5,7 +5,7 @@
 #include "LSystem3D.h"
 #include <fstream>
 
-Figure LSystem_3D::drawLSystem(LParser::LSystem3D &l_system_3D, const cc::Color &color) {
+Figure LSystem_3D::drawLSystem(LParser::LSystem3D &l_system_3D) {
 
     unsigned int iter = l_system_3D.get_nr_iterations();
     std::string x = l_system_3D.get_initiator();

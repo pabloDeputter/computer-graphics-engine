@@ -60,7 +60,7 @@ std::tuple<std::pair<double, double>, std::pair<double, double>> Line2D::Line2D_
     return std::make_tuple(std::make_pair(x, y), std::make_pair(X, Y));
 }
 
-void Line2D::draw2DLines(Lines2D &line2D, const int &size, img::EasyImage & image) {
+void Line2D::draw2DLines(Lines2D &line2D, const int &size, img::EasyImage & image, bool ZBuffering) {
 
     // Calculate x-min, y-min, x-max and y-max
     std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D::Line2D_findMax(line2D);
@@ -109,14 +109,38 @@ void Line2D::draw2DLines(Lines2D &line2D, const int &size, img::EasyImage & imag
     // Change image dimensions
     image.image_resize(static_cast<int>(std::round(image_x)), static_cast<int>(std::round(image_y)));
 
-    // Draw lines
-    for (Line2D & i : line2D) {
 
-        std::tuple<double, double, double> color_values = i.getColor().getColor();
-        image.draw_line(i.getP1().getX(), i.getP1().getY()
-                        , i.getP2().getX(), i.getP2().getY()
-                        , img::Color(std::get<0>(color_values)
-                        ,std::get<1>(color_values)
-                        , std::get<2>(color_values)));
+    // Draw lines
+    if (!ZBuffering) {
+        for (Line2D & i : line2D) {
+
+            std::tuple<double, double, double> color_values = i.getColor().getColor();
+            image.draw_line(static_cast<int>(std::round(i.getP1().getX())),
+                            static_cast<int>(std::round(i.getP1().getY())),
+                            static_cast<int>(std::round(i.getP2().getX())),
+                            static_cast<int>(std::round(i.getP2().getY())),
+                            img::Color(std::get<0>(color_values),
+                                    std::get<1>(color_values),
+                                            std::get<2>(color_values)));
+        }
+    }
+    else {
+        ZBuffer buffer = ZBuffer((unsigned int)(std::round(image_x)), (unsigned int)(std::round(image_y)));
+
+
+        for (Line2D & i : line2D) {
+
+            std::tuple<double, double, double> color_values = i.getColor().getColor();
+
+            image.draw_zbuf_line(buffer, (unsigned int)(std::round(i.getP1().getX())),
+                                 (unsigned int)(std::round(i.getP1().getY())), i.getZ1(),
+                                 (unsigned int)(std::round(i.getP2().getX())),
+                                 (unsigned int)(std::round(i.getP2().getY())), i.getZ2(),
+                                 img::Color(std::get<0>(color_values),
+                                         std::get<1>(color_values),
+                                                 std::get<2>(color_values)));
+        }
+
+
     }
 }

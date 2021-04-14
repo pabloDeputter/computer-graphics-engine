@@ -17,6 +17,7 @@
  */
 #include "easy_image.h"
 #include <assert.h>
+#include <fstream>
 
 #ifndef le32toh
 #define le32toh(x) (x)
@@ -216,7 +217,7 @@ void img::EasyImage::draw_line(unsigned int x0, unsigned int y0, unsigned int x1
 	}
 	else if (y0 == y1)
 	{
-		//special case for y0 == y1
+//		special case for y0 == y1
 		for (unsigned int i = std::min(x0, x1); i <= std::max(x0, x1); i++)
 		{
 			(*this)(i, y0) = color;
@@ -254,6 +255,107 @@ void img::EasyImage::draw_line(unsigned int x0, unsigned int y0, unsigned int x1
 		}
 	}
 }
+void img::EasyImage::draw_zbuf_line(ZBuffer & buffer, unsigned int x0, unsigned int y0,
+                                    double z0, unsigned int x1, unsigned int y1, double z1,
+                                    const Color &color) {
+
+
+    assert(x0 < this->width && y0 < this->height);
+    assert(x1 < this->width && y1 < this->height);
+
+    if (x0 == x1)
+    {
+
+        //special case for x0 == x1
+        for (unsigned int i = std::min(y0, y1); i <= std::max(y0, y1); i++)
+        {
+
+//            double p = (a - i) / a;
+//            double z = p / z0 + (1 - p) / z1;
+
+            if (buffer.check_z_value(x0, i,
+                                     ZBuffer::calculate_z_value(i - std::min(y0, y1),
+                                                                std::max(y0, y1) - std::min(y0, y1), y0 < y1 ? z0 : z1, y0 < y1 ? z1 : z0 ))) {
+
+                (*this)(x0, i) = color;
+
+            }
+
+
+        }
+    }
+    else if (y0 == y1)
+    {
+
+        //special case for y0 == y1
+        for (unsigned int i = std::min(x0, x1); i <= std::max(x0, x1); i++)
+        {
+
+            if (buffer.check_z_value(i, y0,
+                                     ZBuffer::calculate_z_value(i - std::min(x0, x1),
+                                                                std::max(x0, x1) - std::min(x0, x1), x0 < x1 ? z0 : z1, x0 < x1 ? z1 : z0))) {
+
+                (*this)(i, y0) = color;
+            }
+        }
+    }
+    else
+    {
+        if (x0 > x1)
+        {
+            //flip points if x1>x0: we want x0 to have the lowest value
+            std::swap(x0, x1);
+            std::swap(y0, y1);
+        }
+        double m = ((double) y1 - (double) y0) / ((double) x1 - (double) x0);
+        if (-1.0 <= m && m <= 1.0)
+        {
+
+            double a = (x1 - x0);
+
+            for (unsigned int i = 0; i <= (x1 - x0); i++)
+            {
+
+                if (buffer.check_z_value(x0 + i, (unsigned int) std::round(y0 + m * i),
+                                         ZBuffer::calculate_z_value(i, (unsigned int) std::round(a), z0, z1))) {
+
+                    (*this)(x0 + i, (unsigned int) round(y0 + m * i)) = color;
+                }
+            }
+        }
+        else if (m > 1.0)
+        {
+
+            double a = y1 - y0;
+
+            for (unsigned int i = 0; i <= (y1 - y0); i++)
+            {
+
+                if (buffer.check_z_value((unsigned int) std::round(x0 + (i / m)), y0 + i,
+                                         ZBuffer::calculate_z_value(i, (unsigned int) std::round(a), z0, z1))) {
+
+                    (*this)((unsigned int) round(x0 + (i / m)), y0 + i) = color;
+                }
+            }
+        }
+        else if (m < -1.0)
+        {
+
+            double a = y0 - y1;
+
+            for (unsigned int i = 0; i <= (y0 - y1); i++)
+            {
+
+                if (buffer.check_z_value((unsigned int) std::round(x0 - (i / m)), y0 - i,
+                                         ZBuffer::calculate_z_value(i, (unsigned int) std::round(a), z0, z1))) {
+
+                    (*this)((unsigned int) round(x0 - (i / m)), y0 - i) = color;
+                }
+            }
+        }
+    }
+}
+
 std::ostream& img::operator<<(std::ostream& out, EasyImage const& image)
 {
 
@@ -390,4 +492,119 @@ void img::EasyImage::image_resize(const int &image_x, const int &image_y) {
     this->height = static_cast<int>(std::round(image_y));
 }
 
+void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const Vector3D &B, const Vector3D &C,
+                                     const double d, const double dx, const double dy, const img::Color &color) {
 
+
+    // Project triangle ABC -> A'B'C' on real points
+    Point2D A_ = Point2D((d * A.x) / -A.z + dx, (d * A.y) / -A.z + dy);
+    Point2D B_ = Point2D((d * B.x) / -B.z + dx, (d * B.y) / -B.z + dy);
+    Point2D C_ = Point2D((d * C.x) / -C.z + dx, (d * C.y) / -C.z + dy);
+
+    // Calculate ymin and ymax
+//    const int min = static_cast<const int>(std::round(std::min(A_.getY(), std::min(B_.getY(), C_.getY()))));
+//    const int max = static_cast<const int>(std::round(std::max(A_.getY(), std::max(B_.getY(), C_.getY()))));
+//
+//    const int ymin = static_cast<const int>(std::round(min + 0.5));
+//    const int ymax = static_cast<const int>(std::round(max - 0.5));
+
+    const int ymin = static_cast<int>(std::round(std::min(A_.getY(), std::min(B_.getY(), C_.getY())) + 0.5));
+    const int ymax = static_cast<int>(std::round(std::max(A_.getY(), std::max(B_.getY(), C_.getY())) - 0.5));
+
+
+//    std::cout << ymin << " " << ymax << std::endl;
+
+    // Calculate middle point triangle
+    double x_g = A_.getX() + B_.getX() + C_.getX();
+    double y_g = A_.getY() + B_.getY() + C_.getY();
+    double xg = x_g / 3;
+    double yg = y_g / 3;
+
+//    std::cout<< xg << " " << yg << std::endl;
+
+    double zg = 1 / (3 * A.z) + 1 / (3 * B.z) + 1 / (3 * C.z);
+
+//    std::cout << zg << std::endl;
+
+    Vector3D u = B - A;
+    Vector3D v = C - A;
+    Vector3D w = Vector3D::point( u.y * v.z - u.z * v.y,
+                                  u.z * v.x - u.x * v.z,
+                                  u.x * v.y - u.y * v.x );
+
+//    std::cout << w << std::endl;
+
+    double k = w.x * A.x + w.y * A.y + w.z * A.z;
+
+    const double dzdx = w.x / (-d * k);
+    const double dzdy = w.y / (-d * k);
+
+//    std::cout << dzdx << " " << dzdy << std::endl;
+
+    // Iterate over all y-values
+    for (unsigned int y = static_cast<unsigned int>(ymin); y <= static_cast<unsigned int>(ymax); y++) {
+
+        // Calculate value of xl and xr for AB, AC, BC
+        double xl_AB = +std::numeric_limits<double>::infinity();
+        double xl_AC = +std::numeric_limits<double>::infinity();
+        double xl_BC = +std::numeric_limits<double>::infinity();
+
+        double xr_AB = -std::numeric_limits<double>::infinity();
+        double xr_AC = -std::numeric_limits<double>::infinity();
+        double xr_BC = -std::numeric_limits<double>::infinity();
+
+        // PQ = AB
+        if ( (y - A_.getY()) * (y - B_.getY()) <= 0 && A_.getY() != B_.getY() ) {
+
+            xl_AB = B_.getX() + (A_.getX() - B_.getX()) * ( (double) y - B_.getY() ) / (A_.getY() - B_.getY());
+            xr_AB = xl_AB;
+        }
+
+        // PQ = AC
+        if ( (y - A_.getY()) * (y - C_.getY()) <= 0 && A_.getY() != C_.getY() ) {
+
+            xl_AC = C_.getX() + (A_.getX() - C_.getX()) * ( (double) y - C_.getY() ) / (A_.getY() - C_.getY());
+            xr_AC = xl_AC;
+        }
+
+        // PQ = BC
+        if ( (y - B_.getY()) * (y - C_.getY()) <= 0 && B_.getY() != C_.getY() ) {
+
+            xl_BC = C_.getX() + (B_.getX() - C_.getX()) * ( (double) y - C_.getY() ) / (B_.getY() - C_.getY());
+            xr_BC = xl_BC;
+        }
+
+        int xl = std::round(std::min(xl_AB, std::min(xl_AC, xl_BC)) + 0.5);
+        int xr = std::round(std::max(xr_AB, std::max(xr_AC, xr_BC)) + 0.5);
+
+        // TODO
+//        if (xl > xr) {
+//            xl--;
+//        }
+
+
+//        std::cout << xl << " " << xr << std::endl;
+//        std::cout << xl << " " << xr << std::endl;
+
+        for (unsigned int x = static_cast<unsigned int>(xl); x != static_cast<unsigned int>(xr); x++) {
+
+            double a_ = static_cast<double>(std::round(x)) - xg;
+            double b_ = static_cast<double>(std::round(y)) - yg;
+
+
+            double a = a_ * dzdx;
+            double b = b_ * dzdy;
+
+            double z = zg + a + b;
+
+              if (buffer.check_z_value( x, y, z)) {
+
+                  (*this)(x, y) = color;
+
+              }
+
+            }
+
+    }
+
+}

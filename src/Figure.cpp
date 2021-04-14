@@ -118,7 +118,7 @@ Point2D Figure::do_projection(const Vector3D & point, const double & d) {
     double x_ = (d * point.x) / (-1.0 * point.z);
     double y_ = (d * point.y) / (-1.0 * point.z);
 
-    return Point2D(x_, y_);
+    return Point2D(x_, y_, point.z);
 }
 
 Lines2D Figure::do_projection() {
@@ -134,7 +134,8 @@ Lines2D Figure::do_projection() {
     // Traverse "faces" of figure
     for (const Face & i : this->faces) {
 
-        for (int j = 0; j != i.get_point_indexes().size(); j++) {
+        // TODO
+        for (unsigned int j = 0; j != i.get_point_indexes().size(); j++) {
 
             Point2D a = array_points[i.get_point_indexes()[j%i.get_point_indexes().size()]];
             Point2D b = array_points[i.get_point_indexes()[(j+1)%i.get_point_indexes().size()]];
@@ -143,3 +144,5 @@ Lines2D Figure::do_projection() {
     }
     return array_lines;
 }
+
+

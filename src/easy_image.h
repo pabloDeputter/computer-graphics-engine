@@ -21,6 +21,10 @@
 #include <string>
 #include <cmath>
 #include <iostream>
+#include "ZBuffer.h"
+#include "vector3d.h"
+#include "Point2D.h"
+
 /**
  * \brief The namespace of the EasyImage class
  */
@@ -221,7 +225,31 @@ namespace img
 			 */
 			void draw_line(unsigned int x0, unsigned int y0, unsigned int x1, unsigned int y1, Color color);
 
-			/**
+            /**
+            * \brief Draws a line from pixel (x0,y0) to pixel (x1,y1) in the specified color
+            *
+            * \param x0	the x coordinate of the first pixel
+            * \param y0	the y coordinate of the first pixel
+            * \param x1	the x coordinate of the second pixel
+            * \param y1	the y coordinate of the second pixel
+            * \param color	the color of the line
+            *
+            * These assertions apply:
+            *	assert(x0 < getWidth())
+            * 	assert(y0 < getHeight())
+            * 	assert(x1 < getWidth())
+            * 	assert(y1 < getHeight())
+            */
+			void draw_zbuf_line(ZBuffer & buffer, unsigned int x0, unsigned int y0,
+                                double z0, unsigned int x1, unsigned int y1, double z1,
+                                const Color & color);
+
+
+			void draw_zbuf_triag(ZBuffer & buffer, Vector3D const & A, Vector3D const & B, Vector3D const & C,
+                                 const double d, const double dx, const double dy,
+                                 const Color & color);
+
+        /**
 			 * \brief           Resize the dimensions of an EasyImage object
 			 *
 			 * @param image_x   The width of the image

@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/engine.dir/src/Line2D.cpp.o"
   "CMakeFiles/engine.dir/src/Platonic.cpp.o"
   "CMakeFiles/engine.dir/src/Point2D.cpp.o"
+  "CMakeFiles/engine.dir/src/Utils.cpp.o"
+  "CMakeFiles/engine.dir/src/ZBuffer.cpp.o"
   "CMakeFiles/engine.dir/src/easy_image.cc.o"
   "CMakeFiles/engine.dir/src/engine.cc.o"
   "CMakeFiles/engine.dir/src/ini_configuration.cc.o"
