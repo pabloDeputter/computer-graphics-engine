@@ -113,6 +113,23 @@ Matrix Figure::eye_point_trans(const Vector3D &eyepoint) {
     return x;
 }
 
+Matrix Figure::eye_point_trans_clipping(const Vector3D &eyepoint) {
+
+    // Calculate polar coordinates
+    std::tuple<double, double, double> tuple = Figure::to_polar(eyepoint * (-1.0));
+    double phi = std::get<0>(tuple);
+    double theta = std::get<1>(tuple);
+    double r = std::get<2>(tuple);
+
+////     Calculate Eye-point transformation matrix
+//    Vector3D originOffset = Vector3D::point(0, 0, -r);
+
+    Matrix x = translate(eyepoint) * rotateZ(M_PI / 2 + theta) * rotateX(phi);
+
+    return x;
+}
+
+
 Point2D Figure::do_projection(const Vector3D & point, const double & d) {
 
     double x_ = (d * point.x) / (-1.0 * point.z);
@@ -144,5 +161,4 @@ Lines2D Figure::do_projection() {
     }
     return array_lines;
 }
-
 

@@ -64,6 +64,8 @@ public:
 
     static Matrix eye_point_trans(const Vector3D & eyepoint);
 
+    static Matrix eye_point_trans_clipping(const Vector3D & eyepoint);
+
     static Point2D do_projection(const Vector3D & point, const double & d);
 
     Lines2D do_projection();

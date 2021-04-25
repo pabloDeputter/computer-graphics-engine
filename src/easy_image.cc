@@ -502,17 +502,8 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
     Point2D C_ = Point2D((d * C.x) / -C.z + dx, (d * C.y) / -C.z + dy);
 
     // Calculate ymin and ymax
-//    const int min = static_cast<const int>(std::round(std::min(A_.getY(), std::min(B_.getY(), C_.getY()))));
-//    const int max = static_cast<const int>(std::round(std::max(A_.getY(), std::max(B_.getY(), C_.getY()))));
-//
-//    const int ymin = static_cast<const int>(std::round(min + 0.5));
-//    const int ymax = static_cast<const int>(std::round(max - 0.5));
-
     const int ymin = static_cast<int>(std::round(std::min(A_.getY(), std::min(B_.getY(), C_.getY())) + 0.5));
     const int ymax = static_cast<int>(std::round(std::max(A_.getY(), std::max(B_.getY(), C_.getY())) - 0.5));
-
-
-//    std::cout << ymin << " " << ymax << std::endl;
 
     // Calculate middle point triangle
     double x_g = A_.getX() + B_.getX() + C_.getX();
@@ -520,11 +511,7 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
     double xg = x_g / 3;
     double yg = y_g / 3;
 
-//    std::cout<< xg << " " << yg << std::endl;
-
     double zg = 1 / (3 * A.z) + 1 / (3 * B.z) + 1 / (3 * C.z);
-
-//    std::cout << zg << std::endl;
 
     Vector3D u = B - A;
     Vector3D v = C - A;
@@ -532,14 +519,10 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
                                   u.z * v.x - u.x * v.z,
                                   u.x * v.y - u.y * v.x );
 
-//    std::cout << w << std::endl;
-
     double k = w.x * A.x + w.y * A.y + w.z * A.z;
 
     const double dzdx = w.x / (-d * k);
     const double dzdy = w.y / (-d * k);
-
-//    std::cout << dzdx << " " << dzdy << std::endl;
 
     // Iterate over all y-values
     for (unsigned int y = static_cast<unsigned int>(ymin); y <= static_cast<unsigned int>(ymax); y++) {
@@ -577,20 +560,10 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
         int xl = std::round(std::min(xl_AB, std::min(xl_AC, xl_BC)) + 0.5);
         int xr = std::round(std::max(xr_AB, std::max(xr_AC, xr_BC)) + 0.5);
 
-        // TODO
-//        if (xl > xr) {
-//            xl--;
-//        }
-
-
-//        std::cout << xl << " " << xr << std::endl;
-//        std::cout << xl << " " << xr << std::endl;
-
         for (unsigned int x = static_cast<unsigned int>(xl); x != static_cast<unsigned int>(xr); x++) {
 
             double a_ = static_cast<double>(std::round(x)) - xg;
             double b_ = static_cast<double>(std::round(y)) - yg;
-
 
             double a = a_ * dzdx;
             double b = b_ * dzdy;
@@ -604,7 +577,5 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
               }
 
             }
-
     }
-
 }

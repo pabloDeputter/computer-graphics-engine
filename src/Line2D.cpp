@@ -109,7 +109,6 @@ void Line2D::draw2DLines(Lines2D &line2D, const int &size, img::EasyImage & imag
     // Change image dimensions
     image.image_resize(static_cast<int>(std::round(image_x)), static_cast<int>(std::round(image_y)));
 
-
     // Draw lines
     if (!ZBuffering) {
         for (Line2D & i : line2D) {

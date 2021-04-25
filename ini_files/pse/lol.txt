@@ -1,0 +1,93 @@
+[General]
+size = 1024
+backgroundcolor = (0.169, 0.169, 0.169)
+type = "ZBuffering"
+eye = (200, 60, 70)
+nrFigures = 6
+
+[Figure0]
+type = "Cube"
+scale = 0.141750
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (0.000000, 0, 0)
+color = (0, 0.6, 0.3)
+
+[Figure1]
+type = "Cone"
+scale = 0.198450
+n = 10
+height = 1
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (0.000000, 0, 0.141750)
+color = (0, 0.6, 0.4)
+
+[Figure2]
+type = "Cube"
+scale = 0.05
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (1.333333, 1.2, 0)
+color = (0.745324, 0.254676, 0)
+
+[Figure3]
+type = "Cube"
+scale = 0.05
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (2.000000, 1.2, 0)
+color = (0.747225, 0.252775, 0)
+
+[Figure4]
+type = "Cube"
+scale = 0.05
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (2.666667, 1.2, 0)
+color = (0.733333, 0.266667, 0)
+
+[Figure5]
+type = "Cube"
+scale = 0.05
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (3.333333, 1.2, 0)
+color = (0.750000, 0.250000, 0)
+
+[Figure6]
+type = "LineDrawing"
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+scale = 0.1
+center = (0, 0, 0)
+color = (0.0, 0.3, 1)
+nrPoints = 4
+nrLines = 3
+point0 = (0.0, 0.0, 0.0)
+point1 = (0.0, 2.0, -12.5)
+point2 = (0.0, 2.01, -12.5)
+point3 = (0.0, 2.02, -12.5)
+line0 = (0,1)
+line1 = (0,2)
+line2 = (0,3)
+
+
+
+
+point0 = (1.666667, 0, 0)
+point1 = (1.333333, 1.200000, 0)
+point2 = (2.000000, 1.200000, 0)
+point3 = (2.666667, 1.200000, 0)
+point4 = (3.333333, 1.200000, 0)
+line0 = (0, 1)
+line1 = (0, 2)
+line2 = (0, 3)
+line3 = (0, 4)

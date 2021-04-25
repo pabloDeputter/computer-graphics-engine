@@ -11,11 +11,13 @@
 #include "LSystem2D.h"
 #include "LSystem3D.h"
 #include "Platonic.h"
+#include "Utils.h"
 
 using namespace std;
 
 // #### - SCRIPTS - ####
 // find ./ -name '*.bmp' | xargs rm
+// #### - SCRIPTS - ####
 
 /**
  * \brief Scales colors of vector
@@ -102,19 +104,43 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
         Lines2D l_system_lines = LSystem_2D::drawLSystem(l_system, scale_colors_(color));
         Line2D::draw2DLines(l_system_lines, size, image, false);
-
     }
 
     else if (type == "Wireframe" || type == "ZBufferedWireframe" || type == "ZBuffering") {
 
+        // General data for all figures
         int nr_figures = configuration["General"]["nrFigures"].as_int_or_die();
         std::vector<double> eye = configuration["General"]["eye"].as_double_tuple_or_die();
 
+        // Clipping DATA
+        bool CLIPPING = configuration["General"]["clipping"].as_bool_or_default(false);
+        std::vector<int> viewDirection;
+        int fov;
+        double aspect_ratio;
+        int d_near;
+        int d_far;
+        if (CLIPPING){
+            viewDirection = configuration["General"]["viewDirection"].as_int_tuple_or_die();
+            fov = configuration["General"]["hfov"].as_int_or_die();
+            aspect_ratio = configuration["General"]["aspectRatio"].as_double_or_die();
+            d_near = configuration["General"]["dNear"].as_int_or_die();
+            d_far = configuration["General"]["dFar"].as_int_or_die();
+        }
+
+        // Hold all figures
         Figures3D figures;
 
+        // Hold all lines figures
+        Figures3D figures_line_drawing;
+
+        bool LINES = false;
+
+        // Traverse all figures inside .ini file
         for (int i = 0; i < nr_figures; i++) {
+
             Figure figure;
 
+            bool line_drawing = false;
             bool is_fractal = false;
             std::string figure_name = "Figure" + std::to_string(i);
             std::string figure_type = configuration[figure_name]["type"].as_string_or_die();
@@ -212,13 +238,18 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
             else if (figure_type == "3DLSystem") {
 
+                LINES = true;
+                line_drawing = true;
+
                 std::string file_name = configuration[figure_name]["inputfile"].as_string_or_die();
                 LParser::LSystem3D l_system = LSystem3D(file_name);
                 figure = LSystem_3D::drawLSystem(l_system);
-
             }
 
             else if (figure_type == "LineDrawing") {
+
+                LINES = true;
+                line_drawing = true;
 
                 int nr_points = configuration[figure_name]["nrPoints"].as_int_or_die();
                 int nr_lines = configuration[figure_name]["nrLines"].as_int_or_die();
@@ -236,14 +267,15 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                 }
             }
 
+            // Will hold extra figures that later will be added
             Figures3D temp_fig_holder;
             if (is_fractal) {
-                Platonic::fractal(figure, temp_fig_holder,
+                Utils::fractal(figure, temp_fig_holder,
                                   configuration[figure_name]["nrIterations"].as_int_or_die(),
                                   configuration[figure_name]["fractalScale"].as_double_or_die());
-                std::cout << temp_fig_holder.size() << std::endl;
             }
 
+            // Calculate transformation-matrix
             double rotateX = configuration[figure_name]["rotateX"].as_double_or_default(0);
             double rotateY = configuration[figure_name]["rotateY"].as_double_or_default(0);
             double rotateZ = configuration[figure_name]["rotateZ"].as_double_or_default(0);
@@ -260,132 +292,198 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                                   * Figure::scale_figure(scale_d)
                                   * Figure::translate(Vector3D::point(origin[0], origin[1], origin[2]));
 
+            // If there are extra figures stored, traverse these and add to figures sepperately
             if (!temp_fig_holder.empty()) {
 
-                for (Figure & i : temp_fig_holder) {
-                    i.apply_transformation(trans_matrix);
-                    i.set_color(figure_color);
-                    figures.emplace_back(i);
+                for (Figure & fig : temp_fig_holder) {
+                    fig.apply_transformation(trans_matrix);
+                    fig.set_color(figure_color);
+                    figures.emplace_back(fig);
                 }
             }
             else{
                 figure.apply_transformation(trans_matrix);
                 figure.set_color(figure_color);
-                figures.emplace_back(figure);
-            }
 
+                if (line_drawing) {
+                    figures_line_drawing.emplace_back(figure);
+                }
+                else {
+                    figures.emplace_back(figure);
+                }
+            }
         }
 
-        // TODO
         Matrix trans_eye_matrix = Figure::eye_point_trans(Vector3D::point(eye[0], eye[1], eye[2]));
-        Lines2D figures_lines;
+        std::cout << trans_eye_matrix << std::endl;
+        if (CLIPPING) {
+            trans_eye_matrix = Figure::eye_point_trans_clipping(Vector3D::point(eye[0], eye[1], eye[2]));
+        }
 
+        Lines2D figures_lines;
+        Lines2D line_drawing_lines;
+
+        if (type == "Wireframe") {
+
+            std::cout << "Wireframe" << std::endl;
+
+            Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
+            Line2D::draw2DLines(figures_lines, size, image, false);
+
+            if (LINES) {
+                Utils::generate_lines(figures_line_drawing, line_drawing_lines, trans_eye_matrix);
+                Line2D::draw2DLines(line_drawing_lines, size, image, false);
+            }
+        }
+
+        if (type == "ZBufferedWireframe") {
+
+            std::cout << "ZBufferedWireframe" << std::endl;
+
+            Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
+            Line2D::draw2DLines(figures_lines, size, image, true);
+
+            if (LINES) {
+                Utils::generate_lines(figures_line_drawing, line_drawing_lines, trans_eye_matrix);
+                Line2D::draw2DLines(line_drawing_lines, size, image, true);
+            }
+        }
 
         if (type == "ZBuffering") {
 
             std::cout << "ZBuffering" << std::endl;
 
-            figures_lines.clear();
+            double image_x;
+            double image_y;
+            double d;
+            double dx;
+            double dy;
+            ZBuffer buffer = ZBuffer(0, 0);
 
-            for (Figure & i : figures) {
+            if (!figures.empty()) {
 
-                std::vector<Face> new_faces;
+                std::cout << "figures" << std::endl;
 
-                for (Face & j : i.get_faces()) {
 
-                    std::vector<Face> triangles = ZBuffering::triangulate(j);
+                // TODO
+                Utils::clipping_data clippingData = Utils::clipping_data();
+                if (CLIPPING) {
 
-                    new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
+                    clippingData = Utils::clipping_data(viewDirection, fov, aspect_ratio, d_near, d_far);
                 }
-                i.get_faces().clear();
-                i.get_faces() = new_faces;
-            }
 
-            for (Figure & i : figures) {
-                i.apply_transformation(trans_eye_matrix);
-                Lines2D figure_lines = i.do_projection();
-                figures_lines.splice(figures_lines.end(), figure_lines);
-            }
+                std::tuple<double, double, double, double, double> a = Utils::prep_zbuffering(figures, figures_lines,
+                                                                                              trans_eye_matrix, size, CLIPPING, clippingData);
 
-            // Calculate x-min, y-min, x-max and y-max
-            std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D::Line2D_findMax(figures_lines);
+                image_x = std::get<0>(a);
+                image_y = std::get<1>(a);
+                d = std::get<2>(a);
+                dx = std::get<3>(a);
+                dy = std::get<4>(a);
 
-            double x = std::get<0>(max_line2D).first;
-            double y = std::get<0>(max_line2D).second;
+                // Create buffer
+                buffer = ZBuffer( (unsigned int) std::round(image_x), (unsigned int) std::round(image_y));
 
+                // Resize image
+                image.image_resize( (int) std::round(image_x), (int) std::round(image_y));
 
-            double X = std::get<1>(max_line2D).first;
-            double Y = std::get<1>(max_line2D).second;
+                // Traverse created triangle-faces in figures
+                for (Figure & i : figures) {
 
-            // Calculate x-range, y-range
-            double xrange = X - x;
-            double yrange = Y - y;
+                    // Get color of figure
+                    std::tuple<double, double, double> color_values = i.get_color().getColor();
 
-            double _size = static_cast<double>(std::round(size));
+                    for (Face & j : i.get_faces()) {
 
-            // Calculate dimensions of image
-            double image_x = _size * (xrange / std::max(xrange, yrange) );
-            double image_y = _size * (yrange / std::max(xrange, yrange) );
-
-            // Calculate scale-factor
-            double d = 0.95 * (image_x / xrange);
-
-            double a = x + X;
-            double b = y + Y;
-
-            double DC_x = d * (a / static_cast<double>(2) );
-            double DC_y = d * (b / static_cast<double>(2) );
-
-            double dx = (image_x / static_cast<double>(2) ) - DC_x;
-            double dy = (image_y / static_cast<double>(2) ) - DC_y;
-
-
-//            std::cout << image_x << " " << image_y << std::endl;
-//            std::cout << (unsigned int) std::round(image_x) << " " << (unsigned int) std::round(image_y) << std::endl;
-//            std::cout << (int) std::round(image_x) << " " << (int) std::round(image_y) << std::endl;
-
-
-            // Create buffer
-            ZBuffer buffer = ZBuffer( (unsigned int) std::round(image_x), (unsigned int) std::round(image_y));
-
-            // Resize image
-            image.image_resize( (int) std::round(image_x), (int) std::round(image_y));
-
-            // Traverse created triangle-faces in figures
-            for (Figure & i : figures) {
-
-                // Get color of figure
-                std::tuple<double, double, double> color_values = i.get_color().getColor();
-
-                for (Face & j : i.get_faces()) {
-
-                    image.draw_zbuf_triag(buffer, i.get_points()[j.get_point_indexes()[0]],
-                                          i.get_points()[j.get_point_indexes()[1]],
-                                          i.get_points()[j.get_point_indexes()[2]], d, dx, dy,
-                                          img::Color(std::get<0>(color_values),
-                                                     std::get<1>(color_values),
-                                                     std::get<2>(color_values)));
+                        image.draw_zbuf_triag(buffer, i.get_points()[j.get_point_indexes()[0]],
+                                              i.get_points()[j.get_point_indexes()[1]],
+                                              i.get_points()[j.get_point_indexes()[2]],
+                                              d,
+                                              dx,
+                                              dy,
+                                              img::Color(std::get<0>(color_values),
+                                                         std::get<1>(color_values),
+                                                         std::get<2>(color_values)));
+                    }
                 }
             }
+
+            if (LINES) {
+
+                Utils::generate_lines(figures_line_drawing, line_drawing_lines, trans_eye_matrix);
+
+                if (figures.empty()) {
+
+                    std::cout << "lines" << std::endl;
+
+                    Line2D::draw2DLines(line_drawing_lines, size, image, false);
+                }
+                else {
+
+                    std::cout << "lines + figures" << std::endl;
+
+                    // Calculate x-min, y-min, x-max and y-max
+//                    std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D::Line2D_findMax(line2D);
+//
+//                    double x = std::get<0>(max_line2D).first;
+//                    double y = std::get<0>(max_line2D).second;
+//
+//                    double X = std::get<1>(max_line2D).first;
+//                    double Y = std::get<1>(max_line2D).second;
+
+                    // Calculate x-range, y-range
+//                    double xrange = X - x;
+//                    double yrange = Y - y;
+
+                    // Calculate max(xrange, yrange)
+//                    double range = xrange > yrange ? xrange : yrange;
+
+                    // Calculate dimensions of image
+//                    double image_x = size*(xrange/range);
+//                    double image_y = size*(yrange/range);
+
+                    // Calculate scale-factor
+//                    double d = 0.95*(image_x/xrange);
+
+                    // Multiply coordinates of all points with scale-factor
+                    for (Line2D & i : line_drawing_lines) {
+                        i.line2D_scale(d);
+                    }
+//
+//                    double DC_x = d*((x + X)/2);
+//                    double DC_y = d*((y + Y)/2);
+//
+//                    double dx = (image_x/2) - DC_x;
+//                    double dy = (image_y/2) - DC_y;
+
+                    // Move all coordinates
+                    for (Line2D & i : line_drawing_lines) {
+                        i.line2D_move(dx, dy);
+                    }
+
+                    // Round all points
+                    for (Line2D & i : line_drawing_lines) {
+                        i.round();
+                    }
+
+                    for (Line2D & i : line_drawing_lines) {
+
+                        std::cout << static_cast<int>(std::round(i.getP1().getX())) << " " << static_cast<int>(std::round(i.getP1().getY())) << " " << static_cast<int>(std::round(i.getP2().getX())) << " " << static_cast<int>(std::round(i.getP2().getY())) << std::endl;
+
+                        std::tuple<double, double, double> color_values = i.getColor().getColor();
+                        image.draw_line(static_cast<int>(std::round(i.getP1().getX())),
+                                        static_cast<int>(std::round(i.getP1().getY())),
+                                        static_cast<int>(std::round(i.getP2().getX())),
+                                        static_cast<int>(std::round(i.getP2().getY())),
+                                        img::Color(std::get<0>(color_values),
+                                                   std::get<1>(color_values),
+                                                   std::get<2>(color_values)));
+                    }
+
+                }
+            }
+
         }
-
-        for (Figure & i : figures) {
-            i.apply_transformation(trans_eye_matrix);
-            Lines2D figure_lines = i.do_projection();
-            figures_lines.splice(figures_lines.end(), figure_lines);
-        }
-
-        if (type == "Wireframe") {
-            std::cout << "Wireframe" << std::endl;
-            Line2D::draw2DLines(figures_lines, size, image, false);
-        }
-
-        if (type == "ZBufferedWireframe") {
-            std::cout << "ZBufferedWireframe" << std::endl;
-            Line2D::draw2DLines(figures_lines, size, image, true);
-        }
-
-
     }
     return image;
 }

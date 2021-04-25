@@ -25,12 +25,143 @@
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="060d63f7-050e-432c-ae1d-e2a93a0d8827" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals001.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals002.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals003.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals004.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals005.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals006.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals007.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals008.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals009.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals010.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals011.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping003.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping004.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping005.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping006.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping007.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping008.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping009.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping010.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping011.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping012.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping013.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping014.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping015.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping016.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping017.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping018.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping019.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping020.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping021.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping022.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping023.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping024.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping025.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping026.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping027.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping028.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping029.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping030.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping031.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping032.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping033.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping034.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping035.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping036.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping037.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping038.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping039.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping040.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping041.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping042.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping043.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping044.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/clipping/filelist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/pse/export27.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/pse/export27.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/pse/lol.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2021-04-11T10-02-43-0896.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/engine" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/engine" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Figure.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Figure.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Figure.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Figure.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Line2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Line2D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platonic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platonic.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Platonic.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platonic.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/easy_image.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/easy_image.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/engine.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +176,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/engine.cc" root0="SKIP_INSPECTION" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pI6zgT54UGmBBpzok12EDVCT5T" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -60,33 +199,36 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ini_files" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ini_files/pse" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/ini_files/log(2).txt" />
   </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="false" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ini_files/pse" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/ini_files" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ini_files" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ini_files" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
   </component>
   <component name="RunManager">
-    <configuration name="engine" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="3d_fractals001.ini" REDIRECT_INPUT="false" WORKING_DIR="file://$PROJECT_DIR$/ini_files/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="engine" TARGET_NAME="engine" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="engine" RUN_TARGET_NAME="engine">
+    <configuration name="engine" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="3d_fractals001.ini" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/ini_files/" PASS_PARENT_ENVS_2="true" PROJECT_NAME="engine" TARGET_NAME="engine" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="engine" RUN_TARGET_NAME="engine">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -157,7 +299,26 @@
       <workItem from="1618393775831" duration="2303000" />
       <workItem from="1618407233769" duration="80000" />
       <workItem from="1618407398313" duration="828000" />
-      <workItem from="1618408608954" duration="8374000" />
+      <workItem from="1618408608954" duration="8482000" />
+      <workItem from="1618426004436" duration="32000" />
+      <workItem from="1618426073142" duration="5241000" />
+      <workItem from="1618431830631" duration="571000" />
+      <workItem from="1618481310897" duration="74000" />
+      <workItem from="1618576694503" duration="12422000" />
+      <workItem from="1618606471255" duration="301000" />
+      <workItem from="1618658355108" duration="1322000" />
+      <workItem from="1618659693542" duration="1683000" />
+      <workItem from="1618683771350" duration="1946000" />
+      <workItem from="1618686677970" duration="2546000" />
+      <workItem from="1618761671792" duration="1896000" />
+      <workItem from="1618770831393" duration="119000" />
+      <workItem from="1619018727075" duration="228000" />
+      <workItem from="1619019034265" duration="509000" />
+      <workItem from="1619019974094" duration="9978000" />
+      <workItem from="1619086034979" duration="9000" />
+      <workItem from="1619086047286" duration="11000" />
+      <workItem from="1619086061007" duration="1424000" />
+      <workItem from="1619088542659" duration="3534000" />
     </task>
     <servers />
   </component>
@@ -181,124 +342,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="39" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618413425129">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="39" y="31" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.729@0.23.1280.729" timestamp="1618413425129" />
-    <state x="104" y="51" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1280.732@0.23.1280.732" timestamp="1615564191054" />
-    <state x="-895" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616774263727">
-      <screen x="-1280" y="23" width="1280" height="729" />
-    </state>
-    <state x="-895" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616774263727" />
-    <state x="427" y="101" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1618413313045">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="427" y="101" key="#com.intellij.ide.macro.MacrosDialog/0.23.1280.729@0.23.1280.729" timestamp="1618413313045" />
-    <state x="679" y="111" key="#com.intellij.ide.util.MemberChooser" timestamp="1616878154859">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="679" y="111" key="#com.intellij.ide.util.MemberChooser/0.23.1280.729@0.23.1280.729" timestamp="1616878154859" />
-    <state x="679" y="112" key="#com.intellij.ide.util.MemberChooser/0.23.1280.732@0.23.1280.732" timestamp="1614977383523" />
-    <state x="-601" y="117" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616362494420" />
-    <state x="-601" y="111" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616361105272" />
-    <state x="-601" y="117" key="#com.intellij.ide.util.MemberChooser/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616349944818" />
-    <state x="656" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1614977767082">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state x="656" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.732@0.23.1280.732" timestamp="1614977767082" />
-    <state x="-1180" y="123" width="1080" height="529" key="DiffContextDialog" timestamp="1616783537222">
-      <screen x="-1280" y="23" width="1280" height="729" />
-    </state>
-    <state x="-1180" y="123" width="1080" height="529" key="DiffContextDialog/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616778986581" />
-    <state x="100" y="403" width="1080" height="529" key="DiffContextDialog/0.23.1920.1009@0.23.1920.1009" timestamp="1616779606698" />
-    <state x="-1180" y="123" width="1080" height="529" key="DiffContextDialog/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616783537221" />
-    <state width="1238" height="179" key="GridCell.Tab.0.bottom" timestamp="1618413432823">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state width="1238" height="177" key="GridCell.Tab.0.bottom/0.0.1920.1035/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615663223230" />
-    <state width="1238" height="179" key="GridCell.Tab.0.bottom/0.23.1280.729@0.23.1280.729" timestamp="1618413432823" />
-    <state width="1238" height="178" key="GridCell.Tab.0.bottom/0.23.1280.732@0.23.1280.732" timestamp="1615577448669" />
-    <state width="1238" height="175" key="GridCell.Tab.0.bottom/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616791702689" />
-    <state width="1238" height="176" key="GridCell.Tab.0.bottom/0.23.1920.1009/-1280.23.1280.777@0.23.1920.1009" timestamp="1615889031548" />
-    <state width="1238" height="192" key="GridCell.Tab.0.bottom/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615657614572" />
-    <state width="1238" height="175" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616777467077" />
-    <state width="1238" height="176" key="GridCell.Tab.0.bottom/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616349957906" />
-    <state width="1238" height="179" key="GridCell.Tab.0.center" timestamp="1618413432822">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state width="1238" height="177" key="GridCell.Tab.0.center/0.0.1920.1035/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615663223227" />
-    <state width="1238" height="179" key="GridCell.Tab.0.center/0.23.1280.729@0.23.1280.729" timestamp="1618413432822" />
-    <state width="1238" height="178" key="GridCell.Tab.0.center/0.23.1280.732@0.23.1280.732" timestamp="1615577448668" />
-    <state width="1238" height="175" key="GridCell.Tab.0.center/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616791702688" />
-    <state width="1238" height="176" key="GridCell.Tab.0.center/0.23.1920.1009/-1280.23.1280.777@0.23.1920.1009" timestamp="1615889031547" />
-    <state width="1238" height="192" key="GridCell.Tab.0.center/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615657614571" />
-    <state width="1238" height="175" key="GridCell.Tab.0.center/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616777467076" />
-    <state width="1238" height="176" key="GridCell.Tab.0.center/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616349957903" />
-    <state width="1238" height="179" key="GridCell.Tab.0.left" timestamp="1618413432822">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state width="1238" height="177" key="GridCell.Tab.0.left/0.0.1920.1035/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615663223225" />
-    <state width="1238" height="179" key="GridCell.Tab.0.left/0.23.1280.729@0.23.1280.729" timestamp="1618413432822" />
-    <state width="1238" height="178" key="GridCell.Tab.0.left/0.23.1280.732@0.23.1280.732" timestamp="1615577448667" />
-    <state width="1238" height="175" key="GridCell.Tab.0.left/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616791702687" />
-    <state width="1238" height="176" key="GridCell.Tab.0.left/0.23.1920.1009/-1280.23.1280.777@0.23.1920.1009" timestamp="1615889031545" />
-    <state width="1238" height="192" key="GridCell.Tab.0.left/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615657614570" />
-    <state width="1238" height="175" key="GridCell.Tab.0.left/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616777467075" />
-    <state width="1238" height="176" key="GridCell.Tab.0.left/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616349957898" />
-    <state width="1238" height="179" key="GridCell.Tab.0.right" timestamp="1618413432822">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state width="1238" height="177" key="GridCell.Tab.0.right/0.0.1920.1035/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615663223228" />
-    <state width="1238" height="179" key="GridCell.Tab.0.right/0.23.1280.729@0.23.1280.729" timestamp="1618413432822" />
-    <state width="1238" height="178" key="GridCell.Tab.0.right/0.23.1280.732@0.23.1280.732" timestamp="1615577448668" />
-    <state width="1238" height="175" key="GridCell.Tab.0.right/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616791702689" />
-    <state width="1238" height="176" key="GridCell.Tab.0.right/0.23.1920.1009/-1280.23.1280.777@0.23.1920.1009" timestamp="1615889031547" />
-    <state width="1238" height="192" key="GridCell.Tab.0.right/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615657614572" />
-    <state width="1238" height="175" key="GridCell.Tab.0.right/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616777467077" />
-    <state width="1238" height="176" key="GridCell.Tab.0.right/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616349957904" />
-    <state x="228" y="137" key="IDE.errors.dialog" timestamp="1618410776349">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="228" y="137" key="IDE.errors.dialog/0.23.1280.729@0.23.1280.729" timestamp="1618410776349" />
-    <state x="144" y="23" width="900" height="729" key="SettingsEditor" timestamp="1618408889689">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="144" y="23" width="900" height="729" key="SettingsEditor/0.23.1280.729@0.23.1280.729" timestamp="1618408889689" />
-    <state x="-1131" y="26" key="SettingsEditor/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616362492768" />
-    <state x="-829" y="323" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615661025326">
-      <screen x="-1280" y="23" width="1280" height="777" />
-    </state>
-    <state x="451" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1280.732@0.23.1280.732" timestamp="1615047956865" />
-    <state x="-829" y="323" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615661025326" />
-    <state x="8" y="23" width="1863" height="977" maximized="true" key="dock-window-1" timestamp="1616770965749">
-      <screen x="0" y="23" width="1920" height="1057" />
-    </state>
-    <state x="8" y="23" width="1863" height="977" maximized="true" key="dock-window-1/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616770965749" />
-    <state x="348" y="23" width="876" height="729" key="find.popup" timestamp="1618413120570">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="348" y="23" width="876" height="729" key="find.popup/0.23.1280.729@0.23.1280.729" timestamp="1618413120570" />
-    <state x="-932" y="17" width="584" height="783" key="find.popup/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615670487081" />
-    <state x="-932" y="23" width="876" height="729" key="find.popup/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616784089268" />
-    <state x="384" y="265" width="604" height="269" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1618408623287">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="384" y="265" width="604" height="269" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.23.1280.729@0.23.1280.729" timestamp="1618408623287" />
-    <state x="526" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1615042579605">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state x="526" y="187" key="refactoring.ChangeSignatureDialog/0.23.1280.732@0.23.1280.732" timestamp="1615042579605" />
-    <state x="610" y="78" width="670" height="675" key="search.everywhere.popup" timestamp="1618412692473">
-      <screen x="0" y="23" width="1280" height="729" />
-    </state>
-    <state x="610" y="78" width="670" height="675" key="search.everywhere.popup/0.23.1280.729@0.23.1280.729" timestamp="1618412692473" />
-    <state x="610" y="79" width="670" height="676" key="search.everywhere.popup/0.23.1280.732@0.23.1280.732" timestamp="1615231349331" />
-    <state x="-670" y="82" width="670" height="719" key="search.everywhere.popup/0.23.1920.1009/-1280.23.1280.777@-1280.23.1280.777" timestamp="1616789380864" />
-    <state x="-670" y="82" width="670" height="718" key="search.everywhere.popup/0.23.1920.1012/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615670181498" />
-    <state x="-670" y="78" width="670" height="674" key="search.everywhere.popup/0.23.1920.1057/-1280.23.1280.729@-1280.23.1280.729" timestamp="1616777490951" />
-    <state x="-670" y="82" width="670" height="718" key="search.everywhere.popup/0.23.1920.1057/-1280.23.1280.777@-1280.23.1280.777" timestamp="1615661572143" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

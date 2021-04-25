@@ -50,15 +50,21 @@ easy_image.h
 ZBuffer.h
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ZBuffer.h
 
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.cpp
-Platonic.h
-/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
-
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
 Figure.h
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
 
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Point2D.h
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.cpp
+Utils.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.h
+
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Utils.h
+Figure.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Figure.h
+Platonic.h
+/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/Platonic.h
 
 /Users/pablodeputter/Documents/GitHub/engine_computer_graphics/src/ZBuffer.h
 vector
