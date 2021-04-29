@@ -30,138 +30,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="060d63f7-050e-432c-ae1d-e2a93a0d8827" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals001.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals002.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals003.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals004.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals005.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals006.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals007.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals008.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals009.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals010.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/3d_fractals/3d_fractals011.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping001.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping002.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping003.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping003.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping004.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping004.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping005.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping005.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping006.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping006.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping007.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping007.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping008.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping009.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping009.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping010.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping010.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping011.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping011.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping012.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping012.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping013.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping013.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping014.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping015.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping015.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping016.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping016.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping017.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping017.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping018.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping018.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping019.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping019.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping020.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping020.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping021.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping021.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping022.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping022.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping023.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping023.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping024.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping025.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping025.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping026.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping026.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping027.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping027.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping028.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping028.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping029.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping029.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping030.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping030.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping031.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping031.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping032.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping032.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping033.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping033.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping034.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping034.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping035.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping035.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping036.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping036.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping037.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping037.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping038.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping038.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping039.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping039.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping040.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping040.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping041.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping041.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping042.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping042.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping043.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping043.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping044.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/clipping044.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/clipping/filelist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/pse/export27.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/pse/export27.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ini_files/pse/lol.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/pse/export.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ini_files/pse/export.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2021-04-11T10-02-43-0896.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/engine.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/engine" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/engine" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Figure.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Figure.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Figure.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Figure.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Line2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Line2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Platonic.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platonic.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Platonic.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Platonic.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/easy_image.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/easy_image.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/pse/export27.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/pse/export27.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ini_files/pse/lol.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -319,6 +194,8 @@
       <workItem from="1619086047286" duration="11000" />
       <workItem from="1619086061007" duration="1424000" />
       <workItem from="1619088542659" duration="3534000" />
+      <workItem from="1619692917844" duration="1287000" />
+      <workItem from="1619694359985" duration="1785000" />
     </task>
     <servers />
   </component>
