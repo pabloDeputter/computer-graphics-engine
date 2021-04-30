@@ -22,6 +22,12 @@ private:
     std::vector<Face> faces;
     cc::Color color;
 
+    cc::Color ambientReflection;
+    cc::Color diffuseReflection;
+    cc::Color specularReflection;
+
+    double reflectionCoefficent;
+
 public:
     std::vector<Vector3D> &get_points() {
         return points;

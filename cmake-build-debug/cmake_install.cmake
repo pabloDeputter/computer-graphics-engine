@@ -1,8 +1,8 @@
-# Install script for directory: /Users/pablodeputter/Documents/GitHub/engine_computer_graphics
+# Install script for directory: C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/engine")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,23 +34,23 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "C:/Qt/Tools/mingw810_64/bin/objdump.exe")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine")
+   "C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/engine.exe")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics" TYPE EXECUTABLE FILES "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/engine")
-  if(EXISTS "$ENV{DESTDIR}/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine")
+file(INSTALL DESTINATION "C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics" TYPE EXECUTABLE FILES "C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/cmake-build-debug/engine.exe")
+  if(EXISTS "$ENV{DESTDIR}/C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/engine.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/engine.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip" -u -r "$ENV{DESTDIR}/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/engine")
+      execute_process(COMMAND "C:/Qt/Tools/mingw810_64/bin/strip.exe" "$ENV{DESTDIR}/C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/engine.exe")
     endif()
   endif()
 endif()
@@ -63,5 +63,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/pablodeputter/Documents/GitHub/engine_computer_graphics/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Pabsy/Documents/GitHub/engine_computer_graphics/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
