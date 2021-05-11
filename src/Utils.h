@@ -6,7 +6,7 @@
 #define ENGINE_UTILS_H
 
 #include "Figure.h"
-#include "Platonic.h"
+#include "easy_image.h"
 
 /**
  * \brief Namespace implemented to hold a variety of "helper" functions
@@ -66,6 +66,10 @@ namespace Utils {
     std::tuple<double, double, double, double, double> prep_zbuffering(Figures3D & figures, Lines2D & figures_lines,
                                                                             const Matrix & trans_eye_matrix, const int size,
                                                                             bool clipping, const clipping_data & clippingData);
+
+    double overwriteMax(double i, const int & max);
+
+     img::Color scaleColor(const std::tuple<double, double, double> & color);
 };
 
 

@@ -22,11 +22,13 @@ private:
     std::vector<Face> faces;
     cc::Color color;
 
+    /**
+     * \brief Color components
+     */
     cc::Color ambientReflection;
     cc::Color diffuseReflection;
     cc::Color specularReflection;
-
-    double reflectionCoefficent;
+    double reflectionCoefficient;
 
 public:
     std::vector<Vector3D> &get_points() {
@@ -44,6 +46,38 @@ public:
     void set_color(const cc::Color & x) {
 
         Figure::color = x;
+    }
+
+    const cc::Color &getAmbientReflection() const {
+        return ambientReflection;
+    }
+
+    void setAmbientReflection(const std::vector<double> & i) {
+        Figure::ambientReflection = cc::Color(i);
+    }
+
+    const cc::Color &getDiffuseReflection() const {
+        return diffuseReflection;
+    }
+
+    void setDiffuseReflection(const std::vector<double> & i) {
+        Figure::diffuseReflection = cc::Color(i);
+    }
+
+    const cc::Color &getSpecularReflection() const {
+        return specularReflection;
+    }
+
+    void setSpecularReflection(const std::vector<double> & i) {
+        Figure::specularReflection = cc::Color(i);
+    }
+
+    double getReflectionCoefficient() const {
+        return reflectionCoefficient;
+    }
+
+    void setReflectionCoefficient(double reflectionCoefficient) {
+        Figure::reflectionCoefficient = reflectionCoefficient;
     }
 
     void add_point(const std::tuple<int, int, int> & x);

@@ -106,7 +106,7 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
         Line2D::draw2DLines(l_system_lines, size, image, false);
     }
 
-    else if (type == "Wireframe" || type == "ZBufferedWireframe" || type == "ZBuffering") {
+    else if (type == "Wireframe" || type == "ZBufferedWireframe" || type == "ZBuffering" || "LightedZBuffering") {
 
         // General data for all figures
         int nr_figures = configuration["General"]["nrFigures"].as_int_or_die();
@@ -126,6 +126,10 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
             d_near = configuration["General"]["dNear"].as_int_or_die();
             d_far = configuration["General"]["dFar"].as_int_or_die();
         }
+
+        // Light DATA
+        bool LIGHT = false;
+        if (type == "LightedZBuffering") LIGHT = true;
 
         // Hold all figures
         Figures3D figures;
@@ -292,18 +296,40 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                                   * Figure::scale_figure(scale_d)
                                   * Figure::translate(Vector3D::point(origin[0], origin[1], origin[2]));
 
-            // If there are extra figures stored, traverse these and add to figures sepperately
+
+            // If there are extra figures stored, traverse these and add to figures seperately
             if (!temp_fig_holder.empty()) {
 
                 for (Figure & fig : temp_fig_holder) {
+
+                    // TODO
+                    if (!LIGHT) {
+                        fig.setAmbientReflection(configuration[figure_name]["color"].as_double_tuple_or_default({0, 0, 0}));
+                        continue;
+                    }
+                    fig.setAmbientReflection(configuration[figure_name]["ambientReflection"].as_double_tuple_or_default({0, 0, 0}));
+                    fig.setDiffuseReflection(configuration[figure_name]["diffuseReflection"].as_double_tuple_or_default({0, 0, 0}));
+                    fig.setSpecularReflection(configuration[figure_name]["specularReflection"].as_double_tuple_or_default({0, 0, 0}));
+                    fig.setReflectionCoefficient(configuration[figure_name]["reflectionCoefficient"].as_double_or_default(0));
                     fig.apply_transformation(trans_matrix);
+
+                    // TODO - Set color
                     fig.set_color(figure_color);
                     figures.emplace_back(fig);
                 }
             }
             else{
+
                 figure.apply_transformation(trans_matrix);
+
+                // TODO - Set color
                 figure.set_color(figure_color);
+
+                // TODO
+                figure.setAmbientReflection(configuration[figure_name]["ambientReflection"].as_double_tuple_or_default({0, 0, 0}));
+                figure.setDiffuseReflection(configuration[figure_name]["diffuseReflection"].as_double_tuple_or_default({0, 0, 0}));
+                figure.setSpecularReflection(configuration[figure_name]["specularReflection"].as_double_tuple_or_default({0, 0, 0}));
+                figure.setReflectionCoefficient(configuration[figure_name]["reflectionCoefficient"].as_double_or_default(0));
 
                 if (line_drawing) {
                     figures_line_drawing.emplace_back(figure);
@@ -315,17 +341,63 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
         }
 
         Matrix trans_eye_matrix = Figure::eye_point_trans(Vector3D::point(eye[0], eye[1], eye[2]));
-        std::cout << trans_eye_matrix << std::endl;
         if (CLIPPING) {
             trans_eye_matrix = Figure::eye_point_trans_clipping(Vector3D::point(eye[0], eye[1], eye[2]));
         }
 
         Lines2D figures_lines;
         Lines2D line_drawing_lines;
+        Lights3D figures_lights;
+
+
+        // TODO
+        if (LIGHT) {
+            const int amountLights = configuration["General"]["nrLights"].as_int_or_default(0);
+
+            // Traverse lights in .ini file
+            for (int i = 0; i != amountLights; i++) {
+
+                std::string light_name = "Light" + std::to_string(i);
+                bool infinity = configuration[light_name]["infinity"].as_bool_or_default(false);
+                bool location = false;
+                if (configuration[light_name]["location"].exists()) location = true;
+
+                std::vector<double> ambient_light =
+                        configuration[light_name]["ambientLight"].as_double_tuple_or_default({0, 0, 0});
+                std::vector<double> diffuse_light =
+                        configuration[light_name]["diffuseLight"].as_double_tuple_or_default({0, 0, 0});
+                std::vector<double> specular_light =
+                        configuration[light_name]["specularLight"].as_double_tuple_or_default({0, 0, 0});
+
+                if (infinity) {
+                    std::vector<double> direc =
+                            configuration[light_name]["direction"].as_double_tuple_or_default({0, 0, 0});
+
+                    Vector3D ld = Vector3D::vector(direc[0], direc[1], direc[2]);
+                    // ld *= Figure::eye_point_trans(Vector3D::vector(eye[0], eye[1], eye[2]));
+                    ld *= trans_eye_matrix;
+                    ld = -Vector3D::normalise(ld);
+                    figures_lights.emplace_back(new InfLight(ambient_light, diffuse_light, specular_light, ld));
+                    continue;
+                }
+                else if (location) {
+                    std::vector<double> loc =
+                                configuration[light_name]["location"].as_double_tuple_or_default({0, 0, 0});
+                    Vector3D position = Vector3D::point(loc[0], loc[1], loc[2]);
+                    position = position * trans_eye_matrix;
+                    double spotAngle = configuration[light_name]["spotAngle"].as_double_or_default(0.0);
+                    figures_lights.emplace_back(new PointLight(ambient_light, diffuse_light, specular_light, position, spotAngle));
+                    continue;
+                }
+                figures_lights.emplace_back(new Light(ambient_light, diffuse_light, specular_light));
+            }
+        }
+        else {
+            figures_lights.emplace_back(new Light());
+        }
+
 
         if (type == "Wireframe") {
-
-            std::cout << "Wireframe" << std::endl;
 
             Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
             Line2D::draw2DLines(figures_lines, size, image, false);
@@ -338,8 +410,6 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
         if (type == "ZBufferedWireframe") {
 
-            std::cout << "ZBufferedWireframe" << std::endl;
-
             Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
             Line2D::draw2DLines(figures_lines, size, image, true);
 
@@ -349,9 +419,9 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
             }
         }
 
-        if (type == "ZBuffering") {
+        if (type == "ZBuffering" || type == "LightedZBuffering") {
 
-            std::cout << "ZBuffering" << std::endl;
+            std::cout << type << std::endl;
 
             double image_x;
             double image_y;
@@ -390,6 +460,7 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                 // Traverse created triangle-faces in figures
                 for (Figure & i : figures) {
 
+                    // TODO
                     // Get color of figure
                     std::tuple<double, double, double> color_values = i.get_color().getColor();
 
@@ -398,12 +469,10 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                         image.draw_zbuf_triag(buffer, i.get_points()[j.get_point_indexes()[0]],
                                               i.get_points()[j.get_point_indexes()[1]],
                                               i.get_points()[j.get_point_indexes()[2]],
-                                              d,
-                                              dx,
-                                              dy,
-                                              img::Color(std::get<0>(color_values),
-                                                         std::get<1>(color_values),
-                                                         std::get<2>(color_values)));
+                                              d, dx, dy, Utils::scaleColor(i.getAmbientReflection().getColor()), Utils::scaleColor(i.getDiffuseReflection().getColor()),
+                                              Utils::scaleColor(i.getSpecularReflection().getColor()), i.getReflectionCoefficient(), figures_lights, img::Color(std::get<0>(color_values),
+                                                                                                                                  std::get<1>(color_values),
+                                                                                                                                  std::get<2>(color_values)), trans_eye_matrix, Vector3D());
                     }
                 }
             }
@@ -467,8 +536,6 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                     }
 
                     for (Line2D & i : line_drawing_lines) {
-
-                        std::cout << static_cast<int>(std::round(i.getP1().getX())) << " " << static_cast<int>(std::round(i.getP1().getY())) << " " << static_cast<int>(std::round(i.getP2().getX())) << " " << static_cast<int>(std::round(i.getP2().getY())) << std::endl;
 
                         std::tuple<double, double, double> color_values = i.getColor().getColor();
                         image.draw_line(static_cast<int>(std::round(i.getP1().getX())),

@@ -3,7 +3,6 @@
 //
 
 #include "ZBuffer.h"
-#include <iostream>
 
 ZBuffer::ZBuffer(const unsigned int width, const unsigned int height) {
 

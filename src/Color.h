@@ -65,6 +65,18 @@ public:
 
         return std::make_tuple(Color::red, Color::green, Color::blue);
     }
+
+    double getRed() const {
+        return red;
+    }
+
+    double getGreen() const {
+        return green;
+    }
+
+    double getBlue() const {
+        return blue;
+    }
 };
 }
 

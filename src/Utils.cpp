@@ -596,3 +596,24 @@ std::tuple<double, double, double, double, double> Utils::prep_zbuffering(Figure
 
     return std::make_tuple(image_x, image_y, d, dx, dy);
 }
+
+double Utils::overwriteMax(double i, const int &max) {
+
+    if (i > max) return i = static_cast<double>(max);
+    else return i;
+}
+
+img::Color Utils::scaleColor(const std::tuple<double, double, double> & color) {
+
+    double red = std::get<0>(color) * 255;
+    double green = std::get<1>(color) * 255;
+    double blue = std::get<2>(color) * 255;
+
+    if (red > 255) red = 255;
+    if (green > 255) green = 255;
+    if (blue > 255) blue = 255;
+
+    return img::Color(red, green, blue);
+}
+
+

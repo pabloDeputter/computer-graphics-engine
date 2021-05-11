@@ -7,7 +7,6 @@
 
 #include <stack>
 #include "l_parser.h"
-#include "Color.h"
 #include "Figure.h"
 
 namespace LSystem_3D {

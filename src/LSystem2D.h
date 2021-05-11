@@ -8,10 +8,7 @@
 
 #include <stack>
 #include "l_parser.h"
-#include "Color.h"
-#include "Point2D.h"
 #include "Line2D.h"
-
 
 namespace LSystem_2D {
 

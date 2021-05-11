@@ -21,9 +21,11 @@
 #include <string>
 #include <cmath>
 #include <iostream>
-#include "ZBuffer.h"
 #include "vector3d.h"
 #include "Point2D.h"
+#include "Color.h"
+#include "ZBuffer.h"
+#include "Light.h"
 
 /**
  * \brief The namespace of the EasyImage class
@@ -246,8 +248,14 @@ namespace img
 
 
 			void draw_zbuf_triag(ZBuffer & buffer, Vector3D const & A, Vector3D const & B, Vector3D const & C,
-                                 const double d, const double dx, const double dy,
-                                 const Color & color);
+                                 const double d, const double dx, const double dy, const img::Color & ambientReflection,
+                                 const img::Color & diffuseReflection, const img::Color & specularReflection,
+                                 const double reflectionCoef, const Lights3D & lights, const img::Color & COLOR, const Matrix &eye_matrix, const Vector3D & eyePoint);
+
+			void diffuse_point_light(const img::Color &color, img::Color &new_color, const Lights3D &lights, const Matrix &eye_matrix,
+									 const double &z, const double& d, const double &dx, const double &dy, const Vector3D &nv,
+									 const unsigned int x, const unsigned int y, const img::Color &ambientReflection, 
+									 const img::Color &diffuseReflection, const img::Color &specularReflection, const Vector3D & eyePoint);
 
         /**
 			 * \brief           Resize the dimensions of an EasyImage object

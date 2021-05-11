@@ -3,6 +3,7 @@
 //
 
 #include "Line2D.h"
+#include "ZBuffer.h"
 
 void Line2D::line2D_scale(const double & x) {
 

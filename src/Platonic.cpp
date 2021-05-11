@@ -256,33 +256,68 @@ Figure Platonic::cone(const int &n, const double &h) {
 Figure Platonic::cylinder(const int &n, const double &h) {
 
     Figure cylinder;
+    // // 2n points
+    // for (int i = 0; i != n; i++) {
+    //     // Ground surface
+    //     cylinder.add_point_double(std::make_tuple(cos(2 * i * M_PI / n),
+    //                                           sin(2 * i * M_PI / n),
+    //                                           0));
+    //     // Celing
+    //     cylinder.add_point_double(std::make_tuple(cos(2 * (i % n) * M_PI / n),
+    //                                           sin(2 * (i % n) * M_PI / n),
+    //                                           h));
+    // }
+    // std::vector<int> ground;
+    // std::vector<int> ceiling;
 
-    // 2n points
+    // // Surfaces of cylinder
+    // for (int i = 0; i != 2 * n; i = i + 2) {
+    //     // counter clockwise TODO
+    //     cylinder.get_faces().emplace_back(Face({(i + 2) % (2 * n),
+    //                                             (i + 3) % (2 * n),
+    //                                             (i + 1) % (2 * n),
+    //                                             i % (2 * n)}));
+    //     ground.emplace_back(2 * n - (i + 1));
+    //     ceiling.emplace_back(i);
+    // }
+
+    // cylinder.get_faces().emplace_back(ground);
+    // cylinder.get_faces().emplace_back(ceiling);
+
+    // return cylinder;
+
+    // Ground rectangles
     for (int i = 0; i != n; i++) {
-        // Ground surface
-        cylinder.add_point_double(std::make_tuple(cos(2 * i * M_PI / n),
-                                              sin(2 * i * M_PI / n),
-                                              0));
-        // Celing
-        cylinder.add_point_double(std::make_tuple(cos(2 * (i % n) * M_PI / n),
-                                              sin(2 * (i % n) * M_PI / n),
-                                              h));
+        cylinder.get_points().emplace_back(Vector3D::point(cos(2 * i * M_PI / n),
+                                                           sin(2 * i * M_PI / n),
+                                                           0));
     }
-    std::vector<int> ground;
-    std::vector<int> ceiling;
 
-    // Surfaces of cylinder
-    for (int i = 0; i != 2 * n; i = i + 2) {
-        // counter clockwise TODO
-        cylinder.get_faces().emplace_back(Face({(i + 2) % (2 * n),
-                                                (i + 3) % (2 * n),
-                                                (i + 1) % (2 * n),
-                                                i % (2 * n)}));
-        ground.emplace_back(2 * n - (i + 1));
+    // Ceiling rectangles
+    for (int i = 0; i != n; i++) {
+        cylinder.get_points().emplace_back(Vector3D::point(cos(2 * i * M_PI / n),
+                                                           sin(2 * i * M_PI / n),
+                                                           h));
+    }
+
+    // Rectangles faces
+    for (int i = 0; i != n; i++) {
+        cylinder.get_faces().emplace_back(Face({i, (i + 1) % n,
+                                                ((i + 1) % n) + n,
+                                                i + n}));
+    }
+
+    std::vector<int> ceiling;
+    for (int i = 0; i < n; i++) {
         ceiling.emplace_back(i);
     }
-    cylinder.get_faces().emplace_back(ground);
-    cylinder.get_faces().emplace_back(ceiling);
+    cylinder.get_faces().emplace_back(Face(ceiling));
+
+    std::vector<int> ground;
+    for (int i = n; i < 2 * n; i++) {
+        ground.emplace_back(i);
+    }
+    cylinder.get_faces().emplace_back(Face(ground));
 
     return cylinder;
 }

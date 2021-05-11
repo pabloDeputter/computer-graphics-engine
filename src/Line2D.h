@@ -8,9 +8,11 @@
 #include <list>
 #include <cmath>
 #include "Point2D.h"
-#include "Color.h"
 #include "easy_image.h"
-#include "ZBuffer.h"
+
+namespace img {
+    class EasyImage;
+}
 
 class Line2D;
 
