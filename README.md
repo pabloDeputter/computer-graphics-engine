@@ -35,6 +35,7 @@
 |   | UV-coordinaten            | :no_entry: | 0.125 |
 |   | Normaalvectoren           | :no_entry: | 0.125 |
 |   | Cube mapping              | :no_entry: | .5 |
+| 10| Total points              | :arrow_forward: | 8.6 |
 
 Geïmplementeerde vorm van texture mapping: ...
 
