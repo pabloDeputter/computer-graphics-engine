@@ -1,12 +1,11 @@
 ## Gequoteerde functionaliteit
 
-V: Werkend  
--: Deels werkend met gekende problemen (onderaan beschreven)  
-X: Niet werkend of niet geïmplementeerd  
-(blanco): TODO 
+:ok_hand: Werkend  
+:construction_worker: Deels werkend met gekende problemen (onderaan beschreven)  
+:no_entry: Niet werkend of niet geïmplementeerd  
 
 
-|   | Functionaliteit      | Status |
+|   | Functionaliteit       | Status |
 |---|---------------------------|---|
 | 1 | 2D L-systemen             | :ok_hand: |
 |   | Met haakjes               | :ok_hand: |
