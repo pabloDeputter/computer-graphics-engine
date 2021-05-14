@@ -5,8 +5,8 @@
 :no_entry: Niet werkend of niet geïmplementeerd  
 
 
-|   | Functionaliteit       | Status |       | Points |
-|---|---------------------------|---|
+|   | Functionaliteit       | Status | | Punten |
+|---|---------------------------|---|-------|
 | 1 | 2D L-systemen             | :ok_hand: |
 |   | Met haakjes               | :ok_hand: |
 |   | Stochastisch              | :ok_hand: |
