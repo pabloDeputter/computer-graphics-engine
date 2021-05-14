@@ -20,6 +20,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
+#include <tgmath.h>
 #include <iostream>
 #include "vector3d.h"
 #include "Point2D.h"
@@ -247,15 +248,16 @@ namespace img
                                 const Color & color);
 
 
-			void draw_zbuf_triag(ZBuffer & buffer, Vector3D const & A, Vector3D const & B, Vector3D const & C,
-                                 const double d, const double dx, const double dy, const img::Color & ambientReflection,
-                                 const img::Color & diffuseReflection, const img::Color & specularReflection,
-                                 const double reflectionCoef, const Lights3D & lights, const img::Color & COLOR, const Matrix &eye_matrix, const Vector3D & eyePoint);
+            void draw_zbuf_triag(ZBuffer &buffer, Vector3D const &A, Vector3D const &B, Vector3D const &C,
+                                 const double d, const double dx, const double dy, const cc::Color &ambientReflection,
+                                 const cc::Color &diffuseReflection, const cc::Color &specularReflection,
+                                 const double reflectionCoef, const Lights3D &lights, const Matrix &eye_matrix, const bool &shadow);
 
-			void diffuse_point_light(const img::Color &color, img::Color &new_color, const Lights3D &lights, const Matrix &eye_matrix,
-									 const double &z, const double& d, const double &dx, const double &dy, const Vector3D &nv,
-									 const unsigned int x, const unsigned int y, const img::Color &ambientReflection, 
-									 const img::Color &diffuseReflection, const img::Color &specularReflection, const Vector3D & eyePoint);
+            void diffuse_point_lights(const Lights3D &lights, const double &z, const double &d, const double &dx, const double &dy,
+                                      const Vector3D &nv, const unsigned int x, const unsigned int y, const double &reflectionCoef,
+                                      cc::Color &color, const cc::Color &ambientReflection, const cc::Color &diffuseReflection,
+                                      const cc::Color &specularReflection, const bool &shadow, const Matrix &eye);
+
 
         /**
 			 * \brief           Resize the dimensions of an EasyImage object

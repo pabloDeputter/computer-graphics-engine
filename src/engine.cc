@@ -114,6 +114,7 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
         // Clipping DATA
         bool CLIPPING = configuration["General"]["clipping"].as_bool_or_default(false);
+        bool SHADOW = configuration["General"]["shadowEnabled"].as_bool_or_default(false);
         std::vector<int> viewDirection;
         int fov;
         double aspect_ratio;
@@ -374,9 +375,7 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                             configuration[light_name]["direction"].as_double_tuple_or_default({0, 0, 0});
 
                     Vector3D ld = Vector3D::vector(direc[0], direc[1], direc[2]);
-                    // ld *= Figure::eye_point_trans(Vector3D::vector(eye[0], eye[1], eye[2]));
                     ld *= trans_eye_matrix;
-                    ld = -Vector3D::normalise(ld);
                     figures_lights.emplace_back(new InfLight(ambient_light, diffuse_light, specular_light, ld));
                     continue;
                 }
@@ -386,7 +385,18 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
                     Vector3D position = Vector3D::point(loc[0], loc[1], loc[2]);
                     position = position * trans_eye_matrix;
                     double spotAngle = configuration[light_name]["spotAngle"].as_double_or_default(0.0);
-                    figures_lights.emplace_back(new PointLight(ambient_light, diffuse_light, specular_light, position, spotAngle));
+                    PointLight *new_light = new PointLight(ambient_light, diffuse_light, specular_light, position, spotAngle);
+                    int shadowMask = 0;
+                    if (SHADOW) {
+                        std::cout << "shadow" << std::endl;
+                        shadowMask = configuration["General"]["shadowMask"].as_int_or_die();
+                        new_light->setShadowMask(shadowMask, shadowMask);
+                        // TODO
+                        Matrix eye_light = Figure::eye_point_trans(Vector3D::point(loc[0], loc[1], loc[2]));
+                        new_light->setEye(eye_light);
+                        new_light->setInvEye(Matrix::inv(trans_eye_matrix));
+                    }
+                    figures_lights.emplace_back(new_light);
                     continue;
                 }
                 figures_lights.emplace_back(new Light(ambient_light, diffuse_light, specular_light));
@@ -434,45 +444,48 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
                 std::cout << "figures" << std::endl;
 
+                std::tuple<double, double,
+                           double, double,
+                           double, Figures3D> return_data = Utils::prep_zbuffering(figures, figures_lines,
+                                                                         trans_eye_matrix, size);
 
-                // TODO
-                Utils::clipping_data clippingData = Utils::clipping_data();
-                if (CLIPPING) {
-
-                    clippingData = Utils::clipping_data(viewDirection, fov, aspect_ratio, d_near, d_far);
-                }
-
-                std::tuple<double, double, double, double, double> a = Utils::prep_zbuffering(figures, figures_lines,
-                                                                                              trans_eye_matrix, size, CLIPPING, clippingData);
-
-                image_x = std::get<0>(a);
-                image_y = std::get<1>(a);
-                d = std::get<2>(a);
-                dx = std::get<3>(a);
-                dy = std::get<4>(a);
+                image_x = std::get<0>(return_data);
+                image_y = std::get<1>(return_data);
+                d = std::get<2>(return_data);
+                dx = std::get<3>(return_data);
+                dy = std::get<4>(return_data);
+                Figures3D triangulated_figures = std::get<5>(return_data);
 
                 // Create buffer
                 buffer = ZBuffer( (unsigned int) std::round(image_x), (unsigned int) std::round(image_y));
 
                 // Resize image
                 image.image_resize( (int) std::round(image_x), (int) std::round(image_y));
-
                 // Traverse created triangle-faces in figures
+
+                if (SHADOW) {
+                    std::cout << "shadow" << std::endl;
+                    for (Light *i : figures_lights) {
+                        if (i->getName() == "POINT") {
+                            i->createShadowMask(triangulated_figures,
+                                                configuration["General"]["shadowMask"].as_int_or_die());
+                        }
+                    }
+                }
+
+                std::cout << "d: " << d << std::endl;
+                std::cout << "dx: " << dx << std::endl;
+                std::cout << "dy: " << dy << std::endl;
+
                 for (Figure & i : figures) {
-
-                    // TODO
-                    // Get color of figure
-                    std::tuple<double, double, double> color_values = i.get_color().getColor();
-
                     for (Face & j : i.get_faces()) {
 
                         image.draw_zbuf_triag(buffer, i.get_points()[j.get_point_indexes()[0]],
                                               i.get_points()[j.get_point_indexes()[1]],
                                               i.get_points()[j.get_point_indexes()[2]],
-                                              d, dx, dy, Utils::scaleColor(i.getAmbientReflection().getColor()), Utils::scaleColor(i.getDiffuseReflection().getColor()),
-                                              Utils::scaleColor(i.getSpecularReflection().getColor()), i.getReflectionCoefficient(), figures_lights, img::Color(std::get<0>(color_values),
-                                                                                                                                  std::get<1>(color_values),
-                                                                                                                                  std::get<2>(color_values)), trans_eye_matrix, Vector3D());
+                                              d, dx, dy, i.getAmbientReflection(), i.getDiffuseReflection(),
+                                              i.getSpecularReflection(), i.getReflectionCoefficient(),
+                                              figures_lights, trans_eye_matrix, SHADOW);
                     }
                 }
             }

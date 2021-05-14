@@ -28,7 +28,14 @@ public:
      */
     ZBuffer(unsigned int width, unsigned int height);
 
-    const vector <std::vector<double>> &getBuffer() const {
+    ZBuffer() {}
+
+    const std::vector <std::vector<double>> &getBuffer() const {
+
+        return buffer;
+    }
+
+    std::vector <std::vector<double>> &getBuffer() {
 
         return buffer;
     }

@@ -21,6 +21,7 @@
 #include "Utils.h"
 #include <cmath>
 #include <tgmath.h>
+#include "DesignByContract.h"
 
 #ifndef le32toh
 #define le32toh(x) (x)
@@ -496,9 +497,9 @@ void img::EasyImage::image_resize(const int &image_x, const int &image_y) {
 }
 
 void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const Vector3D &B, const Vector3D &C,
-                                     const double d, const double dx, const double dy, const img::Color & ambientReflection,
-                                     const img::Color & diffuseReflection, const img::Color & specularReflection,
-                                     const double reflectionCoef, const Lights3D & lights, const img::Color & COLOR, const Matrix &eye_matrix, const Vector3D & eyePoint) {
+                                     const double d, const double dx, const double dy, const cc::Color &ambientReflection,
+                                     const cc::Color &diffuseReflection, const cc::Color &specularReflection,
+                                     const double reflectionCoef, const Lights3D &lights, const Matrix &eye_matrix, const bool &shadow) {
 
     // Project triangle ABC -> A'B'C' on real points
     Point2D A_ = Point2D((d * A.x) / -A.z + dx, (d * A.y) / -A.z + dy);
@@ -532,31 +533,33 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
     Vector3D AC = Vector3D::normalise(C - A);
     Vector3D nv = Vector3D::cross(AB, AC);
     nv = Vector3D::normalise(nv);
-    Color color = Color(0, 0, 0);
+    cc::Color color = cc::Color();
     Lights3D point_lights;
     bool POINTLIGHT = false;
     // TODO
     for (Light * i : lights) {
-        color.red = (uint8_t) Utils::overwriteMax(static_cast<double>(color.red + ambientReflection.red * i->getAmbientLight().getRed()), 255);
-        color.green = (uint8_t) Utils::overwriteMax(static_cast<double>(color.green + ambientReflection.green * i->getAmbientLight().getGreen()), 255);
-        color.blue = (uint8_t) Utils::overwriteMax(static_cast<double>(color.blue + ambientReflection.blue * i->getAmbientLight().getBlue()), 255);
+        color.getRed() += ambientReflection.getRed() * i->getAmbientLight().getRed();
+        color.getGreen() += ambientReflection.getGreen() * i->getAmbientLight().getGreen();
+        color.getBlue() += ambientReflection.getBlue() * i->getAmbientLight().getBlue();
+
         if (i->getName() == "INFINITY") {
             Vector3D l = i->getVector();
+            l = Vector3D::normalise(-l);
             double cos_a = l.x * nv.x + l.y * nv.y + l.z * nv.z;
 
-            if (cos_a > i->getAngle()) {
-                color.red = (uint8_t) Utils::overwriteMax(static_cast<double>(color.red + diffuseReflection.red * i->getDiffuseLight().getRed() * cos_a), 255);
-                color.green = (uint8_t) Utils::overwriteMax(static_cast<double>(color.green + diffuseReflection.green * i->getDiffuseLight().getGreen() * cos_a), 255);
-                color.blue = (uint8_t) Utils::overwriteMax(static_cast<double>(color.blue + diffuseReflection.blue * i->getDiffuseLight().getBlue() * cos_a), 255);
+            if (cos_a > 0) {
+                color.getRed() += diffuseReflection.getRed() * i->getDiffuseLight().getRed() * cos_a;
+                color.getGreen() += diffuseReflection.getGreen() * i->getDiffuseLight().getGreen() * cos_a;
+                color.getBlue() += diffuseReflection.getBlue() * i->getDiffuseLight().getBlue() * cos_a;
             }
         }
-        else if (i->getName() == "POINT") {
+        if (i->getName() == "POINT") {
         	POINTLIGHT = true;
-        	point_lights.emplace_back(i);
+        }
+        if (i->isReflective()) {
+            POINTLIGHT = true;
         }
     }
-
-    Matrix inv_trans_eye_matrix = Matrix::inv(eye_matrix);
 
     // Iterate over all y-values
     for (unsigned int y = static_cast<unsigned int>(ymin); y <= static_cast<unsigned int>(ymax); y++) {
@@ -606,28 +609,27 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
 
               if (buffer.check_z_value( x, y, z)) {
 
-              	Color new_color = color;
+                  cc::Color new_color = cc::Color(color.getRed(), color.getGreen(), color.getBlue());
 
-              	if (POINTLIGHT) {
-              		diffuse_point_light(color, new_color, point_lights, eye_matrix, 
-              						   z, d, dx, dy, nv, x, y, ambientReflection,
-              						   diffuseReflection, specularReflection, eyePoint);
-              	}
-                (*this)(x, y) = new_color;
+                  if (POINTLIGHT) {
+                      diffuse_point_lights(lights, z, d, dx, dy, nv, x, y, reflectionCoef, new_color,
+                                           ambientReflection, diffuseReflection, specularReflection, shadow, eye_matrix);
+                  }
+
+
+                  (*this)(x, y) = Utils::scaleColor(std::make_tuple(new_color.getRed(), new_color.getGreen(), new_color.getBlue()));
 
               }
-
             }
     }
 }
 
-void img::EasyImage::diffuse_point_light(const img::Color &color, img::Color &new_color, const Lights3D &lights, const Matrix &eye_matrix,
-						                 const double &z, const double& d, const double &dx, const double &dy, const Vector3D &nv,
-						                 const unsigned int x, const unsigned int y, const img::Color &ambientReflection, 
-						                 const img::Color &diffuseReflection, const img::Color &specularReflection, const Vector3D & eyePoint) {
 
 
-    Vector3D l = Vector3D::vector(0, 0, 0);
+void img::EasyImage::diffuse_point_lights(const Lights3D &lights, const double &z, const double &d, const double &dx, const double &dy,
+                                          const Vector3D &nv, const unsigned int x, const unsigned int y, const double &reflectionCoef,
+                                          cc::Color &color, const cc::Color &ambientReflection, const cc::Color &diffuseReflection,
+                                          const cc::Color &specularReflection, const bool &shadow, const Matrix &eye) {
     double ze = static_cast<double>(1.0) / z;
     double xe = (static_cast<double>(x) - dx) * (-ze / d);
     double ye = (static_cast<double>(y) - dy) * (-ze / d);
@@ -635,28 +637,62 @@ void img::EasyImage::diffuse_point_light(const img::Color &color, img::Color &ne
 
     for (const Light * i : lights) {
 
-    	// new_color.red = (uint8_t) Utils::overwriteMax(static_cast<double>(color.red + ambientReflection.red * i->getAmbientLight().getRed()), 255);
-        // new_color.green = (uint8_t) Utils::overwriteMax(static_cast<double>(color.green + ambientReflection.green * i->getAmbientLight().getGreen()), 255);
-        // new_color.blue = (uint8_t) Utils::overwriteMax(static_cast<double>(color.blue + ambientReflection.blue * i->getAmbientLight().getBlue()), 255);
-
-        if (i->getName() == "POINT") {
-			Vector3D ld = i->getVector();
-    		l = ld - point;
-    		l = Vector3D::normalise(l);
+        if (shadow && i->checkShadowMask(point, eye)) {
+            continue;
         }
 
-        // else if (i->getName() == "INFINITY") {
-        	// l = i->getVector();
-        // }
+        Vector3D ld = i->getVector();
+        Vector3D l = Vector3D::vector(0, 0, 0);
+        if (i->getName() == "POINT") {
+            l = ld - point;
+        }
+        else if (i->getName() == "INFINITY") {
+            l = -i->getVector();
+        }
+        l = Vector3D::normalise(l);
 
-    	double cos_a = Vector3D::dot(l, nv);
+        double cos_a = Vector3D::dot(l, nv);
 
-    	// TODO - i->getAngle() enkel bij bepaalde licht component
-    	if (cos_a > i->getAngle()) {
-    		new_color.red = (uint8_t) Utils::overwriteMax(static_cast<double>(color.red + diffuseReflection.red * i->getDiffuseLight().getRed() * cos_a), 255);
-    		new_color.green = (uint8_t) Utils::overwriteMax(static_cast<double>(color.green + diffuseReflection.green * i->getDiffuseLight().getGreen() * cos_a), 255);
-    		new_color.blue = (uint8_t) Utils::overwriteMax(static_cast<double>(color.blue + diffuseReflection.blue * i->getDiffuseLight().getBlue() * cos_a), 255);
-    	}
+        if (cos_a > i->getAngle() && i->getName() == "POINT") {
+
+            if (i->getAngle() != 0) {
+                double a = 1 - cos_a;
+                double b = 1 - i->getAngle();
+                double c = a / b;
+                cos_a = 1 - c;
+            }
+            color.getRed() += diffuseReflection.getRed() * i->getDiffuseLight().getRed() * cos_a;
+            color.getGreen() += diffuseReflection.getGreen() * i->getDiffuseLight().getGreen() * cos_a;
+            color.getBlue() += diffuseReflection.getBlue() * i->getDiffuseLight().getBlue() * cos_a;
+        }
+        cos_a = Vector3D::dot(l, nv);
+        double cos_b = 0;
+
+        Vector3D r = Vector3D::normalise(2 * cos_a * nv -l);
+
+        Vector3D vecToEye = -point;
+        vecToEye = Vector3D::normalise(vecToEye);
+
+        cos_b = Vector3D::dot(r, vecToEye);
+
+        if (cos_b >= 0) {
+            color.getRed() += specularReflection.getRed() * i->getSpecularLight().getRed() * pow(cos_b, reflectionCoef);
+            color.getGreen() += specularReflection.getGreen() * i->getSpecularLight().getGreen() * pow(cos_b, reflectionCoef);
+            color.getBlue() += specularReflection.getBlue() * i->getSpecularLight().getBlue() * pow(cos_b, reflectionCoef);
+        }
+    }
+
+    if (color.getRed() > 1) {
+        color.getRed() = 1;
+    }
+    if (color.getGreen() > 1) {
+        color.getGreen() = 1;
+    }
+    if (color.getBlue() > 1) {
+        color.getBlue() = 1;
     }
 }
+
+
+
 

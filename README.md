@@ -25,12 +25,12 @@ X: Niet werkend of niet geïmplementeerd
 | 6 | 3D fractalen              | :ok_hand: |
 |   | BuckyBall                 | :construction_worker: |
 |   | Mengerspons               | :construction_worker: |
-|   | View Frustum              | :construction_worker: |
-| 7 | Ambient licht             | :construction_worker: |
-|   | Diffuus licht (oneindig)  | :construction_worker: |
-|   | Diffuus licht (puntbron)  | :construction_worker: |
-|   | Speculair licht           | :construction_worker: |
-| 8 | Schaduw                   | :construction_worker: |
+|   | View Frustum              | :no_entry: |
+| 7 | Ambient licht             | :ok_hand: |
+|   | Diffuus licht (oneindig)  | :ok_hand: |
+|   | Diffuus licht (puntbron)  | :ok_hand: |
+|   | Speculair licht           | :ok_hand: |
+| 8 | Schaduw                   | :ok_hand: |
 |   | Texture mapping           | :construction_worker: |
 | 9 | Bollen en cylinders       | :construction_worker: |
 |   | UV-coordinaten            | :construction_worker: |

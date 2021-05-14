@@ -43,7 +43,10 @@ set(engine_sources
 		src/ZBuffer.cpp
 		src/ZBuffer.h
 		src/Utils.cpp
-		src/Utils.h src/Light.cpp src/Light.h)
+                src/Utils.h
+                src/Light.cpp
+                src/Light.h
+                src/DesignByContract.h)
 
 #set(engine_sources
 #		easy_image.cc

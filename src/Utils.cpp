@@ -36,7 +36,21 @@ void Utils::fractal(Figure & figure, Figures3D & fractal, const int iter, const 
     }
 }
 
-void Utils::generate_lines(Figures3D & figures, Lines2D & figures_lines, const Matrix & trans_matrix) {
+void Utils::triangulate_figures(Figures3D &figures) {
+
+    for (Figure &i : figures) {
+        std::vector<Face> new_faces;
+
+        for (Face &j : i.get_faces()) {
+            std::vector<Face> triangles = ZBuffering::triangulate(j);
+            new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
+        }
+        i.get_faces().clear();
+        i.get_faces() = new_faces;
+    }
+}
+
+void Utils::generate_lines(Figures3D &figures, Lines2D &figures_lines, const Matrix &trans_matrix) {
 
     for (Figure & fig : figures) {
 
@@ -46,531 +60,8 @@ void Utils::generate_lines(Figures3D & figures, Lines2D & figures_lines, const M
     }
 }
 
-void Utils::clipping_near_far(std::vector<Face> &new_faces, const Face &j, Figure &i, const double &d_val) {
-
-    if (i.get_points()[j.get_point_indexes()[0]].z > d_val && i.get_points()[j.get_point_indexes()[1]].z > d_val &&
-        i.get_points()[j.get_point_indexes()[2]].z > d_val) {
-
-        new_faces.emplace_back(j);
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val &&
-             i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        // DO NOTHING
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val){
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[2]].z / i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[2]].z / i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z;
-
-        std::cout << p << std::endl;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[2]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[1]].z / i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[1]].z / i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), j.get_point_indexes()[1], (int)(i.get_points().size() - 1)};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[0]].z / i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[0]].z / i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[0]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val) {
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[1]].z / i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[2]].z / i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[0]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[1], j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val) {
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[0]].z / i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[2]].z / i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0],(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        double p = d_val - i.get_points()[j.get_point_indexes()[0]].z / i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z;
-
-        double p_ = d_val - i.get_points()[j.get_point_indexes()[1]].z / i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z;
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[2]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], j.get_point_indexes()[1], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-}
-
-void Utils::clipping_left_right(std::vector<Face> &new_faces, const Face &j, Figure &i, const double &d_val, const clipping_data & clippingData) {
-
-    if (i.get_points()[j.get_point_indexes()[0]].z > d_val && i.get_points()[j.get_point_indexes()[1]].z > d_val &&
-        i.get_points()[j.get_point_indexes()[2]].z > d_val) {
-
-        new_faces.emplace_back(j);
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val &&
-             i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        // DO NOTHING
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[2]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[2]].x - i.get_points()[j.get_point_indexes()[0]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[2]].x - i.get_points()[j.get_point_indexes()[1]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[2]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[1]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[1]].x - i.get_points()[j.get_point_indexes()[0]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[1]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[1]].x - i.get_points()[j.get_point_indexes()[2]].x) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), j.get_point_indexes()[1], (int)(i.get_points().size() - 1)};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].x - i.get_points()[j.get_point_indexes()[1]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[0]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[0]].x - i.get_points()[j.get_point_indexes()[2]].x) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[0]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[1]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[1]].x - i.get_points()[j.get_point_indexes()[0]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[2]].x - i.get_points()[j.get_point_indexes()[0]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[0]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[1], j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].x - i.get_points()[j.get_point_indexes()[1]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[2]].x - i.get_points()[j.get_point_indexes()[1]].x) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0],(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].x - i.get_points()[j.get_point_indexes()[2]].x) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[1]].x * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[1]].x - i.get_points()[j.get_point_indexes()[2]].x) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[2]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], j.get_point_indexes()[1], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-}
-
-void Utils::clipping_top_bottom(std::vector<Face> &new_faces, const Face &j, Figure &i, const double &d_val,
-                                const clipping_data &clippingData) {
-
-
-    if (i.get_points()[j.get_point_indexes()[0]].z > d_val && i.get_points()[j.get_point_indexes()[1]].z > d_val &&
-        i.get_points()[j.get_point_indexes()[2]].z > d_val) {
-
-        new_faces.emplace_back(j);
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val &&
-             i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        // DO NOTHING
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[1]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[2]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[2]].y - i.get_points()[j.get_point_indexes()[0]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[2]].y - i.get_points()[j.get_point_indexes()[1]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[2]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[1]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[1]].y - i.get_points()[j.get_point_indexes()[0]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[1]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[1]].y - i.get_points()[j.get_point_indexes()[2]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), j.get_point_indexes()[1], (int)(i.get_points().size() - 1)};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val && i.get_points()[j.get_point_indexes()[2]].z < d_val){
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].y - i.get_points()[j.get_point_indexes()[1]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[0]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[0]].y - i.get_points()[j.get_point_indexes()[2]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[0]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[0]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[1]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[1]].y - i.get_points()[j.get_point_indexes()[0]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[2]].y - i.get_points()[j.get_point_indexes()[0]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[0]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[0]] + (1 - p) * i.get_points()[j.get_point_indexes()[1]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[0]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[1], j.get_point_indexes()[2]};
-
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[1]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].y - i.get_points()[j.get_point_indexes()[1]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[2]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[2]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[2]].y - i.get_points()[j.get_point_indexes()[1]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[2]].z - i.get_points()[j.get_point_indexes()[1]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[1]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[1]] + (1 - p_) * i.get_points()[j.get_point_indexes()[2]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0],(int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1), j.get_point_indexes()[2]};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-
-    else if (i.get_points()[j.get_point_indexes()[2]].z < d_val) {
-
-        double p = (i.get_points()[j.get_point_indexes()[0]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[0]].z * d_val) /
-                   ((i.get_points()[j.get_point_indexes()[0]].y - i.get_points()[j.get_point_indexes()[2]].y) * clippingData.d_near +
-                    (i.get_points()[j.get_point_indexes()[0]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        double p_ = (i.get_points()[j.get_point_indexes()[1]].y * clippingData.d_near + i.get_points()[j.get_point_indexes()[1]].z * d_val) /
-                    ((i.get_points()[j.get_point_indexes()[1]].y - i.get_points()[j.get_point_indexes()[2]].y) * clippingData.d_near +
-                     (i.get_points()[j.get_point_indexes()[1]].z - i.get_points()[j.get_point_indexes()[2]].z) * d_val);
-
-        Vector3D S = p * i.get_points()[j.get_point_indexes()[2]] + (1 - p) * i.get_points()[j.get_point_indexes()[0]];
-
-        Vector3D S_ = p_ * i.get_points()[j.get_point_indexes()[2]] + (1 - p_) * i.get_points()[j.get_point_indexes()[1]];
-
-        i.get_points().emplace_back(S);
-        i.get_points().emplace_back(S_);
-
-        std::vector<int> new_face = {j.get_point_indexes()[0], j.get_point_indexes()[1], (int)(i.get_points().size() - 2), (int)(i.get_points().size() - 1)};
-        Face a(new_face);
-
-        std::vector<Face> triangles = ZBuffering::triangulate(a);
-        new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-    }
-}
-
-std::tuple<double, double, double, double, double> Utils::prep_zbuffering(Figures3D &figures, Lines2D &figures_lines,
-                                                                            const Matrix &trans_eye_matrix, const int size,
-                                                                          bool clipping, const clipping_data & clippingData) {
-
-    figures_lines.clear();
-
-    // Traverse figures and triangulate every face
-    for (Figure & i : figures) {
-
-        std::vector<Face> new_faces;
-
-        for (Face & j : i.get_faces()) {
-
-            std::vector<Face> triangles = ZBuffering::triangulate(j);
-            new_faces.insert(new_faces.end(), triangles.begin(), triangles.end());
-        }
-        i.get_faces().clear();
-        i.get_faces() = new_faces;
-    }
-
-    if (clipping) {
-
-        for (Figure & i : figures) {
-
-            std::vector<Face> new_faces;
-
-            for (Face & j : i.get_faces()) {
-
-                Utils::clipping_near_far(new_faces, j, i, clippingData.d_near * (-1.0));
-                Utils::clipping_near_far(new_faces, j, i, clippingData.d_far * (-1.0));
-                Utils::clipping_left_right(new_faces, j, i,
-                                           (static_cast<double>(clippingData.d_near) / 2) * (-1.0), clippingData);
-                Utils::clipping_left_right(new_faces, j, i,
-                                            static_cast<double>(clippingData.d_near) / 2, clippingData);
-                Utils::clipping_top_bottom(new_faces, j, i,
-                                           (static_cast<double>(clippingData.d_near) / 2) * (-1.0), clippingData);
-                Utils::clipping_top_bottom(new_faces, j, i,
-                                           static_cast<double>(clippingData.d_near) / 2, clippingData);
-
-            }
-            i.get_faces().clear();
-            i.get_faces() = new_faces;
-            std::cout << new_faces.size() << std::endl;
-        }
-    }
-
-    Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
-
-    // Calculate x-min, y-min, x-max and y-max
-    std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D::Line2D_findMax(figures_lines);
-
-    double x = std::get<0>(max_line2D).first;
-    double y = std::get<0>(max_line2D).second;
-
-    double X = std::get<1>(max_line2D).first;
-    double Y = std::get<1>(max_line2D).second;
+std::tuple<double, double, double, double, double> Utils::calculate_data(const double &x, const double &X, const double &y,
+                                                                         const double &Y, const int size) {
 
     // Calculate x-range, y-range
     double xrange = X - x;
@@ -595,6 +86,36 @@ std::tuple<double, double, double, double, double> Utils::prep_zbuffering(Figure
     double dy = (image_y / static_cast<double>(2) ) - DC_y;
 
     return std::make_tuple(image_x, image_y, d, dx, dy);
+}
+
+std::tuple<double, double, double, double, double, Figures3D> Utils::prep_zbuffering(Figures3D &figures, Lines2D &figures_lines,
+                                                                                     const Matrix &trans_eye_matrix, const int size) {
+
+    figures_lines.clear();
+
+    // Traverse figures and triangulate every face
+    Utils::triangulate_figures(figures);
+
+    Figures3D triangulated_figures = figures;
+
+    // Do projection and generate lines
+    Utils::generate_lines(figures, figures_lines, trans_eye_matrix);
+
+    // Calculate x-min, y-min, x-max and y-max
+    std::tuple<std::pair<double, double>, std::pair<double, double>> max_line2D = Line2D::Line2D_findMax(figures_lines);
+
+    double x = std::get<0>(max_line2D).first;
+    double y = std::get<0>(max_line2D).second;
+
+    double X = std::get<1>(max_line2D).first;
+    double Y = std::get<1>(max_line2D).second;
+
+    // Calculate image_x, image_y, d, dx, dy
+    std::tuple<double, double, double, double, double> data = Utils::calculate_data(x, X, y, Y, size);
+
+    return std::make_tuple(std::get<0>(data), std::get<1>(data),
+                           std::get<2>(data), std::get<3>(data),
+                           std::get<4>(data), triangulated_figures);
 }
 
 double Utils::overwriteMax(double i, const int &max) {

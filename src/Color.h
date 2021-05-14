@@ -77,6 +77,18 @@ public:
     double getBlue() const {
         return blue;
     }
+
+    double &getRed() {
+        return red;
+    }
+
+    double &getGreen() {
+        return green;
+    }
+
+    double &getBlue() {
+        return blue;
+    }
 };
 }
 

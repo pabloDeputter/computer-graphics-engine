@@ -5,9 +5,16 @@
 #ifndef ENGINE_LIGHT_H
 #define ENGINE_LIGHT_H
 
+#define UNUSED(x) [&x]{}()
+
 #include <list>
 #include "Color.h"
 #include "vector3d.h"
+#include "ZBuffer.h"
+
+class Figure;
+
+typedef std::list<Figure> Figures3D;
 
 class Light {
 private:
@@ -46,6 +53,20 @@ public:
     virtual double getAngle() const;
 
     virtual Vector3D getVector() const;
+
+    virtual bool isReflective() const;
+
+    virtual void createShadowMask(Figures3D &figures, const int size) {
+//        std::ignore = figures;
+//        std::ignore = size;
+        std::cout << "wrong createShadowMask" << std::endl;
+    }
+
+    virtual bool checkShadowMask(const Vector3D &point, const Matrix &eye) const {
+//        std::ignore = point;
+        std::cout << "wrong checkShadowMaks" << std::endl;
+        return true;
+    }
 
     const cc::Color &getAmbientLight() const {
         return ambientLight;
@@ -112,7 +133,22 @@ private:
      * \brief Angle of light source
      */
      double spotAngle;
-
+     /**
+      * @brief shadowMask
+      */
+     ZBuffer shadowMask;
+     /**
+      * @brief eye
+      */
+     Matrix eye;
+     /**
+      * @brief invEye
+      */
+     Matrix invEye;
+     /**
+      * @brief d, dx, dy
+      */
+     double d, dx, dy;
 public:
     /**
      * \brief Constructor for PointLight object
@@ -141,6 +177,29 @@ public:
     void setSpotAngle(double spotAngle) {
         this->spotAngle = spotAngle;
     }
+
+    const ZBuffer &getShadowMask() const {
+        return shadowMask;
+    }
+
+    void setShadowMask(const int x, const int y) {
+        this->shadowMask = ZBuffer(x, y);
+    }
+
+    void setEye(const Matrix &x) {
+        this->eye = x;
+    }
+
+    void setInvEye(const Matrix &x) {
+        this->invEye = x;
+    }
+
+    void createShadowMask(Figures3D &triangulated_figures, const int size) override;
+
+    void fillShadowMask(const Vector3D &A, const Vector3D &B, const Vector3D &C, const int size);
+
+    bool checkShadowMask(const Vector3D &point, const Matrix &eye) const override;
+
 };
 
 typedef std::list<Light*> Lights3D;

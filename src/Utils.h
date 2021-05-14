@@ -12,23 +12,6 @@
  * \brief Namespace implemented to hold a variety of "helper" functions
  */
 namespace Utils {
-
-    /**
-     * \brief Struct implemented to store clipping data for image
-     */
-    struct clipping_data {
-        clipping_data() {}
-
-        clipping_data(const std::vector<int> &viewDirection, int fov, double aspectRatio, int dNear, int dFar)
-                : viewDirection(viewDirection), fov(fov), aspect_ratio(aspectRatio), d_near(dNear), d_far(dFar) {}
-
-        std::vector<int> viewDirection;
-        int fov;
-        double aspect_ratio;
-        int d_near;
-        int d_far;
-    };
-
     /**
      * \brief Generates a fractal (vector of figures) for every Platonic body implemented
      *
@@ -48,11 +31,11 @@ namespace Utils {
      */
     void generate_lines(Figures3D & figures, Lines2D & figures_lines, const Matrix & trans_matrix);
 
-    void clipping_near_far(std::vector<Face> & new_faces, const Face & j, Figure & i, const double & d_val);
+    void triangulate_figures(Figures3D &figures);
 
-    void clipping_left_right(std::vector<Face> & new_faces, const Face & j, Figure & i, const double & d_val, const clipping_data & clippingData);
+    std::tuple<double, double, double, double, double> calculate_data(const double &x, const double &X, const double &y,
+                                                                      const double &Y, const int size);
 
-    void clipping_top_bottom(std::vector<Face> & new_faces, const Face & j, Figure & i, const double & d_val, const clipping_data & clippingData);
     /**
      * \brief Calculate every variable used in the z-buffering algorithm
      *
@@ -63,13 +46,14 @@ namespace Utils {
      *
      * @return Return std::tuple<image_x, image_y, d, dx, dy>
      */
-    std::tuple<double, double, double, double, double> prep_zbuffering(Figures3D & figures, Lines2D & figures_lines,
-                                                                            const Matrix & trans_eye_matrix, const int size,
-                                                                            bool clipping, const clipping_data & clippingData);
+    std::tuple<double, double, double, double, double, Figures3D> prep_zbuffering(Figures3D & figures, Lines2D & figures_lines,
+                                                                                  const Matrix & trans_eye_matrix, const int size);
 
     double overwriteMax(double i, const int & max);
 
-     img::Color scaleColor(const std::tuple<double, double, double> & color);
+    img::Color scaleColor(const std::tuple<double, double, double> & color);
+
+    void createShadowMaskBuffer(const Figures3D &figures);
 };
 
 
