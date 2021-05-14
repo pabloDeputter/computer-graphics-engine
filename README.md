@@ -33,8 +33,8 @@ X: Niet werkend of niet geïmplementeerd
 | 8 | Schaduw                   | :ok_hand: |
 |   | Texture mapping           | :construction_worker: |
 | 9 | Bollen en cylinders       | :construction_worker: |
-|   | UV-coordinaten            | :construction_worker: |
-|   | Cube mapping              | :construction_worker: |
+|   | UV-coordinaten            | :no_entry: |
+|   | Cube mapping              | :no_entry: |
 
 Geïmplementeerde vorm van texture mapping: ...
 
