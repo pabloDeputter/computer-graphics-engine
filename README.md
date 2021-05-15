@@ -22,7 +22,7 @@
 | 5 | Triangulatie              | :ok_hand: | 0.75 |
 |   | Z-buffering (driehoeken)  | :ok_hand: | 0.75 |
 | 6 | 3D fractalen              | :ok_hand: | 0.75 |
-|   | BuckyBall                 | :construction_worker: | 0.125 |
+|   | BuckyBall                 | :no_entry: | 0.125 |
 |   | Mengerspons               | :ok_hand: | 0.125 |
 |   | View Frustum              | :no_entry: | 0.5 |
 | 7 | Ambient licht             | :ok_hand: | 0.3 |
@@ -30,12 +30,12 @@
 |   | Diffuus licht (puntbron)  | :ok_hand: | 0 |
 |   | Speculair licht           | :ok_hand: | 0.4 |
 | 8 | Schaduw                   | :ok_hand: | 1 |
-|   | Texture mapping           | :construction_worker: | 0.75 |
+|   | Texture mapping           | :ok_hand: | 0.75 |
 | 9 | Bollen en cylinders       | :construction_worker: | 0.75 |
 |   | UV-coordinaten            | :no_entry: | 0.125 |
 |   | Normaalvectoren           | :no_entry: | 0.125 |
 |   | Cube mapping              | :no_entry: | .5 |
-| 10| Total points              | :arrow_forward: | 8.725 |
+| 10| Total points              | :arrow_forward: | 9.475 |
 
 Geïmplementeerde vorm van texture mapping: ...
 
