@@ -23,7 +23,7 @@
 |   | Z-buffering (driehoeken)  | :ok_hand: | 0.75 |
 | 6 | 3D fractalen              | :ok_hand: | 0.75 |
 |   | BuckyBall                 | :construction_worker: | 0.125 |
-|   | Mengerspons               | :construction_worker: | 0.125 |
+|   | Mengerspons               | :ok_hand: | 0.125 |
 |   | View Frustum              | :no_entry: | 0.5 |
 | 7 | Ambient licht             | :ok_hand: | 0.3 |
 |   | Diffuus licht (oneindig)  | :ok_hand: | 0.4 |
@@ -35,7 +35,7 @@
 |   | UV-coordinaten            | :no_entry: | 0.125 |
 |   | Normaalvectoren           | :no_entry: | 0.125 |
 |   | Cube mapping              | :no_entry: | .5 |
-| 10| Total points              | :arrow_forward: | 8.6 |
+| 10| Total points              | :arrow_forward: | 8.725 |
 
 Geïmplementeerde vorm van texture mapping: ...
 
