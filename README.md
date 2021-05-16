@@ -31,7 +31,7 @@
 |   | Speculair licht           | :ok_hand: | 0.4 |
 | 8 | Schaduw                   | :ok_hand: | 1 |
 |   | Texture mapping           | :ok_hand: | 0.75 |
-| 9 | Bollen en cylinders       | :construction_worker: | 0.75 |
+| 9 | Bollen en cylinders       | :no_entry: | 0.75 |
 |   | UV-coordinaten            | :no_entry: | 0.125 |
 |   | Normaalvectoren           | :no_entry: | 0.125 |
 |   | Cube mapping              | :no_entry: | .5 |
