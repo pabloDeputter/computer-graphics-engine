@@ -52,7 +52,7 @@ public:
      * \brief Copy constructuctor for Point2D object
      * \param a Point2D object to be copied
      */
-    Point2D(const Point2D & a) {x = a.x; y = a.y; z = a.z; }
+    Point2D(const Point2D &a) {x = a.x; y = a.y; z = a.z; }
 
     /**
      * \brief Getter for x-value.

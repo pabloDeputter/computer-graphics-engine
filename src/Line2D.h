@@ -39,12 +39,15 @@ private:
      * \brief Color all points existing between p1 and p2
      */
     cc::Color color;
-
+    /**
+     * \brief Z-value of p1
+     */
     double z1;
+    /**
+     * \brief Z-value of p2
+     */
     double z2;
-
 public:
-    // TODO
     /**
      * \brief Default constructor of Line2D object
      */
@@ -52,72 +55,71 @@ public:
 
     /**
      * \brief Constructor of Line2D object
+     *
      * \param a First Point2D object
      * \param b Second Point2D object
+     * \param c cc::Color object
      */
-    Line2D(const Point2D & a, const Point2D & b, const cc::Color & c) : p1(a), p2(b), color(c), z1(a.getZ()), z2(b.getZ()) {}
+    Line2D(const Point2D &a, const Point2D &b, const cc::Color &c) : p1(a), p2(b), color(c), z1(a.getZ()), z2(b.getZ()) {}
 
     /**
      * \brief Setter for P1 that will return by reference
      */
-    Point2D & getP1() {
-
+    Point2D &getP1() {
         return p1;
     }
 
     /**
      * \brief Setter for P2 that will return by reference
      */
-    Point2D & getP2() {
-
+    Point2D &getP2() {
         return p2;
     }
 
     /**
-     * \brief Getter for color that will return by reference
+     * \brief Getter for color that will return by reference & const
      */
-    const cc::Color & getColor() const {
-
+    const cc::Color &getColor() const {
         return color;
     }
 
     /**
-    * \brief Getter for Z1-value as double
+    * \brief Getter for Z1-value as double reference & const
     */
-    const double & getZ1() const {
-
+    const double &getZ1() const {
         return z1;
     }
 
     /**
-    * \brief Getter for Z2-value as double
+    * \brief Getter for Z2-value as double reference & const
     */
-    const double & getZ2() const {
-
+    const double &getZ2() const {
         return z2;
     }
 
     /**
      * \brief Setter for color-value
+     *
      * \param x Vector with color-values
      */
-    void setColor(const std::vector<double> & x) {
-
+    void setColor(const std::vector<double> &x) {
         Line2D::color = cc::Color(x);
     }
 
     /**
     * \brief Scale all points of object with scale-factor
+    *
     * \param x 	Scale-factor which the Point2D objects will be scaled with
     */
-    void line2D_scale(const double & x);
+    void line2D_scale(const double &x);
 
     /**
     * \brief Move all points with (dx, dy)
+    *
     * \param dx Will be added to every x-coordinate of Point2D object
     * \param dy Will be added to every y-coordinate of Point2D object
     */
-    void line2D_move(const double & dx, const double & dy);
+    void line2D_move(const double &dx, const double &dy);
 
     /**
     * \brief Round all Point2D members from doubles to int
@@ -127,19 +129,20 @@ public:
     /**
     * \brief Find x-min, y-min, x-max and y-max of list
     *
-    * \param line2D 	List with all the Line2D objects to be represented on image
-     * \return          A tuple of pairs of doubles containing x-min, y-min, x-max and y-max respectively
+    * \param line2D List with all the Line2D objects to be represented on image
+    *
+    * \return A tuple of pairs of doubles containing x-min, y-min, x-max and y-max respectively
     */
-    static std::tuple<std::pair<double, double>, std::pair<double, double>> Line2D_findMax(Lines2D & line2D);
+    static std::tuple<std::pair<double, double>, std::pair<double, double>> Line2D_findMax(Lines2D &line2D);
 
     /**
-    * \brief            Draws list of Line2D objects representing straight lines on image
+    * \brief Draws list of Line2D objects representing straight lines on image
     *
-    * \param line2D 	List with all the straight lines needed to be represented
-    * \param size       Maximum amount of pixels of image, cannot be overwritten
+    * \param line2D List with all the straight lines needed to be represented
+    * \param size Maximum amount of pixels of image, cannot be overwritten
+    * \param ZBuffering True if 2DLines need to be drawn with ZBuffering algorithm
     */
-    static void draw2DLines(Lines2D & line2D, const int & size, img::EasyImage & image, bool ZBuffering);
+    static void draw2DLines(Lines2D &line2D, const int &size, img::EasyImage &image, bool ZBuffering);
 };
-
 
 #endif //ENGINE_LINE2D_H

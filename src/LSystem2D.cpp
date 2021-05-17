@@ -4,8 +4,7 @@
 
 #include "LSystem2D.h"
 
-
-std::string LSystem_2D::generate_string(const LParser::LSystem & l_system, int iter, std::string & l_system_string) {
+std::string LSystem_2D::generate_string(const LParser::LSystem &l_system, int iter, std::string &l_system_string) {
 
     // Base case of recursion
     if (iter == 0) return l_system_string;
@@ -30,7 +29,7 @@ std::string LSystem_2D::generate_string(const LParser::LSystem & l_system, int i
     return generate_string(l_system, iter - 1, x);
 }
 
-Lines2D LSystem_2D::drawLSystem(LParser::LSystem2D & l_system_2D, const cc::Color & color) {
+Lines2D LSystem_2D::drawLSystem(LParser::LSystem2D &l_system_2D, const cc::Color &color) {
 
     int iter = l_system_2D.get_nr_iterations();
     std::string x = l_system_2D.get_initiator();
@@ -82,4 +81,3 @@ Lines2D LSystem_2D::drawLSystem(LParser::LSystem2D & l_system_2D, const cc::Colo
     }
     return l_system_lines;
 }
-

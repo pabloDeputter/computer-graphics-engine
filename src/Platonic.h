@@ -52,7 +52,7 @@ namespace Platonic {
      *
      * @param ico Takes a Icosahedron as Figure
      */
-    void create_triangles(Figure & ico);
+    void create_triangles(Figure &ico);
 
     /**
      * \brief Generate a Sphere by triangulating a Icosahedron
@@ -61,7 +61,7 @@ namespace Platonic {
      *
      * @return Sphere as Figure object
      */
-    Figure sphere(const int & n);
+    Figure sphere(const int &n);
 
     /**
      * \brief Generate a Cone
@@ -71,7 +71,7 @@ namespace Platonic {
      *
      * @return Cone as Figure object
      */
-    Figure cone(const int & n, const double & h);
+    Figure cone(const int &n, const double &h);
 
     /**
      * \brief Generate a Cylinder
@@ -81,7 +81,7 @@ namespace Platonic {
      *
      * @return Cylinder as Figure object
      */
-    Figure cylinder(const int & n, const double & h);
+    Figure cylinder(const int &n, const double &h);
 
     /**
      * \brief Creates a Torus
@@ -93,15 +93,14 @@ namespace Platonic {
      *
      * @return Torus as Figure object
      */
-    Figure torus(const double & r, const double & R, const int & n, const int & m);
+    Figure torus(const double &r, const double &R, const int &n, const int &m);
 
     /**
-     * \brief Creates a BuckyBall
+     * \brief Creates not a buckeyBall but a icosahedron
      *
      * @return BuckyBall as Figure object
      */
     Figure buckyBall();
 }
-
 
 #endif //ENGINE_PLATONIC_H

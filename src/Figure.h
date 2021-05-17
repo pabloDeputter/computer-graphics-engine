@@ -18,18 +18,46 @@
 class Figure {
 
 private:
-    std::vector<Vector3D> points;
-    std::vector<Face> faces;
-    cc::Color color;
-
     /**
-     * \brief Color components
+     * @brief points Vector of Vector3D objects
+     */
+    std::vector<Vector3D> points;
+    /**
+     * @brief faces Vector of Face objects
+     */
+    std::vector<Face> faces;
+    /**
+     * @brief color cc::Color object with RGB-value between 0 & 1
+     */
+    cc::Color color;
+    /**
+     * @brief ambientReflection AmbientLight component
      */
     cc::Color ambientReflection;
+    /**
+     * @brief diffuseReflection DiffuseLight component
+     */
     cc::Color diffuseReflection;
+    /**
+     * @brief specularReflection SpecularLight component
+     */
     cc::Color specularReflection;
+    /**
+     * @brief reflectionCoefficient Reflection grade of figure, thus smaller is the greater the effect
+     */
     double reflectionCoefficient;
-
+    /**
+     * @brief textureFlag Bool if Figure contains a texture
+     */
+    bool textureFlag;
+    /**
+     * @brief texture Texture as img::EasyImage object
+     */
+    img::EasyImage texture;
+    /**
+     * @brief center Centre of the figure, used for textures
+     */
+    Vector3D center;
 public:
     std::vector<Vector3D> &get_points() {
         return points;
@@ -43,7 +71,7 @@ public:
         return color;
     }
 
-    void set_color(const cc::Color & x) {
+    void set_color(const cc::Color &x) {
 
         Figure::color = x;
     }
@@ -52,7 +80,7 @@ public:
         return ambientReflection;
     }
 
-    void setAmbientReflection(const std::vector<double> & i) {
+    void setAmbientReflection(const std::vector<double> &i) {
         Figure::ambientReflection = cc::Color(i);
     }
 
@@ -60,7 +88,7 @@ public:
         return diffuseReflection;
     }
 
-    void setDiffuseReflection(const std::vector<double> & i) {
+    void setDiffuseReflection(const std::vector<double> &i) {
         Figure::diffuseReflection = cc::Color(i);
     }
 
@@ -68,7 +96,7 @@ public:
         return specularReflection;
     }
 
-    void setSpecularReflection(const std::vector<double> & i) {
+    void setSpecularReflection(const std::vector<double> &i) {
         Figure::specularReflection = cc::Color(i);
     }
 
@@ -80,33 +108,59 @@ public:
         Figure::reflectionCoefficient = reflectionCoefficient;
     }
 
-    void add_point(const std::tuple<int, int, int> & x);
+    const bool &isTexture() const {
+        return Figure::textureFlag;
+    }
 
-    void add_point_double(const std::tuple<double, double, double> & x);
+    void setTextureFlag(const bool &x) {
+        Figure::textureFlag = x;
+    }
+
+    const img::EasyImage &getTexture() const {
+        return Figure::texture;
+    }
+
+    img::EasyImage &getTexture() {
+        return Figure::texture;
+    }
+
+    void setTexture(const img::EasyImage &x) {
+        Figure::texture = x;
+    }
+
+    const Vector3D &getCenter() const {
+        return Figure::center;
+    }
+
+    void setCenter(const Vector3D &x) {
+        Figure::center = x;
+    }
+
+    void add_point(const std::tuple<int, int, int> &x);
+
+    void add_point_double(const std::tuple<double, double, double> &x);
 
     void correct_indexes();
 
     void clear_faces();
 
-    static Matrix scale_figure(const double & scaleFactor);
+    static Matrix scale_figure(const double &scaleFactor);
 
-    static Matrix rotateX(const double & angle);
+    static Matrix rotateX(const double &angle);
 
-    static Matrix rotateY(const double & angle);
+    static Matrix rotateY(const double &angle);
 
-    static Matrix rotateZ(const double & angle);
+    static Matrix rotateZ(const double &angle);
 
-    static Matrix translate(const Vector3D & vector);
+    static Matrix translate(const Vector3D &vector);
 
-    void apply_transformation(const Matrix & x);
+    void apply_transformation(const Matrix &x);
 
-    static std::tuple<double, double, double> to_polar(const Vector3D & x);
+    static std::tuple<double, double, double> to_polar(const Vector3D &x);
 
-    static Matrix eye_point_trans(const Vector3D & eyepoint);
+    static Matrix eye_point_trans(const Vector3D &eyepoint);
 
-    static Matrix eye_point_trans_clipping(const Vector3D & eyepoint);
-
-    static Point2D do_projection(const Vector3D & point, const double & d);
+    static Point2D do_projection(const Vector3D &point, const double &d);
 
     Lines2D do_projection();
 };

@@ -5,9 +5,6 @@
 #include "Light.h"
 #include "Figure.h"
 #include "Utils.h"
-#include "DesignByContract.h"
-#include <fstream>
-#include <unistd.h>
 
 Light::Light() {
 
@@ -22,6 +19,8 @@ Light::Light(const std::vector<double> &ambientLight, const std::vector<double> 
     Light::ambientLight = cc::Color(ambientLight);
     Light::diffuseLight = cc::Color(diffuseLight);
     Light::specularLight = cc::Color(specularLight);
+    Light::textureFlag = false;
+    Light::texture = img::EasyImage();
 }
 
 Vector3D Light::getVector() const {
@@ -47,7 +46,6 @@ std::string InfLight::getName() const {
 }
 
 Vector3D InfLight::getVector() const {
-
     return this->ldVector;
 }
 
@@ -63,7 +61,7 @@ PointLight::PointLight(const std::vector<double> &ambientLight, const std::vecto
                                                         location(location) {
     this->spotAngle = 0;
     if (x != 0) {
-        this->spotAngle = cos(cos(x)) + 0.022; // TODO - bug diffuse_light801.bmp
+        this->spotAngle = cos(cos(x)) + 0.022; // Werkt anders niet
     }
 }
 
@@ -103,10 +101,6 @@ void PointLight::createShadowMask(Figures3D &triangulated_figures, const int siz
     this->dx = std::get<3>(data);
     this->dy = std::get<4>(data);
 
-    std::cout << "d: " << d << std::endl;
-    std::cout << "dx: " << dx << std::endl;
-    std::cout << "dy: " << dy << std::endl;
-
     this->shadowMask = ZBuffer( (unsigned int) std::round(image_x), (unsigned int) std::round(image_y));
 
     // Create shadowMask
@@ -122,17 +116,11 @@ void PointLight::createShadowMask(Figures3D &triangulated_figures, const int siz
 
 void PointLight::fillShadowMask(const Vector3D &A, const Vector3D &B, const Vector3D &C, const int size) {
 
+    std::ignore = size;
     // Project triangle ABC -> A'B'C' on real points
     Point2D A_ = Point2D((d * A.x) / -A.z + dx, (d * A.y) / -A.z + dy);
     Point2D B_ = Point2D((d * B.x) / -B.z + dx, (d * B.y) / -B.z + dy);
     Point2D C_ = Point2D((d * C.x) / -C.z + dx, (d * C.y) / -C.z + dy);
-
-    std::ofstream outfile;
-    outfile.open("test.txt", std::ios_base::app); // append instead of overwrite
-
-    outfile << "A :" << A << std::endl;
-    outfile << "B :" << B << std::endl;
-    outfile << "C :" << C << std::endl;
 
     // Calculate ymin and ymax
     const int ymin = static_cast<int>(std::round(std::min(A_.getY(), std::min(B_.getY(), C_.getY())) + 0.5));
@@ -156,8 +144,6 @@ void PointLight::fillShadowMask(const Vector3D &A, const Vector3D &B, const Vect
 
     const double dzdx = w.x / (-d * k);
     const double dzdy = w.y / (-d * k);
-
-    outfile << "zg: " << zg << std::endl;
 
     // Iterate over all y-values
     for (unsigned int y = static_cast<unsigned int>(ymin); y <= static_cast<unsigned int>(ymax); y++) {
@@ -205,42 +191,42 @@ void PointLight::fillShadowMask(const Vector3D &A, const Vector3D &B, const Vect
 
             double z = zg + a + b;
 
-//            outfile << "z: " << z << std::endl;
-
-            // TODO
             shadowMask.check_z_value(x, y, z);
         }
     }
 }
 
-bool PointLight::checkShadowMask(const Vector3D &point, const Matrix &eye) const {
+bool PointLight::checkShadowMask(const Vector3D &point) const {
 
-    // TODO - point meegegeven is normale point denk ik
-
+    // Convert to "light-coordinate-system"
     Vector3D light_point = point * this->invEye;
     light_point = light_point * this->eye;
 
     double xl = (this->d * light_point.x / -light_point.z) + this->dx;
     double yl = (this->d * light_point.y / -light_point.z) + this->dy;
 
-    double ax = xl - std::floor(xl);
-    double ay = yl - std::floor(yl);
+    unsigned int  floor_xl = std::floor(xl);
+    unsigned int ceil_xl = std::ceil(xl);
+    unsigned int floor_yl = std::floor(yl);
+    unsigned int ceil_yl = std::ceil(yl);
 
-    double aZ = shadowMask.getBuffer()[std::floor(xl)][std::ceil(yl)];
-    double bZ = shadowMask.getBuffer()[std::ceil(xl)][std::ceil(yl)];
-    double cZ = shadowMask.getBuffer()[std::floor(xl)][std::floor(yl)];
-    double dZ = shadowMask.getBuffer()[std::ceil(xl)][std::floor(yl)];
+    double ax = xl - floor_xl;
+    double ay = yl - floor_yl;
 
+    double aZ = shadowMask.getBuffer()[floor_xl][ceil_yl];
+    double bZ = shadowMask.getBuffer()[ceil_xl][ceil_yl];
+    double cZ = shadowMask.getBuffer()[floor_xl][floor_yl];
+    double dZ = shadowMask.getBuffer()[ceil_xl][floor_yl];
 
     double eZ = (1 - ax) * aZ + ax * bZ;
     double fZ = (1 - ax) * cZ + ax * dZ;
 
-    double z_inverse = (1 - ay) * fZ + ay * eZ;
+    double z = (1 - ay) * fZ + ay * eZ;
 
-    if (std::abs(z_inverse - (1 / light_point.z)) > std::pow(10, -4)) {
+    double z_ = z - (1 / light_point.z);
+    if (z_ < 0) z_ *= (-1.0);
+    if (z_ > pow(10, -5) ) {
         return true;
     }
     return false;
 }
-
-

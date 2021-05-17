@@ -8,8 +8,10 @@
 #include <vector>
 #include <tuple>
 
+/**
+ * @brief Namespace holding the Color class for no confusion with img::Color class
+ */
 namespace cc {
-
 /**
  * \brief This class implements a Color object consisting of the basic color spectrum: red, green and blue.
  */
@@ -32,18 +34,17 @@ private:
 public:
     /**
     * \brief Default constructor for Color object.
-    * \
     */
     Color() : red(0.0), green(0.0), blue(0.0) {}
 
     /**
      * \brief Constructor for Color object.
+     *
      * \param x red as double
      * \param y green as double
      * \param z blue as double
-     * \
      */
-    Color(const double & x, const double & y, const double & z) {
+    Color(const double &x, const double &y, const double &z) {
 
         Color::red = x;
         Color::green = y;
@@ -51,19 +52,32 @@ public:
     }
     /**
      * \brief Constructor for Color object.
+     *
      * \param x Color-values in a vector
-     * \
      */
-    explicit Color(const std::vector<double> & x) {
+    explicit Color(const std::vector<double> &x) {
 
         Color::red = x[0];
         Color::green = x[1];
         Color::blue = x[2];
     }
 
+    /**
+     * @brief Get color in tuple format
+     *
+     * @return Tuple containing RGB-values
+     */
     const std::tuple<double, double, double> getColor() const {
-
         return std::make_tuple(Color::red, Color::green, Color::blue);
+    }
+
+    /**
+     * @brief Get color as cc::Color object
+     *
+     * @return cc::Color object
+     */
+    cc::Color getColor() {
+        return cc::Color(Color::red, Color::green, Color::blue);
     }
 
     double getRed() const {
@@ -91,6 +105,5 @@ public:
     }
 };
 }
-
 
 #endif //ENGINE_COLOR_H

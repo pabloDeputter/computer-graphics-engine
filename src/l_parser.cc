@@ -534,6 +534,7 @@ std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
     }
 
     auto output = 0 + (rand() % static_cast<int>(100 - 0 + 1));
+    std::ignore = output;
 
     // Traverse probabilities
     while ((0 + (rand() % static_cast<int>(100 - 0 + 1))) - (current.second.first * 100) > 1) {
@@ -544,7 +545,6 @@ std::string const LParser::LSystem::get_replacement_stochastic(char c) const {
             }
         }
     }
-
     return current.second.second;
 }
 

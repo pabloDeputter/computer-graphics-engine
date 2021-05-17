@@ -10,25 +10,24 @@ Figure Platonic::cube() {
     Figure cube;
 
     // Add point
-    cube.add_point(std::make_tuple(1,-1,-1));
-    cube.add_point(std::make_tuple(-1,1,-1));
-    cube.add_point(std::make_tuple(1,1,1));
-    cube.add_point(std::make_tuple(-1,-1,1));
-    cube.add_point(std::make_tuple(1,1,-1));
-    cube.add_point(std::make_tuple(-1,-1,-1));
-    cube.add_point(std::make_tuple(1,-1,1));
-    cube.add_point(std::make_tuple(-1,1,1));
+    cube.get_points().emplace_back(Vector3D::point(-1, 1, -1));
+    cube.get_points().emplace_back(Vector3D::point(-1, 1, 1));
+    cube.get_points().emplace_back(Vector3D::point(1, 1, 1));
+    cube.get_points().emplace_back(Vector3D::point(1, 1, -1));
+    cube.get_points().emplace_back(Vector3D::point(-1, -1, 1));
+    cube.get_points().emplace_back(Vector3D::point(-1, -1, -1));
+    cube.get_points().emplace_back(Vector3D::point(1, -1, -1));
+    cube.get_points().emplace_back(Vector3D::point(1, -1, 1));
 
     // Add faces 0 -> 1
-    cube.get_faces().emplace_back(Face({1,5,3,7}));
-    cube.get_faces().emplace_back(Face({5,2,8,3}));
-    cube.get_faces().emplace_back(Face({2,6,4,8}));
-    cube.get_faces().emplace_back(Face({6,1,7,4}));
-    cube.get_faces().emplace_back(Face({7,3,8,4}));
-    cube.get_faces().emplace_back(Face({1,6,2,5}));
+    cube.get_faces().emplace_back(Face({7,4,3,8}));
+    cube.get_faces().emplace_back(Face({4,1,2,3}));
+    cube.get_faces().emplace_back(Face({1,6,5,2}));
+    cube.get_faces().emplace_back(Face({6,7,8,5}));
+    cube.get_faces().emplace_back(Face({8,3,2,5}));
+    cube.get_faces().emplace_back(Face({7,6,1,4}));
 
     cube.correct_indexes();
-
     return cube;
 }
 
@@ -161,7 +160,7 @@ Figure Platonic::dodecahedron() {
     return dodecahedron;
 }
 
-void Platonic::create_triangles(Figure & ico) {
+void Platonic::create_triangles(Figure &ico) {
 
     // Store new faces for sphere
     std::vector<Face> faces;
@@ -217,7 +216,7 @@ void Platonic::create_triangles(Figure & ico) {
     ico.get_faces() = faces;
 }
 
-Figure Platonic::sphere(const int & n) {
+Figure Platonic::sphere(const int &n) {
 
     Figure sphere = icosahedron();
     // Create triangles
@@ -256,37 +255,7 @@ Figure Platonic::cone(const int &n, const double &h) {
 Figure Platonic::cylinder(const int &n, const double &h) {
 
     Figure cylinder;
-    // // 2n points
-    // for (int i = 0; i != n; i++) {
-    //     // Ground surface
-    //     cylinder.add_point_double(std::make_tuple(cos(2 * i * M_PI / n),
-    //                                           sin(2 * i * M_PI / n),
-    //                                           0));
-    //     // Celing
-    //     cylinder.add_point_double(std::make_tuple(cos(2 * (i % n) * M_PI / n),
-    //                                           sin(2 * (i % n) * M_PI / n),
-    //                                           h));
-    // }
-    // std::vector<int> ground;
-    // std::vector<int> ceiling;
 
-    // // Surfaces of cylinder
-    // for (int i = 0; i != 2 * n; i = i + 2) {
-    //     // counter clockwise TODO
-    //     cylinder.get_faces().emplace_back(Face({(i + 2) % (2 * n),
-    //                                             (i + 3) % (2 * n),
-    //                                             (i + 1) % (2 * n),
-    //                                             i % (2 * n)}));
-    //     ground.emplace_back(2 * n - (i + 1));
-    //     ceiling.emplace_back(i);
-    // }
-
-    // cylinder.get_faces().emplace_back(ground);
-    // cylinder.get_faces().emplace_back(ceiling);
-
-    // return cylinder;
-
-    // Ground rectangles
     for (int i = 0; i != n; i++) {
         cylinder.get_points().emplace_back(Vector3D::point(cos(2 * i * M_PI / n),
                                                            sin(2 * i * M_PI / n),
@@ -337,7 +306,6 @@ Figure Platonic::torus(const double &r, const double &R, const int &n, const int
             torus.add_point_double(std::make_tuple( (R + r * cos(v) ) * cos(u),
                                                       (R + r * cos(v) ) * sin(u),
                                                       r * sin(v) ) );
-
             // i max = n, j max = m
             const int a1 = i * m + j;
             const int a2 = (i + 1) % n * m + j;
@@ -347,15 +315,11 @@ Figure Platonic::torus(const double &r, const double &R, const int &n, const int
             torus.get_faces().emplace_back(Face({a1, a2, a3, a4}));
         }
     }
-
-    // torus.correct_indexes();
-
     return torus;
 }
 
 Figure Platonic::buckyBall() {
 
     Figure buckyBall = Platonic::icosahedron();
-
     return buckyBall;
 }

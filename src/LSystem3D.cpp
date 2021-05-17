@@ -44,9 +44,6 @@ Figure LSystem_3D::drawLSystem(LParser::LSystem3D &l_system_3D) {
         virtual ~Data() = default;
     };
 
-
-    std::ofstream out("../out.txt");
-
     std::stack<Data> stack_data;
 
     for (const char & i : l_system_string) {
@@ -118,11 +115,6 @@ Figure LSystem_3D::drawLSystem(LParser::LSystem3D &l_system_3D) {
             }
         }
     }
-
-    out << H << " " << L << " " << U << std::endl;
-    out << current_position << std::endl;
-    out.close();
-
     return l_system;
 }
 

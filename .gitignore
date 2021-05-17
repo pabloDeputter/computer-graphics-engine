@@ -31,3 +31,6 @@
 *.out
 *.app
 /cmake-build-debug/
+
+# Large files
+ini_files/textures/mars.bmp

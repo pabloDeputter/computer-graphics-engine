@@ -4,13 +4,11 @@
 
 #include "Figure.h"
 
-void Figure::add_point(const std::tuple<int, int, int> & x) {
-
+void Figure::add_point(const std::tuple<int, int, int> &x) {
     points.emplace_back(Vector3D::point(std::get<0>(x), std::get<1>(x), std::get<2>(x)));
 }
 
 void Figure::add_point_double(const std::tuple<double, double, double> &x) {
-
     points.emplace_back(Vector3D::point(std::get<0>(x), std::get<1>(x), std::get<2>(x)));
 }
 
@@ -23,11 +21,10 @@ void Figure::correct_indexes() {
 }
 
 void Figure::clear_faces() {
-
     faces.clear();
 }
 
-Matrix Figure::scale_figure(const double & scaleFactor) {
+Matrix Figure::scale_figure(const double &scaleFactor) {
 
     Matrix x;
     // Scale the matrix
@@ -37,7 +34,7 @@ Matrix Figure::scale_figure(const double & scaleFactor) {
     return x;
 }
 
-Matrix Figure::rotateX(const double & angle) {
+Matrix Figure::rotateX(const double &angle) {
 
     Matrix x;
     // Apply rotation
@@ -48,7 +45,7 @@ Matrix Figure::rotateX(const double & angle) {
     return x;
 }
 
-Matrix Figure::rotateY(const double & angle) {
+Matrix Figure::rotateY(const double &angle) {
 
     Matrix x;
     // Apply rotation
@@ -59,7 +56,7 @@ Matrix Figure::rotateY(const double & angle) {
     return x;
 }
 
-Matrix Figure::rotateZ(const double & angle) {
+Matrix Figure::rotateZ(const double &angle) {
 
     Matrix x;
     // Apply rotation
@@ -70,7 +67,7 @@ Matrix Figure::rotateZ(const double & angle) {
     return x;
 }
 
-Matrix Figure::translate(const Vector3D & vec) {
+Matrix Figure::translate(const Vector3D &vec) {
 
     Matrix x;
     // Apply translation
@@ -81,7 +78,7 @@ Matrix Figure::translate(const Vector3D & vec) {
     return x;
 }
 
-void Figure::apply_transformation(const Matrix & x) {
+void Figure::apply_transformation(const Matrix &x) {
 
     // Apply transformation
     for (Vector3D & i : this->points) {
@@ -89,7 +86,7 @@ void Figure::apply_transformation(const Matrix & x) {
     }
 }
 
-std::tuple<double, double, double> Figure::to_polar(const Vector3D & point) {
+std::tuple<double, double, double> Figure::to_polar(const Vector3D &point) {
 
     double r = sqrt((point.x * point.x) + (point.y * point.y) + (point.z * point.z));
     double phi = std::acos(point.z / r);
@@ -113,24 +110,7 @@ Matrix Figure::eye_point_trans(const Vector3D &eyepoint) {
     return x;
 }
 
-Matrix Figure::eye_point_trans_clipping(const Vector3D &eyepoint) {
-
-    // Calculate polar coordinates
-    std::tuple<double, double, double> tuple = Figure::to_polar(eyepoint * (-1.0));
-    double phi = std::get<0>(tuple);
-    double theta = std::get<1>(tuple);
-    double r = std::get<2>(tuple);
-
-////     Calculate Eye-point transformation matrix
-//    Vector3D originOffset = Vector3D::point(0, 0, -r);
-
-    Matrix x = translate(eyepoint) * rotateZ(M_PI / 2 + theta) * rotateX(phi);
-
-    return x;
-}
-
-
-Point2D Figure::do_projection(const Vector3D & point, const double & d) {
+Point2D Figure::do_projection(const Vector3D &point, const double &d) {
 
     double x_ = (d * point.x) / (-1.0 * point.z);
     double y_ = (d * point.y) / (-1.0 * point.z);
@@ -147,18 +127,16 @@ Lines2D Figure::do_projection() {
     }
 
     Lines2D array_lines;
-
     // Traverse "faces" of figure
     for (const Face & i : this->faces) {
 
-        // TODO
         for (unsigned int j = 0; j != i.get_point_indexes().size(); j++) {
 
-            Point2D a = array_points[i.get_point_indexes()[j%i.get_point_indexes().size()]];
-            Point2D b = array_points[i.get_point_indexes()[(j+1)%i.get_point_indexes().size()]];
-            array_lines.emplace_back(a, b, this->color);
+            Point2D a = array_points[i.get_point_indexes()[j % i.get_point_indexes().size()]];
+            Point2D b = array_points[i.get_point_indexes()[(j + 1) % i.get_point_indexes().size()]];
+
+            array_lines.emplace_back(a, b, this->ambientReflection.getColor());
         }
     }
     return array_lines;
 }
-

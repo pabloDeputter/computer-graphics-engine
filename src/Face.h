@@ -8,6 +8,9 @@
 #include <utility>
 #include <vector>
 
+/**
+ * @brief The Face class
+ */
 class Face {
 
 private:
@@ -16,19 +19,30 @@ private:
      */
     std::vector<int> point_indexes;
 public:
-    explicit Face(std::vector<int> x) : point_indexes(x) {}
+    /**
+     * @brief Constructor for Face object
+     *
+     * @param x std::vector of int
+     */
+    explicit Face(const std::vector<int> &x) : point_indexes(x) {}
 
+    /**
+     * @brief Get point indexes
+     *
+     * @return point_indexes as const by reference
+     */
     const std::vector<int> &get_point_indexes() const {
         return point_indexes;
     }
 
+    /**
+     * @brief Correct indexes of Face by reducing every index by 1
+     */
     void correct_indexes() {
-
-        for (int & i : point_indexes) {
+        for (int &i : point_indexes) {
             i--;
         }
     }
-
 };
 
 
