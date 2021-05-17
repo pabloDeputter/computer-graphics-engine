@@ -47,36 +47,51 @@ textureName = "texture.bmp"
 Volgend .ini bestand is een voorbeeld waarbij enkel op de lichtBron een texture wordt afgebeeld:
 ```cpp
 [General]
-size = 1024
-backgroundcolor = (0, 0, 0)
+size = 4096
+backgroundcolor = (0.01, 0.01, 0.01)
 type = "Texture"
-shadowMask = 2048
+shadowMask = 8192
 shadowEnabled = TRUE
 nrLights = 1
-eye = (100, 50, 75)
-nrFigures = 1
+eye = (-60, 30, 50)
+nrFigures = 2
 
 [Light0]
 infinity = FALSE
-textureName = "rusty.bmp"
-location = (5, 9, 10)
+textureName = "mars.bmp"
+location = (0, 20, 30)
 ambientLight = (1, 1, 1)
 diffuseLight = (1, 1, 1)
 specularLight = (1, 1, 1)
 
 [Figure0]
 type = "Sphere"
-scale = 1.2
+scale = 1
 rotateX = 0
 rotateY = 0
 rotateZ = 0
 center = (0, 0, 0)
-n = 7
-ambientReflection = (0.30, 0.30, 0.30)
-diffuseReflection = (0.60, 0.60, 0.60)
+n = 8
+ambientReflection = (0.20, 0.20, 0.20)
+diffuseReflection = (0.9, 0.9, 0.9)
 specularReflection = (1, 1, 1)
-reflectionCoefficient = 5
+reflectionCoefficient = 2
+
+[Figure1]
+type = "Sphere"
+scale = 1.7
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (1.8, 0, 0)
+n = 9
+ambientReflection = (0.15, 0.15, 0.15)
+diffuseReflection = (0.8, 0.8, 0.8)
+specularReflection = (0.8, 0.8, 0.8)
+reflectionCoefficient = 4
 ```
+Dit bestand zal de volgende afbeelding genereren:
+![](https://github.com/pabloDeputter/engine_computer_graphics/blob/main/ini_files/textures/textures036.png)
 
 ## Gekende problemen 
 ## Niet-gequoteerde functionaliteit
