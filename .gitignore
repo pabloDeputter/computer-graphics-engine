@@ -30,7 +30,7 @@
 *.exe
 *.out
 *.app
-/cmake-build-debug/
+.git/info/exclude/cmake-build-debug/
 
 # Large files
 ini_files/textures/mars.bmp
