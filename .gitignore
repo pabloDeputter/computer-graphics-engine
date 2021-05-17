@@ -34,3 +34,14 @@
 
 # Large files
 ini_files/textures/mars.bmp
+ini_files/3d_fractals
+ini_files/ambient
+ini_files/diffuse
+ini_files/diffuse_infinity
+ini_files/intro
+ini_files/l_systems
+ini_files/line_drawings/
+ini_files/shadowing
+ini_files/specular
+ini_files/z_buffered_wireframs
+ini_files/z_buffering
