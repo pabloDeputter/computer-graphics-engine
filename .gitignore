@@ -43,5 +43,6 @@ ini_files/l_systems/
 ini_files/line_drawings/
 ini_files/shadowing/
 ini_files/specular/
-ini_files/z_buffered_wireframs/
+ini_files/z_buffered_wireframes/
+ini_files/wireframes
 ini_files/z_buffering/
