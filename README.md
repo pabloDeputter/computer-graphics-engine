@@ -37,10 +37,48 @@
 |   | Cube mapping              | :no_entry: | .5 |
 | 10| Total points              | :arrow_forward: | 9.475 |
 
-Geïmplementeerde vorm van texture mapping: ...
+Geïmplementeerde vorm van texture mapping: Texture mapping op een bol. Men kan de textuur afbeelden op het oppervlak van een figuur, een lichtbron (PointLight, InfLight & light) of beide. Ook kunnen er schaduwen toegevoegd worden aan de afbeelding en verschillende lichtbronnen. Volgende inputparameters gelden:
+```cpp
+type = "Texture"
+```
+```cpp
+textureName = "texture.bmp"
+```
+Volgend .ini bestand is een voorbeeld waarbij enkel op de lichtBron een texture wordt afgebeeld:
+```cpp
+[General]
+size = 1024
+backgroundcolor = (0, 0, 0)
+type = "Texture"
+shadowMask = 2048
+shadowEnabled = TRUE
+nrLights = 1
+eye = (100, 50, 75)
+nrFigures = 1
+
+[Light0]
+infinity = FALSE
+textureName = "rusty.bmp"
+location = (5, 9, 10)
+ambientLight = (1, 1, 1)
+diffuseLight = (1, 1, 1)
+specularLight = (1, 1, 1)
+
+[Figure0]
+type = "Sphere"
+scale = 1.2
+rotateX = 0
+rotateY = 0
+rotateZ = 0
+center = (0, 0, 0)
+n = 7
+ambientReflection = (0.30, 0.30, 0.30)
+diffuseReflection = (0.60, 0.60, 0.60)
+specularReflection = (1, 1, 1)
+reflectionCoefficient = 5
+```
 
 ## Gekende problemen 
-
 ## Niet-gequoteerde functionaliteit
 ## Extra functionaliteit, niet in de opgaves beschreven
 ...
