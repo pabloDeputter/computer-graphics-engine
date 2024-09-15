@@ -504,7 +504,7 @@ void img::EasyImage::draw_zbuf_triag(ZBuffer &buffer, const Vector3D &A, const V
                                      const bool &shadow, const img::EasyImage &texture, const bool &textureFlag,
                                      const Vector3D &origin) {
 
-    // Project triangle ABC -> A'B'C' on real points
+    // Project triangle ABC -> A'B'C' on pixels
     Point2D A_ = Point2D((d * A.x) / -A.z + dx, (d * A.y) / -A.z + dy);
     Point2D B_ = Point2D((d * B.x) / -B.z + dx, (d * B.y) / -B.z + dy);
     Point2D C_ = Point2D((d * C.x) / -C.z + dx, (d * C.y) / -C.z + dy);

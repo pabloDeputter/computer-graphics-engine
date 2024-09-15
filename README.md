@@ -1,51 +1,170 @@
-## Gequoteerde functionaliteit
+# Computer Graphics Engine
 
-:ok_hand: Werkend  
-:construction_worker: Deels werkend met gekende problemen (onderaan beschreven)  
-:no_entry: Niet werkend of niet geïmplementeerd  
+## Introduction
 
+This project aims to build a graphics engine capable of rendering both 2D and 3D objects using various graphical techniques. By parsing configuration files (`.ini` format), the engine generates images based on the specified properties and instructions. The project includes multiple exercises covering topics like color rectangles, blocks, 2D and 3D line drawings, transformations, and fractals.
 
-|   | Functionaliteit       | Status | Punten   |
-|---|---------------------------|---|-----------|
-| 1 | 2D L-systemen             | :ok_hand: | 1 |
-|   | Met haakjes               | :ok_hand: | 0.125 |
-|   | Stochastisch              | :ok_hand: | 0.125 |
-| 2 | Transformaties            | :ok_hand: | 1 |
-|   | Eye-point                 | :ok_hand: | 0 |
-|   | Projectie                 | :ok_hand: | 0 |
-| 3 | Platonische Lichamen      | :ok_hand: | 0.75 |
-|   | Kegel en cylinder         | :ok_hand: | 0 |
-|   | Bol                       | :ok_hand: | 0 |
-|   | Torus                     | :ok_hand: | 0 |
-|   | 3D L-systemen             | :ok_hand: | 0.25 |
-| 4 | Z-buffering (lijnen)      | :ok_hand: | 1 |
-| 5 | Triangulatie              | :ok_hand: | 0.75 |
-|   | Z-buffering (driehoeken)  | :ok_hand: | 0.75 |
-| 6 | 3D fractalen              | :ok_hand: | 0.75 |
-|   | BuckyBall                 | :no_entry: | 0.125 |
-|   | Mengerspons               | :ok_hand: | 0.125 |
-|   | View Frustum              | :no_entry: | 0.5 |
-| 7 | Ambient licht             | :ok_hand: | 0.3 |
-|   | Diffuus licht (oneindig)  | :ok_hand: | 0.4 |
-|   | Diffuus licht (puntbron)  | :ok_hand: | 0 |
-|   | Speculair licht           | :ok_hand: | 0.4 |
-| 8 | Schaduw                   | :ok_hand: | 1 |
-|   | Texture mapping           | :ok_hand: | 0.75 |
-| 9 | Bollen en cylinders       | :no_entry: | 0.75 |
-|   | UV-coordinaten            | :no_entry: | 0.125 |
-|   | Normaalvectoren           | :no_entry: | 0.125 |
-|   | Cube mapping              | :no_entry: | .5 |
-| 10| Total points              | :arrow_forward: | 9.475 |
+**Created for the "Computer Graphics" 1st bachelor course at the University of Antwerp.**
 
-Geïmplementeerde vorm van texture mapping: Texture mapping op een bol. Men kan de textuur afbeelden op het oppervlak van een figuur, een lichtbron (PointLight, InfLight & light) of beide. Ook kunnen er schaduwen toegevoegd worden aan de afbeelding en verschillende lichtbronnen. Volgende inputparameters gelden:
-```cpp
-type = "Texture"
+## Features
+
+1. **2D Image Rendering**
+   - Color rectangles.
+   - Checkerboard patterns (blocks).
+   - 2D line drawings (QuarterCircle, Eye, Diamond).
+
+2. **3D Line Drawings**
+   - Basic wireframe models with rotation, scaling, and translation.
+   - Eye-point transformation and perspective projection.
+
+3. **3D Objects**
+   - Platonic solids (Cube, Tetrahedron, Octahedron, Icosahedron, Dodecahedron).
+   - Cylinders, cones, spheres, and tori.
+   - Fractals based on 3D solids.
+
+4. **Z-buffering**
+   - Z-buffering with lines and triangles.
+   - Backface culling for optimizing rendering performance.
+
+5. **Lighting and Shadowing**
+   - Ambient and diffuse lighting.
+   - Specular reflection for glossy surfaces.
+   - Shadow rendering for point light sources.
+
+6. **Texture Mapping**
+   - Basic texture mapping on surfaces.
+   - Cube mapping for environment reflections.
+
+## Compilation Instructions
+
+1. Make sure you have a C++ compiler (e.g., GCC or Clang).
+2. Use CMake to configure and build the project.
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
 ```
-```cpp
+
+3. To run the engine:
+
+```bash
+./engine path_to_ini_file 
+```
+
+## INI File Structure
+
+The engine is driven by configuration files in the INI format. Each task (2D shapes, 3D figures, lighting) is specified using different sections and parameters.
+
+### Example INI File for a Cube:
+
+```ini
+[General]
+type = "Wireframe"
+size = 500
+eye = (50, 50, 50)
+backgroundcolor = (0.0, 0.0, 0.0)
+nrFigures = 1
+
+[Figure0]
+type = "Cube"
+scale = 1.0
+rotateX = 30
+rotateY = 45
+rotateZ = 0
+center = (0, 0, 0)
+color = (1.0, 0.0, 0.0)
+```
+
+### Example INI File for Z-Buffering with Lighting:
+
+```ini
+[General]
+type = "LightedZbuffering"
+size = 800
+backgroundcolor = (0.0, 0.0, 0.0)
+eye = (100, 100, 100)
+nrLights = 1
+nrFigures = 1
+
+[Figure0]
+type = "Cube"
+ambientReflection = (0.2, 0.2, 0.2)
+diffuseReflection = (0.6, 0.6, 0.6)
+specularReflection = (0.8, 0.8, 0.8)
+reflectionCoefficient = 20
+scale = 2.0
+rotateX = 45
+rotateY = 45
+rotateZ = 0
+center = (0, 0, 0)
+
+[Light0]
+infinity = true
+direction = (0, -1, -1)
+ambientLight = (0.3, 0.3, 0.3)
+diffuseLight = (0.6, 0.6, 0.6)
+specularLight = (0.8, 0.8, 0.8)
+```
+
+# Project Status
+
+This section outlines the status of various functionalities implemented in this computer graphics engine. Each functionality is marked as:
+- 👌 **Working**: Fully functional
+- 👷 **Partially Working**: Implemented but with known issues (described below)
+- ⛔ **Not Working**: Not implemented or non-functional
+
+| **Functionaliteit**             | **Status** | **Punten** |
+|----------------------------------|------------|------------|
+| **1. 2D L-Systemen**             | 👌         | 1          |
+| **- Met haakjes**                | 👌         | 0.125      |
+| **- Stochastisch**               | 👌         | 0.125      |
+| **2. Transformaties**            | 👌         | 1          |
+| **- Eye-point**                  | 👌         | 0          |
+| **- Projectie**                  | 👌         | 0          |
+| **3. Platonische Lichamen**      | 👌         | 0.75       |
+| **- Kegel en Cylinder**          | 👌         | 0          |
+| **- Bol**                        | 👌         | 0          |
+| **- Torus**                      | 👌         | 0          |
+| **- 3D L-Systemen**              | 👌         | 0.25       |
+| **4. Z-buffering (lijnen)**      | 👌         | 1          |
+| **5. Triangulatie**              | 👌         | 0.75       |
+| **- Z-buffering (driehoeken)**   | 👌         | 0.75       |
+| **6. 3D Fractalen**              | 👌         | 0.75       |
+| **- BuckyBall**                  | ⛔         | 0.125      |
+| **- Mengerspons**                | 👌         | 0.125      |
+| **- View Frustum**               | ⛔         | 0.5        |
+| **7. Ambient licht**             | 👌         | 0.3        |
+| **- Diffuus licht (oneindig)**   | 👌         | 0.4        |
+| **- Diffuus licht (puntbron)**   | 👌         | 0          |
+| **- Speculair licht**            | 👌         | 0.4        |
+| **8. Schaduw**                   | 👌         | 1          |
+| **- Texture mapping**            | 👌         | 0.75       |
+| **9. Bollen en Cylinders**       | ⛔         | 0.75       |
+| **- UV-coördinaten**             | ⛔         | 0.125      |
+| **- Normaalvectoren**            | ⛔         | 0.125      |
+| **- Cube mapping**               | ⛔         | 0.5        |
+| **10. **Total Points**           | ▶️         | 9.475      |
+
+## Texture Mapping Implementation
+
+For the texture mapping feature, a texture can be applied to a figure, a light source (PointLight, InfLight & light), or both. Shadows and multiple light sources can be incorporated as well.
+
+### Input Parameters for Texture Mapping
+
+The following parameters control the texture mapping:
+
+```ini
+type = "Texture"
 textureName = "texture.bmp"
 ```
-Volgend .ini bestand is een voorbeeld waarbij enkel op de lichtBron een texture wordt afgebeeld:
-```cpp
+
+### Example INI File for Texture Mapping
+
+In the INI file below, texture mapping is applied only to the light source:
+
+```ini
 [General]
 size = 4096
 backgroundcolor = (0.01, 0.01, 0.01)
@@ -90,11 +209,6 @@ diffuseReflection = (0.8, 0.8, 0.8)
 specularReflection = (0.8, 0.8, 0.8)
 reflectionCoefficient = 4
 ```
-Dit bestand zal de volgende afbeelding genereren:
+
+This will generate the following output:
 ![](https://github.com/pabloDeputter/engine_computer_graphics/blob/main/ini_files/textures/textures036.png)
-
-## Gekende problemen 
-## Niet-gequoteerde functionaliteit
-## Extra functionaliteit, niet in de opgaves beschreven
-...
-

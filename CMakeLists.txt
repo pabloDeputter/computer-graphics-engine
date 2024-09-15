@@ -47,7 +47,7 @@ set(engine_sources
                 src/Light.cpp
                 src/Light.h
                 src/Control.h
-                src/Control.cpp)
+                src/Control.cpp src/Book.cpp src/Book.h)
 
 ############################################################
 # Create an executable

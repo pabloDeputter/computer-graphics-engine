@@ -55,7 +55,6 @@ void Control::generate_3D(img::EasyImage &image, const ini::Configuration &confi
         Utils::generate_lines(figures, lines, eyeMatrix);
         Line2D::draw2DLines(lines, configuration["General"]["size"].as_int_or_die(), image, ZBuffered);
 
-        // TODO - !figures.empty()
         if (LINES) {
             Utils::generate_lines(figures_lineDrawings, lineDrawing_lines, eyeMatrix);
             if (figures.empty()) Line2D::draw2DLines(lineDrawing_lines, configuration["General"]["size"].as_int_or_die(),
@@ -432,6 +431,8 @@ void Control::draw_triangles(Figures3D &figures, Lines2D &lines, Matrix &eyeMatr
     dx = std::get<3>(return_data);
     dy = std::get<4>(return_data);
     Figures3D triangulated_figures = std::get<5>(return_data);
+
+    std::cout << "SIZE: " <<triangulated_figures.rbegin()->get_faces().size() << std::endl;
 
     // Create buffer
     buffer = ZBuffer( (unsigned int) std::round(image_x), (unsigned int) std::round(image_y));

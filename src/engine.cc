@@ -48,6 +48,11 @@ img::EasyImage generate_image(const ini::Configuration &configuration) {
 
 int main(int argc, char const* argv[])
 {
+
+    srand( (unsigned)time( NULL ) );
+    double r = ((double) rand() / (RAND_MAX)) + 1;
+    std::cout << r << std::endl;
+
     int retVal = 0;
     try
     {
